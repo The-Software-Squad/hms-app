@@ -1,0 +1,62 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"7IggCVPThg\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Reception Dashboard</span>\",\"col\":12}},{\"id\":\"7PKu4UO_k0\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"New Patients Today\",\"col\":3}},{\"id\":\"QoHkY_5b2s\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"vQCCCLd-oN\",\"type\":\"paragraph\",\"data\":{\"text\":\"<span style=\\\"background-color: var(--card-bg); color: var(--text-muted); font-family: var(--font-stack); font-size: 0.875rem; font-weight: var(--weight-regular); letter-spacing: 0.02em;\\\">Quick Actions</span><br>\",\"col\":12}},{\"id\":\"agrwLDER1E\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Patient\",\"col\":3}},{\"id\":\"VWVe1KxbDr\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Search Patient\",\"col\":3}},{\"id\":\"aosZb99ecb\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"3xb3cMjmHB\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"OP Expiring\",\"col\":4}},{\"id\":\"-Li4pzRU-E\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Today's Follow Ups\",\"col\":4}}]",
+ "creation": "2024-07-04 19:34:21.428060",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "support",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Reception Dashboard",
+ "links": [],
+ "modified": "2024-07-05 11:31:13.312876",
+ "modified_by": "Administrator",
+ "module": "HMS",
+ "name": "Reception Dashboard",
+ "number_cards": [
+  {
+   "label": "New Patients Today",
+   "number_card_name": "New Patients Today"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [
+  {
+   "document_type": "Patient",
+   "label": "OP Expiring",
+   "quick_list_filter": "[[\"Patient\",\"latest_op_expires_on\",\"Timespan\",\"this week\",false]]"
+  },
+  {
+   "document_type": "Patient",
+   "label": "Today's Follow Ups",
+   "quick_list_filter": "[[\"Patient\",\"follow_up\",\"Timespan\",\"today\",false]]"
+  }
+ ],
+ "roles": [],
+ "sequence_id": 1.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "New",
+   "label": "New Patient",
+   "link_to": "Patient",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Search Patient",
+   "link_to": "Patient",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Reception Dashboard"
+}

@@ -1,0 +1,56 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:SR-{############}",
+ "creation": "2024-07-04 18:36:54.124162",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "sheet_record_section",
+  "sheet_op",
+  "column_break_mics",
+  "sheet_attachment"
+ ],
+ "fields": [
+  {
+   "fieldname": "sheet_record_section",
+   "fieldtype": "Section Break",
+   "label": "Sheet Record"
+  },
+  {
+   "fieldname": "sheet_attachment",
+   "fieldtype": "Attach",
+   "in_list_view": 1,
+   "label": "Sheet Attachment",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sheet_op",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "OP ",
+   "options": "OP Record"
+  },
+  {
+   "fieldname": "column_break_mics",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-07-05 09:53:11.956753",
+ "modified_by": "Administrator",
+ "module": "HMS",
+ "name": "Sheet Image",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

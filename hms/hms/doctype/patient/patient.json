@@ -1,0 +1,210 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:Patient-{#######}",
+ "creation": "2024-07-04 18:01:29.207049",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_details_section",
+  "patient_name",
+  "patient_age",
+  "patient_gender",
+  "patient_location",
+  "column_break_mahh",
+  "patient_picture",
+  "patient_phone_number",
+  "patient_email",
+  "tab_2_tab",
+  "follow_ups_section",
+  "latest_op_expires_on",
+  "column_break_xdpu",
+  "follow_up",
+  "applications_section",
+  "patient_op_list",
+  "sheets_section",
+  "op_sheet_list",
+  "doctor_notes_tab",
+  "doctor_notes_section",
+  "patient_remarks_by_doctor",
+  "medical_prescription_section",
+  "medical_prescription"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_details_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Details"
+  },
+  {
+   "fieldname": "patient_name",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "patient_age",
+   "fieldtype": "Data",
+   "label": "Age",
+   "reqd": 1
+  },
+  {
+   "fieldname": "patient_gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "Male\nFemale\nOther"
+  },
+  {
+   "fieldname": "patient_phone_number",
+   "fieldtype": "Phone",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Phone Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "patient_picture",
+   "fieldtype": "Attach Image",
+   "label": "Picture"
+  },
+  {
+   "fieldname": "patient_email",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "fieldname": "column_break_mahh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "patient_location",
+   "fieldtype": "Autocomplete",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Location",
+   "reqd": 1
+  },
+  {
+   "fieldname": "tab_2_tab",
+   "fieldtype": "Tab Break",
+   "label": "Medical Records"
+  },
+  {
+   "fieldname": "applications_section",
+   "fieldtype": "Section Break",
+   "label": "Applications"
+  },
+  {
+   "fieldname": "patient_op_list",
+   "fieldtype": "Table",
+   "label": "OP List",
+   "options": "OP Record"
+  },
+  {
+   "fieldname": "follow_ups_section",
+   "fieldtype": "Section Break",
+   "label": "Follow Ups"
+  },
+  {
+   "fieldname": "latest_op_expires_on",
+   "fieldtype": "Date",
+   "in_filter": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "OP Expiring On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_xdpu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "follow_up",
+   "fieldtype": "Date",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Follow Up"
+  },
+  {
+   "fieldname": "doctor_notes_tab",
+   "fieldtype": "Tab Break",
+   "label": "Doctor Notes"
+  },
+  {
+   "fieldname": "doctor_notes_section",
+   "fieldtype": "Section Break",
+   "label": "Doctor Notes"
+  },
+  {
+   "fieldname": "patient_remarks_by_doctor",
+   "fieldtype": "Text Editor",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "sheets_section",
+   "fieldtype": "Section Break",
+   "label": "Sheets"
+  },
+  {
+   "fieldname": "op_sheet_list",
+   "fieldtype": "Table",
+   "label": "OP Sheet List",
+   "options": "Sheet Image"
+  },
+  {
+   "fieldname": "medical_prescription_section",
+   "fieldtype": "Section Break",
+   "label": "Medical prescription"
+  },
+  {
+   "fieldname": "medical_prescription",
+   "fieldtype": "Text Editor",
+   "label": "Medical Prescription"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-07-05 11:45:23.683718",
+ "modified_by": "Administrator",
+ "module": "HMS",
+ "name": "Patient",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Receptionist",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
