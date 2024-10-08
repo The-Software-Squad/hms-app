@@ -1,0 +1,65 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-24 14:18:36.625251",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "med_name",
+  "column_break_jvxb",
+  "med_quantity",
+  "column_break_bnxv",
+  "med_price"
+ ],
+ "fields": [
+  {
+   "fieldname": "med_name",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Med Item",
+   "options": "Intake Medical Item"
+  },
+  {
+   "fieldname": "column_break_jvxb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "med_quantity",
+   "fieldtype": "Float",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Quantity"
+  },
+  {
+   "fieldname": "column_break_bnxv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "med_price",
+   "fieldtype": "Currency",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Price"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-09-24 14:23:02.293044",
+ "modified_by": "Administrator",
+ "module": "HMS",
+ "name": "Out Medical Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

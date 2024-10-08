@@ -1,0 +1,129 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:MIR-{intake_provider}-{intake_date}",
+ "creation": "2024-09-24 11:07:30.834395",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "medical_item_name",
+  "batch_number",
+  "count",
+  "available_stock",
+  "single_item_price",
+  "items_per_sheet",
+  "column_break_fvun",
+  "intake_provider",
+  "invoice_number",
+  "in_take_at",
+  "expires_at",
+  "sheet_rate"
+ ],
+ "fields": [
+  {
+   "fieldname": "medical_item_name",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Medical Item",
+   "options": "Med Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "batch_number",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Batch Number"
+  },
+  {
+   "fieldname": "count",
+   "fieldtype": "Float",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Count",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "available_stock",
+   "fieldtype": "Float",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Available stock",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "invoice_number",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Invoice Number"
+  },
+  {
+   "fieldname": "expires_at",
+   "fieldtype": "Date",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Expires At"
+  },
+  {
+   "fieldname": "in_take_at",
+   "fieldtype": "Date",
+   "label": "In Take Date"
+  },
+  {
+   "fieldname": "single_item_price",
+   "fieldtype": "Currency",
+   "label": "Single Item Rate"
+  },
+  {
+   "fieldname": "sheet_rate",
+   "fieldtype": "Currency",
+   "label": "Sheet Rate"
+  },
+  {
+   "fieldname": "items_per_sheet",
+   "fieldtype": "Data",
+   "label": "Items per Sheet"
+  },
+  {
+   "fieldname": "intake_provider",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Provider"
+  },
+  {
+   "fieldname": "column_break_fvun",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-09-24 12:27:24.169372",
+ "modified_by": "Administrator",
+ "module": "HMS",
+ "name": "Intake Medical Item",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

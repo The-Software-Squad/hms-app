@@ -33,7 +33,7 @@
    "in_preview": 1,
    "in_standard_filter": 1,
    "label": "OP ",
-   "options": "OP Record"
+   "options": "Patient OP Entry"
   },
   {
    "fieldname": "column_break_mics",
@@ -43,7 +43,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-07-05 09:53:11.956753",
+ "modified": "2024-07-05 20:48:41.315175",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "Sheet Image",

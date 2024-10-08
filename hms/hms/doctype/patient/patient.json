@@ -6,6 +6,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "details_tab",
   "basic_details_section",
   "patient_name",
   "patient_age",
@@ -15,7 +16,7 @@
   "patient_picture",
   "patient_phone_number",
   "patient_email",
-  "tab_2_tab",
+  "medical_records_tab",
   "follow_ups_section",
   "latest_op_expires_on",
   "column_break_xdpu",
@@ -90,11 +91,6 @@
    "reqd": 1
   },
   {
-   "fieldname": "tab_2_tab",
-   "fieldtype": "Tab Break",
-   "label": "Medical Records"
-  },
-  {
    "fieldname": "applications_section",
    "fieldtype": "Section Break",
    "label": "Applications"
@@ -103,7 +99,7 @@
    "fieldname": "patient_op_list",
    "fieldtype": "Table",
    "label": "OP List",
-   "options": "OP Record"
+   "options": "Patient OP Entry"
   },
   {
    "fieldname": "follow_ups_section",
@@ -167,11 +163,21 @@
    "fieldname": "medical_prescription",
    "fieldtype": "Text Editor",
    "label": "Medical Prescription"
+  },
+  {
+   "fieldname": "medical_records_tab",
+   "fieldtype": "Tab Break",
+   "label": "Medical Records"
+  },
+  {
+   "fieldname": "details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Details"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-05 11:45:23.683718",
+ "modified": "2024-07-05 22:18:06.332370",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "Patient",

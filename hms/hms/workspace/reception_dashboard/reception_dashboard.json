@@ -1,8 +1,13 @@
 {
  "charts": [],
- "content": "[{\"id\":\"7IggCVPThg\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Reception Dashboard</span>\",\"col\":12}},{\"id\":\"7PKu4UO_k0\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"New Patients Today\",\"col\":3}},{\"id\":\"QoHkY_5b2s\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"vQCCCLd-oN\",\"type\":\"paragraph\",\"data\":{\"text\":\"<span style=\\\"background-color: var(--card-bg); color: var(--text-muted); font-family: var(--font-stack); font-size: 0.875rem; font-weight: var(--weight-regular); letter-spacing: 0.02em;\\\">Quick Actions</span><br>\",\"col\":12}},{\"id\":\"agrwLDER1E\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Patient\",\"col\":3}},{\"id\":\"VWVe1KxbDr\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Search Patient\",\"col\":3}},{\"id\":\"aosZb99ecb\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"3xb3cMjmHB\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"OP Expiring\",\"col\":4}},{\"id\":\"-Li4pzRU-E\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Today's Follow Ups\",\"col\":4}}]",
+ "content": "[{\"id\":\"Iw9zqhA_IU\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"HMS Dashboard Profile\",\"col\":12}},{\"id\":\"7PKu4UO_k0\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"New Patients Today\",\"col\":3}},{\"id\":\"QoHkY_5b2s\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"vQCCCLd-oN\",\"type\":\"paragraph\",\"data\":{\"text\":\"<span style=\\\"background-color: var(--card-bg); color: var(--text-muted); font-family: var(--font-stack); font-size: 0.875rem; font-weight: var(--weight-regular); letter-spacing: 0.02em;\\\">Quick Actions</span><br>\",\"col\":12}},{\"id\":\"agrwLDER1E\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Patient\",\"col\":3}},{\"id\":\"VWVe1KxbDr\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Search Patient\",\"col\":3}},{\"id\":\"aosZb99ecb\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"3xb3cMjmHB\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"OP Expiring\",\"col\":4}},{\"id\":\"-Li4pzRU-E\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Today's Follow Ups\",\"col\":4}}]",
  "creation": "2024-07-04 19:34:21.428060",
- "custom_blocks": [],
+ "custom_blocks": [
+  {
+   "custom_block_name": "HMS Dashboard Profile",
+   "label": "HMS Dashboard Profile"
+  }
+ ],
  "docstatus": 0,
  "doctype": "Workspace",
  "for_user": "",
@@ -13,7 +18,7 @@
  "is_hidden": 0,
  "label": "Reception Dashboard",
  "links": [],
- "modified": "2024-07-05 11:31:13.312876",
+ "modified": "2024-10-02 14:32:44.793706",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "Reception Dashboard",
@@ -38,8 +43,12 @@
    "quick_list_filter": "[[\"Patient\",\"follow_up\",\"Timespan\",\"today\",false]]"
   }
  ],
- "roles": [],
- "sequence_id": 1.0,
+ "roles": [
+  {
+   "role": "Receptionist"
+  }
+ ],
+ "sequence_id": 2.0,
  "shortcuts": [
   {
    "color": "Grey",

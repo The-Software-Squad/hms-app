@@ -1,0 +1,111 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-24 12:44:12.006037",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_details_section",
+  "date",
+  "phone_number",
+  "location",
+  "column_break_onno",
+  "meds_out_type",
+  "customer_name",
+  "patient",
+  "meds_details_section",
+  "details",
+  "med_total_amount"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_details_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Details"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "column_break_onno",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Existing Patient",
+   "fieldname": "meds_out_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Customer Type",
+   "options": "Existing Patient\nOutside Patient",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.meds_out_type == 'Outside Patient'",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "depends_on": "eval:doc.meds_out_type == 'Existing Patient'",
+   "fieldname": "patient",
+   "fieldtype": "Link",
+   "label": "Patient",
+   "options": "Patient"
+  },
+  {
+   "fieldname": "meds_details_section",
+   "fieldtype": "Section Break",
+   "label": "Meds Details"
+  },
+  {
+   "fieldname": "details",
+   "fieldtype": "Table",
+   "label": "Details",
+   "options": "Out Medical Item"
+  },
+  {
+   "fieldname": "med_total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount"
+  },
+  {
+   "depends_on": "eval:doc.meds_out_type == 'Outside Patient'",
+   "fieldname": "phone_number",
+   "fieldtype": "Phone",
+   "label": "Phone Number"
+  },
+  {
+   "depends_on": "eval:doc.meds_out_type == 'Outside Patient'",
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-09-24 14:25:03.298687",
+ "modified_by": "Administrator",
+ "module": "HMS",
+ "name": "Meds Out",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

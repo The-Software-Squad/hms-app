@@ -1,0 +1,50 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"XkQ-kA2yI5\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Pharmacist Dashboard</span>\",\"col\":12}},{\"id\":\"V0_C1MLpsg\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Meds Intake\",\"col\":3}},{\"id\":\"i1rGGxbf8y\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Meds Providers\",\"col\":3}}]",
+ "creation": "2024-09-24 12:36:48.498374",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "income",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Pharmacist Dashboard",
+ "links": [],
+ "modified": "2024-10-02 16:18:10.858858",
+ "modified_by": "Administrator",
+ "module": "HMS",
+ "name": "Pharmacist Dashboard",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "Pharmacist"
+  }
+ ],
+ "sequence_id": 1.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "New",
+   "label": "New Meds Intake",
+   "link_to": "Meds In take",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Meds Providers",
+   "link_to": "Meds Provider",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Pharmacist Dashboard"
+}

@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class OPRecord(Document):
+class OutMedicalItem(Document):
 	pass

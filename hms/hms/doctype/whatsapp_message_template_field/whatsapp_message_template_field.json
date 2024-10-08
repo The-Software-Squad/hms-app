@@ -1,0 +1,52 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-07-16 13:13:30.414237",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "field_position",
+  "column_break_slvn",
+  "field_doc_type",
+  "column_break_pfiz",
+  "field_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "field_position",
+   "fieldtype": "Data",
+   "label": "Position"
+  },
+  {
+   "fieldname": "column_break_slvn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "field_doc_type",
+   "fieldtype": "Data",
+   "label": "Doc Type"
+  },
+  {
+   "fieldname": "column_break_pfiz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "field_name",
+   "fieldtype": "Data",
+   "label": "Field Name"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-07-16 13:20:50.612152",
+ "modified_by": "Administrator",
+ "module": "HMS",
+ "name": "Whatsapp Message Template Field",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

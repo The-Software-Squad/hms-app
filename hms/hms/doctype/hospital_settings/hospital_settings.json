@@ -1,0 +1,58 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-07-24 18:12:41.007853",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "hopital_name",
+  "phone_number",
+  "email",
+  "location_point"
+ ],
+ "fields": [
+  {
+   "fieldname": "hopital_name",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Phone",
+   "label": "Phone Number"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "fieldname": "location_point",
+   "fieldtype": "Geolocation",
+   "label": "Location"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-07-24 18:16:05.564919",
+ "modified_by": "Administrator",
+ "module": "HMS",
+ "name": "Hospital Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

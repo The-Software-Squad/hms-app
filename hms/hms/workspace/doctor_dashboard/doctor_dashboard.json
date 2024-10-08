@@ -1,0 +1,33 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"z82gguXh4c\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Doctor Dashboard</span>\",\"col\":12}},{\"id\":\"gdP_levJ0l\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Good Morning</b></span>\",\"col\":12}}]",
+ "creation": "2024-08-02 20:05:17.621514",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "customer",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Doctor Dashboard",
+ "links": [],
+ "modified": "2024-10-02 16:15:39.461783",
+ "modified_by": "Administrator",
+ "module": "HMS",
+ "name": "Doctor Dashboard",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "Doctor"
+  }
+ ],
+ "sequence_id": 3.0,
+ "shortcuts": [],
+ "title": "Doctor Dashboard"
+}

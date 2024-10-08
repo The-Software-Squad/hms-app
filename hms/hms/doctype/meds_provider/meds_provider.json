@@ -1,0 +1,97 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{provider_name}",
+ "creation": "2024-09-24 11:19:10.169394",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "provider_name",
+  "address",
+  "column_break_nsov",
+  "contact_number",
+  "email",
+  "business_name",
+  "store_location",
+  "section_break_akju",
+  "in_take_history"
+ ],
+ "fields": [
+  {
+   "fieldname": "address",
+   "fieldtype": "Long Text",
+   "label": "Address"
+  },
+  {
+   "fieldname": "column_break_nsov",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contact_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Contact Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Email",
+   "reqd": 1
+  },
+  {
+   "fieldname": "business_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Business Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "store_location",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Store location",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_akju",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "in_take_history",
+   "fieldtype": "Heading",
+   "label": "In Take History"
+  },
+  {
+   "fieldname": "provider_name",
+   "fieldtype": "Data",
+   "label": "Name"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-09-24 12:31:07.659147",
+ "modified_by": "Administrator",
+ "module": "HMS",
+ "name": "Meds Provider",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
