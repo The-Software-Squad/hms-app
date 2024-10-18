@@ -6,6 +6,18 @@ app_email = "nanisamireddy05@gmail.com"
 app_license = "mit"
 # required_apps = []
 
+# Fixtures
+# ----------
+fixtures = [
+	{
+		"doctype": "Custom HTML Block",
+        "filters": [["name", "in", ("HMS Dashboard Profile")]]
+     },
+ {
+	 "doctype": "Role",
+	 "filters": [["name", "in", ("Receptionist", "Pharmacist")]]
+ }
+]
 # Includes in <head>
 # ------------------
 

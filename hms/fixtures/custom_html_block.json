@@ -1,0 +1,13 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Custom HTML Block",
+  "html": "<div class=\"hms-dashboard-user-card\">\n  <div class=\"user-image\"></div>\n  <div class=\"details\">\n    <h3 class=\"user-name\"></h3>\n    <p class=\"user-role\"></p>\n  </div>\n</div>\n",
+  "modified": "2024-10-17 13:43:01.136466",
+  "name": "HMS Dashboard Profile",
+  "private": 0,
+  "roles": [],
+  "script": "(\n    function(){\n       const userImage = root_element.querySelector('.user-image');\n       const userName = root_element.querySelector('.user-name');\n       const userRole = root_element.querySelector('.user-role');\n\n       // Update the user Name.\n        userName.innerHTML = frappe.session.user_fullname;\n\n        // Update the avatar.\n        userImage.innerHTML = frappe.avatar();\n\n        // update the user role.\n        userRole.innerHTML = 'System Manager';\n\n    }\n)();",
+  "style": ".hms-dashboard-user-card{\n    display: flex;\n    \n    justify-content: flex-start;\n    gap: 10px;\n    align-items: flex-end;\n    padding: 5rem;\n    border-radius: 5px; \n    text-align: center;\n}\n\n.user-image .avatar{\n    height: 10rem;\n    width: 10rem;\n}"
+ }
+]
