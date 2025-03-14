@@ -145,23 +145,23 @@ fixtures = [
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"hms.tasks.all"
-# 	],
-# 	"daily": [
-# 		"hms.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"hms.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"hms.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"hms.tasks.monthly"
-# 	],
-# }
+scheduler_events = {
+	# "all": [
+	# 	"hms.tasks.all"
+	# ],
+	"daily": [
+		"hms.tasks.daily"
+	],
+	# "hourly": [
+	# 	"hms.tasks.hourly"
+	# ],
+	# "weekly": [
+	# 	"hms.tasks.weekly"
+	# ],
+	# "monthly": [
+	# 	"hms.tasks.monthly"
+	# ],
+}
 
 # Testing
 # -------
