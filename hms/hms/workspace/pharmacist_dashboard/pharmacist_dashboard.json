@@ -13,7 +13,7 @@
  "is_hidden": 0,
  "label": "Pharmacist Dashboard",
  "links": [],
- "modified": "2024-10-02 16:18:10.858858",
+ "modified": "2025-06-22 20:53:24.808025",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "Pharmacist Dashboard",
@@ -27,7 +27,7 @@
    "role": "Pharmacist"
   }
  ],
- "sequence_id": 1.0,
+ "sequence_id": 2.0,
  "shortcuts": [
   {
    "color": "Grey",

@@ -2,21 +2,25 @@ import frappe
 
 def daily():
 	'''Runs daily once a day'''
-	send_op_expiration_remainder()
+	close_expired_op_records()
 
-def send_op_expiration_remainder():
-	try:
-		# Check if the patient doctype is present.
-		if not frappe.db.exists("Patient") or not frappe.db.exists("WhatsApp Settings"):
-			return
+def close_expired_op_records():
+	'''Closes all OP Records that have expired'''
+	today = frappe.utils.nowdate()
+	expired_op_records = frappe.get_all(
+		"OP Record",
+		filters={
+			"valid_till": ["<", today],
+			"status": "Open"
+		},
+		fields=["name"]
+	)
 
-		# Get all the patients whose OP is going to expire in 3 days.
-		patients = frappe.get_all("Patient", filters={"op_expiry_date": frappe.utils.add_days(frappe.utils.nowdate(), 3)}, fields=["name", "op_expiry_date"])
-		if not patients:
-			return
+	if not expired_op_records:
+		return
 
-		# Get the 
-
-	except Exception as e:
-		frappe.error_log(f"Error in send_op_expiration_remainder: {e}")
-
+	for op_record in expired_op_records:
+		doc = frappe.get_doc("OP Record", op_record.name)
+		doc.status = "Closed"
+		doc.save()
+		frappe.db.commit()

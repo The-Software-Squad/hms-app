@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"z82gguXh4c\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Doctor Dashboard</span>\",\"col\":12}},{\"id\":\"gdP_levJ0l\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Good Morning</b></span>\",\"col\":12}}]",
+ "content": "[{\"id\":\"gdP_levJ0l\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Good Morning</b></span>\",\"col\":12}},{\"id\":\"_z01wXE5mE\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Patient Visits\",\"col\":4}}]",
  "creation": "2024-08-02 20:05:17.621514",
  "custom_blocks": [],
  "docstatus": 0,
@@ -13,7 +13,7 @@
  "is_hidden": 0,
  "label": "Doctor Dashboard",
  "links": [],
- "modified": "2024-10-02 16:15:39.461783",
+ "modified": "2025-06-22 20:53:24.833769",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "Doctor Dashboard",
@@ -21,12 +21,14 @@
  "owner": "Administrator",
  "parent_page": "",
  "public": 1,
- "quick_lists": [],
- "roles": [
+ "quick_lists": [
   {
-   "role": "Doctor"
+   "document_type": "Patient Visit",
+   "label": "Patient Visits",
+   "quick_list_filter": "[[\"Patient Visit\",\"visit_date\",\"Timespan\",\"today\",false]]"
   }
  ],
+ "roles": [],
  "sequence_id": 3.0,
  "shortcuts": [],
  "title": "Doctor Dashboard"

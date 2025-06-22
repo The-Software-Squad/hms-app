@@ -1,0 +1,131 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:PV-{patient}-{YYYY}{MM}{DD}-{##}",
+ "creation": "2025-06-20 19:03:26.023601",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "op_record",
+  "patient",
+  "status",
+  "column_break_atla",
+  "visit_date",
+  "doctor",
+  "follow_up",
+  "doctor_summary_section",
+  "remarks",
+  "medication_details",
+  "previous_visits_section",
+  "previous_visits"
+ ],
+ "fields": [
+  {
+   "fieldname": "op_record",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "OP Record",
+   "options": "OP Record",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "op_record.patient",
+   "fieldname": "patient",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Patient",
+   "options": "Patient",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_atla",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "visit_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Visit date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "doctor",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Doctor",
+   "reqd": 1
+  },
+  {
+   "fieldname": "doctor_summary_section",
+   "fieldtype": "Section Break",
+   "label": "Doctor summary"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text Editor",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "medication_details",
+   "fieldtype": "Long Text",
+   "label": "Medication Details"
+  },
+  {
+   "fieldname": "follow_up",
+   "fieldtype": "Date",
+   "label": "Follow up"
+  },
+  {
+   "fieldname": "previous_visits_section",
+   "fieldtype": "Section Break",
+   "label": "Previous Visits"
+  },
+  {
+   "fieldname": "previous_visits",
+   "fieldtype": "HTML",
+   "label": "Previous Visits",
+   "read_only": 1
+  },
+  {
+   "default": "Waiting",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_filter": 1,
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Waiting\nCompleted"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-06-22 20:55:02.084416",
+ "modified_by": "Administrator",
+ "module": "HMS",
+ "name": "Patient Visit",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

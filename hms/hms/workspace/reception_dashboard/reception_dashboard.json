@@ -18,7 +18,7 @@
  "is_hidden": 0,
  "label": "Reception Dashboard",
  "links": [],
- "modified": "2024-10-02 14:32:44.793706",
+ "modified": "2025-06-22 20:53:24.734689",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "Reception Dashboard",
@@ -48,7 +48,7 @@
    "role": "Receptionist"
   }
  ],
- "sequence_id": 2.0,
+ "sequence_id": 1.0,
  "shortcuts": [
   {
    "color": "Grey",

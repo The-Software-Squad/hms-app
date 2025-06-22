@@ -11,12 +11,12 @@ app_license = "mit"
 fixtures = [
 	{
 		"doctype": "Custom HTML Block",
-        "filters": [["name", "in", ("HMS Dashboard Profile")]]
-     },
- {
-	 "doctype": "Role",
-	 "filters": [["name", "in", ("Receptionist", "Pharmacist")]]
- }
+		"filters": [["name", "in", ("HMS Dashboard Profile")]]
+	},
+	{
+		"doctype": "Role",
+		"filters": [["name", "in", ("Receptionist", "Pharmacist")]]
+	}
 ]
 # Includes in <head>
 # ------------------

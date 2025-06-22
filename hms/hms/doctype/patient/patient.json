@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:Patient-{#######}",
+ "autoname": "format:P{YYYY}{MM}{DD}{###}",
  "creation": "2024-07-04 18:01:29.207049",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -16,20 +16,13 @@
   "patient_picture",
   "patient_phone_number",
   "patient_email",
-  "medical_records_tab",
   "follow_ups_section",
   "latest_op_expires_on",
   "column_break_xdpu",
   "follow_up",
-  "applications_section",
-  "patient_op_list",
-  "sheets_section",
-  "op_sheet_list",
   "doctor_notes_tab",
   "doctor_notes_section",
-  "patient_remarks_by_doctor",
-  "medical_prescription_section",
-  "medical_prescription"
+  "patient_remarks_by_doctor"
  ],
  "fields": [
   {
@@ -91,17 +84,6 @@
    "reqd": 1
   },
   {
-   "fieldname": "applications_section",
-   "fieldtype": "Section Break",
-   "label": "Applications"
-  },
-  {
-   "fieldname": "patient_op_list",
-   "fieldtype": "Table",
-   "label": "OP List",
-   "options": "Patient OP Entry"
-  },
-  {
    "fieldname": "follow_ups_section",
    "fieldtype": "Section Break",
    "label": "Follow Ups"
@@ -112,6 +94,7 @@
    "in_filter": 1,
    "in_preview": 1,
    "in_standard_filter": 1,
+   "is_virtual": 1,
    "label": "OP Expiring On",
    "read_only": 1
   },
@@ -126,7 +109,9 @@
    "in_list_view": 1,
    "in_preview": 1,
    "in_standard_filter": 1,
-   "label": "Follow Up"
+   "is_virtual": 1,
+   "label": "Follow Up",
+   "read_only": 1
   },
   {
    "fieldname": "doctor_notes_tab",
@@ -144,32 +129,6 @@
    "label": "Remarks"
   },
   {
-   "fieldname": "sheets_section",
-   "fieldtype": "Section Break",
-   "label": "Sheets"
-  },
-  {
-   "fieldname": "op_sheet_list",
-   "fieldtype": "Table",
-   "label": "OP Sheet List",
-   "options": "Sheet Image"
-  },
-  {
-   "fieldname": "medical_prescription_section",
-   "fieldtype": "Section Break",
-   "label": "Medical prescription"
-  },
-  {
-   "fieldname": "medical_prescription",
-   "fieldtype": "Text Editor",
-   "label": "Medical Prescription"
-  },
-  {
-   "fieldname": "medical_records_tab",
-   "fieldtype": "Tab Break",
-   "label": "Medical Records"
-  },
-  {
    "fieldname": "details_tab",
    "fieldtype": "Tab Break",
    "label": "Details"
@@ -177,7 +136,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-05 22:18:06.332370",
+ "modified": "2025-06-22 23:05:31.292891",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "Patient",
@@ -209,6 +168,7 @@
    "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "creation",
  "sort_order": "DESC",
  "states": [],

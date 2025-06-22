@@ -1,0 +1,42 @@
+{
+ "charts": [
+  {
+   "chart_name": "Total Collection",
+   "label": "Total Collection"
+  },
+  {
+   "chart_name": "By Purpose",
+   "label": "By Purpose"
+  },
+  {
+   "chart_name": "Payment Mode",
+   "label": "Payment Mode"
+  }
+ ],
+ "content": "[{\"id\":\"GfyfucCzc9\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Accounts</span>\",\"col\":12}},{\"id\":\"cA-4eQPzC4\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Total Collection\",\"col\":12}},{\"id\":\"Q4zeddu25D\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Payment Mode\",\"col\":6}},{\"id\":\"TYjJD2luC2\",\"type\":\"chart\",\"data\":{\"chart_name\":\"By Purpose\",\"col\":12}}]",
+ "creation": "2025-06-22 18:02:29.455423",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "money-coins-1",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Accounts",
+ "links": [],
+ "modified": "2025-06-22 20:53:24.880600",
+ "modified_by": "Administrator",
+ "module": "HMS",
+ "name": "Accounts",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 5.0,
+ "shortcuts": [],
+ "title": "Accounts"
+}

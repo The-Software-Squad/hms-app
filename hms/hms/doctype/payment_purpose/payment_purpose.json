@@ -1,0 +1,56 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:purpose_name",
+ "creation": "2025-06-22 16:55:02.011743",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "purpose_name",
+  "purpose_description"
+ ],
+ "fields": [
+  {
+   "fieldname": "purpose_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Purpose Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "purpose_description",
+   "fieldtype": "Small Text",
+   "label": "Purpose Description"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-06-22 17:07:44.911098",
+ "modified_by": "Administrator",
+ "module": "HMS",
+ "name": "Payment Purpose",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

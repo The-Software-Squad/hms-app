@@ -1,0 +1,127 @@
+{
+ "actions": [],
+ "autoname": "format:PAY-{YYYY}{MM}{DD}{####}",
+ "creation": "2025-06-21 23:20:15.769517",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "patient",
+  "paid_by",
+  "purpose",
+  "column_break_xhpf",
+  "payment_date",
+  "amount",
+  "payment_mode",
+  "section_break_vpxs",
+  "towards",
+  "reference_number",
+  "attachments"
+ ],
+ "fields": [
+  {
+   "fieldname": "payment_date",
+   "fieldtype": "Date",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Payment Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount",
+   "non_negative": 1,
+   "precision": "2",
+   "reqd": 1
+  },
+  {
+   "fieldname": "towards",
+   "fieldtype": "Long Text",
+   "label": "Towards",
+   "reqd": 1
+  },
+  {
+   "default": "Cash",
+   "fieldname": "payment_mode",
+   "fieldtype": "Select",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Payment Mode",
+   "options": "Cash\nCard\nUPI\nNEFT",
+   "reqd": 1
+  },
+  {
+   "fieldname": "attachments",
+   "fieldtype": "Attach",
+   "label": "Attachments"
+  },
+  {
+   "description": "UTR/Txn ID, cheque no, etc",
+   "fieldname": "reference_number",
+   "fieldtype": "Small Text",
+   "label": "Reference Number"
+  },
+  {
+   "fieldname": "paid_by",
+   "fieldtype": "Data",
+   "label": "Paid By"
+  },
+  {
+   "fieldname": "patient",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Patient",
+   "options": "Patient"
+  },
+  {
+   "fieldname": "column_break_xhpf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_vpxs",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "purpose",
+   "fieldtype": "Table MultiSelect",
+   "label": "Purpose",
+   "options": "Payment Purpose Detail"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-06-22 17:19:45.637604",
+ "modified_by": "Administrator",
+ "module": "HMS",
+ "name": "Payment Recipit",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
