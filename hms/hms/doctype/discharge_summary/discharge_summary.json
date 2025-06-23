@@ -1,0 +1,102 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-06-23 00:05:44.742124",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "in_patient",
+  "patient",
+  "condition_at_discharge",
+  "column_break_hlsb",
+  "discharge_date",
+  "follow_up",
+  "section_break_xktm",
+  "final_diagnosis",
+  "discharge_notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "in_patient",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "In Patient",
+   "options": "IP Record",
+   "reqd": 1
+  },
+  {
+   "fieldname": "discharge_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Discharge Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "follow_up",
+   "fieldtype": "Date",
+   "label": "Follow up"
+  },
+  {
+   "fieldname": "final_diagnosis",
+   "fieldtype": "Text Editor",
+   "label": "Final Diagnosis"
+  },
+  {
+   "fieldname": "discharge_notes",
+   "fieldtype": "Text Editor",
+   "in_list_view": 1,
+   "label": "Discharge Notes",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "in_patient.patient",
+   "fieldname": "patient",
+   "fieldtype": "Link",
+   "label": "Patient",
+   "options": "Patient"
+  },
+  {
+   "fieldname": "condition_at_discharge",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Condition at discharge",
+   "options": "Recovered\nImproved\nReferred\nDeceased",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_hlsb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_xktm",
+   "fieldtype": "Section Break",
+   "label": "Summary"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-06-23 00:09:56.720448",
+ "modified_by": "Administrator",
+ "module": "HMS",
+ "name": "Discharge Summary",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

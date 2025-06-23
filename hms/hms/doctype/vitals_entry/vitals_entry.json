@@ -1,0 +1,105 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-06-22 23:45:35.656248",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "time",
+  "temperature",
+  "pulse",
+  "column_break_tjji",
+  "blood_pressure",
+  "respiratory_rate",
+  "recorded_by"
+ ],
+ "fields": [
+  {
+   "allow_in_quick_entry": 1,
+   "columns": 2,
+   "fieldname": "time",
+   "fieldtype": "Time",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Time",
+   "reqd": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "columns": 1,
+   "fieldname": "temperature",
+   "fieldtype": "Float",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Temperature"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "columns": 2,
+   "fieldname": "pulse",
+   "fieldtype": "Int",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Pulse"
+  },
+  {
+   "fieldname": "column_break_tjji",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "columns": 2,
+   "fieldname": "blood_pressure",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Blood Pressure"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "columns": 2,
+   "fieldname": "respiratory_rate",
+   "fieldtype": "Int",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Respiratory Rate"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "columns": 2,
+   "fieldname": "recorded_by",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Recorded by",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-06-22 23:56:39.706743",
+ "modified_by": "Administrator",
+ "module": "HMS",
+ "name": "Vitals Entry",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

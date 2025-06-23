@@ -41,23 +41,45 @@ from frappe.utils import today
 
 @frappe.whitelist()
 def get_latest_op_expiry(patient):
-    result = frappe.get_all(
-        "OP Record",
-        filters={"patient": patient},
-        fields=["valid_till"],
-        order_by="valid_till desc",
-        limit=1
-    )
-    return result[0].valid_till if result else None
+	result = frappe.get_all(
+		"OP Record",
+		filters={"patient": patient},
+		fields=["valid_till"],
+		order_by="valid_till desc",
+		limit=1
+	)
+	return result[0].valid_till if result else None
 
 @frappe.whitelist()
 def get_latest_follow_up(patient):
-    result = frappe.get_all(
-        "Patient Visit",
-        filters={"patient": patient},
-        fields=["follow_up"],
-        order_by="visit_date desc",
-        limit=1
-    )
-    return result[0].follow_up if result and result[0].follow_up else None
+	result = frappe.get_all(
+		"Patient Visit",
+		filters={"patient": patient},
+		fields=["follow_up"],
+		order_by="visit_date desc",
+		limit=1
+	)
+	return result[0].follow_up if result and result[0].follow_up else None
 
+@frappe.whitelist()
+def get_previous_treatments(ip_record, start=0, page_length=5):
+	start = int(start)
+	page_length = int(page_length)
+
+	treatments = frappe.get_all(
+		"In Patient Treatment",
+		filters={"in_patient": ip_record},
+		fields=["name", "date", "doctor", "diagnosis_update", "medications_given"],
+		order_by="date desc",
+		limit_start=start,
+		limit_page_length=page_length
+	)
+
+	for t in treatments:
+		t["vitals"] = frappe.get_all(
+			"Vitals Entry",
+			filters={"parent": t["name"], "parenttype": "In Patient Treatment"},
+			fields=["vital", "value", "unit"]
+		)
+
+	return treatments
