@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:IP-{patient}-{YYYY}{MM}{DD}",
  "creation": "2025-06-22 23:31:16.668264",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -8,10 +9,11 @@
   "summary_section",
   "patient",
   "admission_date",
+  "bed",
+  "column_break_mdrb",
   "status",
   "doctor",
-  "ward",
-  "bed",
+  "section_break_ijix",
   "diagnosis",
   "notes"
  ],
@@ -46,12 +48,6 @@
    "label": "Doctor"
   },
   {
-   "fieldname": "ward",
-   "fieldtype": "Link",
-   "label": "Ward",
-   "options": "Ward"
-  },
-  {
    "fieldname": "bed",
    "fieldtype": "Link",
    "label": "Bed",
@@ -66,15 +62,25 @@
    "fieldname": "notes",
    "fieldtype": "Text Editor",
    "label": "Notes"
+  },
+  {
+   "fieldname": "column_break_mdrb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_ijix",
+   "fieldtype": "Section Break",
+   "label": "Remarks"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-22 23:42:46.741640",
+ "modified": "2025-06-24 16:49:36.956559",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "IP Record",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
@@ -86,6 +92,18 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Receptionist",
    "share": 1,
    "write": 1
   }

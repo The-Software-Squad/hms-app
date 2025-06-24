@@ -8,7 +8,6 @@
  "field_order": [
   "bed_number",
   "ward",
-  "is_occupied",
   "current_patient"
  ],
  "fields": [
@@ -28,12 +27,6 @@
    "reqd": 1
   },
   {
-   "default": "0",
-   "fieldname": "is_occupied",
-   "fieldtype": "Check",
-   "label": "Is occupied"
-  },
-  {
    "fieldname": "current_patient",
    "fieldtype": "Link",
    "label": "Current Patient",
@@ -43,7 +36,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-23 11:29:02.281625",
+ "modified": "2025-06-24 13:23:32.768802",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "Bed",

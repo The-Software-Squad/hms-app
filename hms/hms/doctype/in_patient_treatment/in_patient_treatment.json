@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:format:IP-{in_patient}-{##}",
+ "autoname": "format:{in_patient}-{##}",
  "creation": "2025-06-22 23:43:05.151827",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -38,7 +38,8 @@
    "in_list_view": 1,
    "in_preview": 1,
    "in_standard_filter": 1,
-   "label": "Date"
+   "label": "Date",
+   "reqd": 1
   },
   {
    "fieldname": "doctor",
@@ -105,7 +106,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-23 11:26:54.626638",
+ "modified": "2025-06-23 22:48:55.024481",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "In Patient Treatment",

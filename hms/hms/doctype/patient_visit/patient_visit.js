@@ -1,13 +1,8 @@
 // Copyright (c) 2025, nani-samireddy and contributors
 // For license information, please see license.txt
 
-// frappe.ui.form.on("Patient Visit", {
-// 	refresh(frm) {
-
-// 	},
-// });
 frappe.ui.form.on('Patient Visit', {
-	refresh(frm) {
+	onload(frm) {
 		if (!frm.doc.__islocal && frm.doc.patient) {
 			const wrapper = frm.fields_dict.previous_visits.$wrapper;
 			wrapper.html('<div id="visit-container" style=" padding: 8px;"></div>');

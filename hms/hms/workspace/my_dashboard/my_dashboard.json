@@ -1,0 +1,41 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"pVLgiOvyfS\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">My Dashboard</span>\",\"col\":12}},{\"id\":\"vuTtcND97-\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"HMS Dashboard Profile\",\"col\":12}}]",
+ "creation": "2025-06-24 16:06:52.563712",
+ "custom_blocks": [
+  {
+   "custom_block_name": "HMS Dashboard Profile",
+   "label": "HMS Dashboard Profile"
+  }
+ ],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "customer",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "My Dashboard",
+ "links": [],
+ "modified": "2025-06-24 16:58:07.574930",
+ "modified_by": "Administrator",
+ "module": "HMS",
+ "name": "My Dashboard",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Receptionist"
+  }
+ ],
+ "sequence_id": 1.0,
+ "shortcuts": [],
+ "title": "My Dashboard"
+}

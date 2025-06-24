@@ -1,30 +1,41 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{role_name}",
- "creation": "2025-06-22 21:02:22.828534",
+ "autoname": "format:{department_name}",
+ "creation": "2025-06-24 13:44:12.813342",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "role_name"
+  "basic_details_section",
+  "department_name",
+  "description"
  ],
  "fields": [
   {
-   "fieldname": "role_name",
+   "fieldname": "department_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Role Name",
-   "reqd": 1,
-   "unique": 1
+   "label": "Department Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "basic_details_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Details"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-24 16:40:14.960636",
+ "modified": "2025-06-24 13:45:14.507625",
  "modified_by": "Administrator",
  "module": "HMS",
- "name": "Employee Role Type",
+ "name": "Department Type",
  "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
@@ -41,7 +52,6 @@
    "write": 1
   }
  ],
- "quick_entry": 1,
  "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",

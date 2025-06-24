@@ -13,7 +13,7 @@
  "is_hidden": 0,
  "label": "Doctor Dashboard",
  "links": [],
- "modified": "2025-06-22 20:53:24.833769",
+ "modified": "2025-06-24 16:58:56.119710",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "Doctor Dashboard",
@@ -28,8 +28,12 @@
    "quick_list_filter": "[[\"Patient Visit\",\"visit_date\",\"Timespan\",\"today\",false]]"
   }
  ],
- "roles": [],
- "sequence_id": 3.0,
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ],
+ "sequence_id": 4.0,
  "shortcuts": [],
  "title": "Doctor Dashboard"
 }

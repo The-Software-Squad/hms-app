@@ -62,13 +62,16 @@ def get_latest_follow_up(patient):
 	return result[0].follow_up if result and result[0].follow_up else None
 
 @frappe.whitelist()
-def get_previous_treatments(ip_record, start=0, page_length=5):
+def get_previous_treatments(ip_record, start=0, page_length=5, exclude_treatment=None):
 	start = int(start)
 	page_length = int(page_length)
-
+	filters = {"in_patient": ip_record}
+	if exclude_treatment:
+		filters["name"] = ["!=", exclude_treatment]
+ 
 	treatments = frappe.get_all(
 		"In Patient Treatment",
-		filters={"in_patient": ip_record},
+		filters=filters,
 		fields=["name", "date", "doctor", "diagnosis_update", "medications_given"],
 		order_by="date desc",
 		limit_start=start,
@@ -76,10 +79,12 @@ def get_previous_treatments(ip_record, start=0, page_length=5):
 	)
 
 	for t in treatments:
-		t["vitals"] = frappe.get_all(
+		vitals = frappe.get_all(
 			"Vitals Entry",
 			filters={"parent": t["name"], "parenttype": "In Patient Treatment"},
-			fields=["vital", "value", "unit"]
+			fields=["time", "temperature", "pulse", "blood_pressure", "respiratory_rate", "recorded_by"],
+			order_by="time asc"
 		)
+		t["vitals"] = vitals
 
 	return treatments

@@ -13,14 +13,14 @@
  "is_hidden": 0,
  "label": "Analytics",
  "links": [],
- "modified": "2025-06-22 20:53:24.856749",
+ "modified": "2025-06-24 16:59:36.718872",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "Analytics",
  "number_cards": [
   {
    "label": "Total Patient visits",
-   "number_card_name": "Total Patient vists"
+   "number_card_name": "Total Patients Visits"
   },
   {
    "label": "New Patients",
@@ -31,8 +31,12 @@
  "parent_page": "",
  "public": 1,
  "quick_lists": [],
- "roles": [],
- "sequence_id": 4.0,
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ],
+ "sequence_id": 5.0,
  "shortcuts": [],
  "title": "Analytics"
 }

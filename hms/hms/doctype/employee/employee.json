@@ -6,16 +6,29 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "basic_details_tab",
   "basic_information_section",
   "employee_name",
-  "employee_user",
-  "employee_role",
-  "date_of_joining",
+  "gender",
   "column_break_webv",
+  "date_of_birth",
+  "company_details_section",
+  "employee_id",
+  "date_of_joining",
+  "status",
+  "employee_user",
+  "column_break_teuj",
+  "department",
+  "designation",
   "salary",
+  "employment_type",
+  "address_and_contact_tab",
   "phone_number",
   "email",
-  "address"
+  "address",
+  "attandance_and_leaves_tab",
+  "total_leaves",
+  "remaining_leaves"
  ],
  "fields": [
   {
@@ -34,17 +47,9 @@
    "reqd": 1
   },
   {
-   "fieldname": "employee_role",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Role",
-   "options": "Employee Role Type",
-   "reqd": 1
-  },
-  {
    "fieldname": "basic_information_section",
    "fieldtype": "Section Break",
-   "label": "Basic information"
+   "label": "Personal Information"
   },
   {
    "fieldname": "salary",
@@ -52,6 +57,7 @@
    "label": "Salary"
   },
   {
+   "default": "Today",
    "fieldname": "date_of_joining",
    "fieldtype": "Date",
    "label": "Date of Joining"
@@ -71,17 +77,98 @@
    "fieldname": "email",
    "fieldtype": "Data",
    "label": "Email",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "column_break_webv",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "Male\nFemale\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department Type"
+  },
+  {
+   "fieldname": "basic_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Basic Details"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of birth"
+  },
+  {
+   "fieldname": "address_and_contact_tab",
+   "fieldtype": "Tab Break",
+   "label": "Address and Contact"
+  },
+  {
+   "fieldname": "designation",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Designation",
+   "options": "Employee Role Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company_details_section",
+   "fieldtype": "Section Break",
+   "label": "Company Details"
+  },
+  {
+   "fieldname": "employee_id",
+   "fieldtype": "Data",
+   "label": "Employee ID",
+   "unique": 1
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nInactive"
+  },
+  {
+   "fieldname": "column_break_teuj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "attandance_and_leaves_tab",
+   "fieldtype": "Tab Break",
+   "label": "Attandance and Leaves"
+  },
+  {
+   "fieldname": "total_leaves",
+   "fieldtype": "Int",
+   "label": "Total Leaves"
+  },
+  {
+   "fieldname": "remaining_leaves",
+   "fieldtype": "Int",
+   "label": "Remaining Leaves"
+  },
+  {
+   "default": "Full-time",
+   "fieldname": "employment_type",
+   "fieldtype": "Select",
+   "label": "Employment Type",
+   "options": "Full-time\nPart-time\nContract\nIntern"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-22 21:10:36.060736",
+ "modified": "2025-06-24 16:25:29.618448",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "Employee",
@@ -99,6 +186,15 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Receptionist",
+   "share": 1
   }
  ],
  "row_format": "Dynamic",
