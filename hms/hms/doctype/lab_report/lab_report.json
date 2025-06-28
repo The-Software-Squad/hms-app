@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:{report_type}-{YYYY}{MM}{DD}{###}",
  "creation": "2025-06-21 11:31:01.954710",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -96,10 +97,11 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-22 21:25:10.300265",
+ "modified": "2025-06-24 21:51:27.925345",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "Lab Report",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

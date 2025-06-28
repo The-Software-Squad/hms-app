@@ -13,6 +13,7 @@
   "visit_date",
   "doctor",
   "follow_up",
+  "doctor_user",
   "doctor_summary_section",
   "remarks",
   "medication_details",
@@ -50,9 +51,11 @@
   },
   {
    "fieldname": "doctor",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Doctor",
+   "link_filters": "[[\"Employee\",\"designation\",\"=\",\"Doctor\"]]",
+   "options": "Employee",
    "reqd": 1
   },
   {
@@ -97,12 +100,22 @@
    "in_standard_filter": 1,
    "label": "Status",
    "options": "Waiting\nCompleted"
+  },
+  {
+   "fetch_from": "doctor.employee_user",
+   "fetch_if_empty": 1,
+   "fieldname": "doctor_user",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "is_virtual": 1,
+   "label": "Doctor User",
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-22 20:55:02.084416",
+ "modified": "2025-06-24 22:00:59.023374",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "Patient Visit",

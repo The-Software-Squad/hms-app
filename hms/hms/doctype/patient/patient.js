@@ -1,7 +1,7 @@
 // Copyright (c) 2024, nani-samireddy and contributors
 // For license information, please see license.txt
 frappe.ui.form.on("Patient", {
-	refresh(frm) {
+	onload_post_render(frm) {
 		if (!frm.doc.__islocal) {
 			// ---------- New Patient Visit or OP Record Button ----------
 			frappe.call({
@@ -101,12 +101,19 @@ function fetch_and_update_fields(frm) {
 				patient: frm.doc.name
 			},
 			callback: (r) => {
-				if (r.message) {
-					frm.set_value(endpoint.fieldname, r.message);
+				const new_value = r.message;
+				const current_value = frm.doc[endpoint.fieldname];
+				
+				if (new_value && new_value !== current_value) {
+					frm.set_value(endpoint.fieldname, new_value);
+					
+					// save the form after updating fields
+					frm.save();
 				}
 			}
 		});
 	});
+
 }
 
 function add_op_record_button(frm) {

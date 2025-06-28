@@ -11,6 +11,7 @@
   "column_break_hlsb",
   "discharge_date",
   "follow_up",
+  "by_doctor",
   "section_break_xktm",
   "final_diagnosis",
   "discharge_notes"
@@ -71,12 +72,20 @@
    "fieldname": "section_break_xktm",
    "fieldtype": "Section Break",
    "label": "Summary"
+  },
+  {
+   "fieldname": "by_doctor",
+   "fieldtype": "Link",
+   "label": "By Doctor",
+   "link_filters": "[[\"Employee\",\"designation\",\"=\",\"Doctor\"]]",
+   "options": "Employee",
+   "reqd": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-23 00:09:56.720448",
+ "modified": "2025-06-24 20:25:13.981728",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "Discharge Summary",
