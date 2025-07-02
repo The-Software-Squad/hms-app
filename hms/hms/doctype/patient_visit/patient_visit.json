@@ -17,6 +17,7 @@
   "doctor_summary_section",
   "remarks",
   "medication_details",
+  "medication_schedule",
   "previous_visits_section",
   "previous_visits"
  ],
@@ -110,12 +111,18 @@
    "is_virtual": 1,
    "label": "Doctor User",
    "read_only": 1
+  },
+  {
+   "fieldname": "medication_schedule",
+   "fieldtype": "Table",
+   "label": "Medication Schedule",
+   "options": "Medication Schedule"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-24 22:00:59.023374",
+ "modified": "2025-07-01 21:58:56.235168",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "Patient Visit",

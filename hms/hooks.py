@@ -15,7 +15,7 @@ fixtures = [
 	},
 	{
 		"doctype": "Role",
-		"filters": [["name", "in", ("Receptionist", "Pharmacist")]]
+		"filters": [["name", "in", ("Receptionist", "Pharmacist", "Doctor")]]
 	}
 ]
 # Includes in <head>

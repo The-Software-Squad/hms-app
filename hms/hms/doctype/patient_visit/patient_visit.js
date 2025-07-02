@@ -2,7 +2,30 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Patient Visit', {
-	onload(frm) {
+	onload_post_render(frm) {
+		
+		frm.add_custom_button("Send Medication Mail", () => {
+			frappe.call({
+				method: "hms.api.mailer.send_medication_mail",
+				args: {
+					visit: frm.doc.name
+				},
+				callback: (r) => {
+					if (r.message) {
+						frappe.show_alert({
+							message: "Medication mail sent successfully!",
+							indicator: "green"
+						});
+					} else {
+						frappe.show_alert({
+							message: "Failed to send medication mail.",
+							indicator: "red"
+						});
+					}
+				}
+			});
+		});
+
 		if (!frm.doc.__islocal && frm.doc.patient) {
 			const wrapper = frm.fields_dict.previous_visits.$wrapper;
 			wrapper.html('<div id="visit-container" style=" padding: 8px;"></div>');
@@ -107,3 +130,9 @@ frappe.ui.form.on('Patient Visit', {
 		}
 	}
 });
+
+// function add_custom_buttons(frm) {
+// 	if (!frm.doc.__islocal && frm.doc.patient) {
+		
+// 	}
+// }
