@@ -18,7 +18,7 @@
  "is_hidden": 0,
  "label": "My Dashboard",
  "links": [],
- "modified": "2025-06-24 16:58:07.574930",
+ "modified": "2025-07-02 19:56:20.403819",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "My Dashboard",
@@ -33,6 +33,9 @@
   },
   {
    "role": "Receptionist"
+  },
+  {
+   "role": "Doctor"
   }
  ],
  "sequence_id": 1.0,

@@ -11,9 +11,12 @@
   "patient_name",
   "phone_number",
   "status",
+  "bill_amount",
   "column_break_qwnt",
   "start_date",
-  "valid_till"
+  "valid_till",
+  "paid_by",
+  "payment_method"
  ],
  "fields": [
   {
@@ -89,12 +92,31 @@
    "in_standard_filter": 1,
    "is_virtual": 1,
    "label": "phone number"
+  },
+  {
+   "fieldname": "bill_amount",
+   "fieldtype": "Currency",
+   "label": "Bill Amount",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "paid_by",
+   "fieldtype": "Data",
+   "label": "Paid By"
+  },
+  {
+   "fieldname": "payment_method",
+   "fieldtype": "Select",
+   "label": "Payment Method",
+   "options": "Cash\nUPI\nCard\nCheck\nOther",
+   "reqd": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-22 21:54:06.623924",
+ "modified": "2025-07-02 20:17:26.728747",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "OP Record",
@@ -110,6 +132,28 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Doctor",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Receptionist",
    "share": 1,
    "write": 1
   }

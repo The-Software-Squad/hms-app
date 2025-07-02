@@ -13,7 +13,7 @@
  "is_hidden": 0,
  "label": "Doctor Dashboard",
  "links": [],
- "modified": "2025-06-24 16:58:56.119710",
+ "modified": "2025-07-02 19:55:39.819765",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "Doctor Dashboard",
@@ -31,6 +31,9 @@
  "roles": [
   {
    "role": "System Manager"
+  },
+  {
+   "role": "Doctor"
   }
  ],
  "sequence_id": 4.0,
