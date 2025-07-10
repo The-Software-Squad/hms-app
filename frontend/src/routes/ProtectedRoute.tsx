@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useFrappeAuth } from 'frappe-react-sdk';
 
 interface ProtectedRouteProps {
@@ -8,15 +8,15 @@ interface ProtectedRouteProps {
 
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
 	const { currentUser, isLoading, isValidating } = useFrappeAuth();
+	const navigate = useNavigate();
 
 	if (isLoading || isValidating) {
 		return <div>Loading...</div>;
 	}
 
 	if (!currentUser) {
-		return <Navigate to="/login" replace />;
+		navigate('/login', { replace: true });
 	}
-
 	return children;
 };
 

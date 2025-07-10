@@ -1,12 +1,12 @@
 import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import HomePage from '../pages/HomePage';
-import LoginPage from '../pages/LoginPage';
+import { Routes, Route } from 'react-router-dom';
+import HomePage from '../pages/Home';
 import ProtectedRoute from './ProtectedRoute';
 import { useFrappeAuth } from 'frappe-react-sdk';
 
 const AppRoutes: React.FC = () => {
-	const { currentUser, isLoading, isValidating } = useFrappeAuth();
+
+	const { isLoading, isValidating } = useFrappeAuth();
 
 	if (isLoading || isValidating) {
 		return <div>Loading...</div>;
@@ -16,24 +16,12 @@ const AppRoutes: React.FC = () => {
 		<Routes>
 			{/* Protected route for home */}
 			<Route
-				path="/"
+				path="/hms"
 				element={
-					<ProtectedRoute>
+					// <ProtectedRoute>
 						<HomePage />
-					</ProtectedRoute>
+					// </ProtectedRoute>
 				}
-			/>
-
-			{/* Public login route */}
-			<Route
-				path="/login"
-				element={currentUser ? <Navigate to="/" replace /> : <LoginPage />}
-			/>
-
-			{/* Catch-all fallback */}
-			<Route
-				path="*"
-				element={<Navigate to={currentUser ? '/' : '/login'} replace />}
 			/>
 		</Routes>
 	);
