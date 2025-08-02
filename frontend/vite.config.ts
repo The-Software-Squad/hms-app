@@ -21,5 +21,6 @@ export default defineConfig({
 		outDir: '../hms/public/frontend',
 		emptyOutDir: true,
 		target: 'es2015',
+		minify: 'terser',
 	},
 });
