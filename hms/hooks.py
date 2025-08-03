@@ -6,6 +6,15 @@ app_email = "nanisamireddy05@gmail.com"
 app_license = "mit"
 # required_apps = []
 
+# Website redirects
+website_route_rules = [
+	{
+		"from_route": "/hms/<path:app_path>",
+		"to_route": "hms",
+	},
+]
+
+
 # Fixtures
 # ----------
 fixtures = [
