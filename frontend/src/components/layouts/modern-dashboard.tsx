@@ -20,7 +20,9 @@ export default function ModernDashboard() {
 			<SidebarInset>
 				<SiteHeader />
 				<div className="flex flex-1 flex-col">
-					<Outlet />
+					<div className="@container/main flex flex-1 flex-col gap-2 p-4 md:p-6">
+						<Outlet />
+					</div>
 				</div>
 			</SidebarInset>
 		</SidebarProvider>

@@ -9,6 +9,7 @@ import LabTechnicianDashboard from '@/pages/dashboards/LabTechnicianDashboard';
 import ReceptionistDashboard from '@/pages/dashboards/ReceptionistDashboard';
 import AdminDashboard from '@/pages/dashboards/AdminDashboard';
 import NurseDashboard from '@/pages/dashboards/NurseDashboard';
+import ProtectedRoute from './ProtectedRoute';
 
 export const appRoutes = createBrowserRouter([
 	{
@@ -17,7 +18,7 @@ export const appRoutes = createBrowserRouter([
 		children: [
 			{
 				path: 'my-dashboard',
-				element: <HomePage />,
+				element: <><HomePage /></>,
 				index: true,
 			},
 			{
