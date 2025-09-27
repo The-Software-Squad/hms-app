@@ -6,6 +6,13 @@ app_email = "nanisamireddy05@gmail.com"
 app_license = "mit"
 # required_apps = []
 
+
+# Boot
+# ----
+# extend_bootinfo = "hms.boot.boot_session"
+
+extend_bootinfo = "hms.boot.boot_session"
+
 # Website redirects
 website_route_rules = [
 	{

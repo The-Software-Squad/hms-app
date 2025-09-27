@@ -1,22 +1,21 @@
-
-
 import * as React from "react"
+import { Link } from "react-router-dom"
 import {
-	IconCamera,
-	IconChartBar,
-	IconDashboard,
-	IconDatabase,
-	IconFileAi,
-	IconFileDescription,
-	IconFileWord,
-	IconFolder,
-	IconHelp,
-	IconInnerShadowTop,
-	IconListDetails,
-	IconReport,
-	IconSearch,
-	IconSettings,
-	IconUsers,
+  IconActivity,
+  IconBed,
+  IconBuilding,
+  IconCalendar,
+  IconChartBar,
+  IconClipboardList,
+  IconCreditCard,
+  IconDashboard,
+  IconHelp,
+  IconPill,
+  IconSearch,
+  IconSettings,
+  IconTestPipe,
+  IconUserCheck,
+  IconUsers,
 } from "@tabler/icons-react"
 
 import { NavDocuments } from "@/components/nav-documents"
@@ -24,164 +23,141 @@ import { NavMain } from "@/components/nav-main"
 import { NavSecondary } from "@/components/nav-secondary"
 import { NavUser } from "@/components/nav-user"
 import {
-	Sidebar,
-	SidebarContent,
-	SidebarFooter,
-	SidebarHeader,
-	SidebarMenu,
-	SidebarMenuButton,
-	SidebarMenuItem,
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarInput,
 } from "@/components/ui/sidebar"
-import { BadgeDollarSign, MicroscopeIcon, PillIcon, RibbonIcon, ShieldUserIcon, Stethoscope, StethoscopeIcon, UserIcon } from "lucide-react"
+import { useAvailableResources } from "@/hooks/useResourceConfig"
 
 const data = {
-	user: {
-		name: "Nani Samireddy",
-		email: "nanisamireddy05@gmail.com",
-		avatar: "/avatars/shadcn.jpg",
-	},
-	navMain: [
-		{
-			title: "My Dashboard",
-			url: "/hms/my-dashboard",
-			icon: UserIcon,
-		},
-		{
-			title: "Reception",
-			url: "/hms/reception-dashboard",
-			icon: IconListDetails,
-		},
-		{
-			title: "Doctor",
-			url: "/hms/doctor-dashboard",
-			icon: StethoscopeIcon,
-		},
-		{
-			title: "Admin",
-			url: "/hms/admin-dashboard",
-			icon: ShieldUserIcon,
-		},
-		{
-			title: "Nurse",
-			url: "/hms/nurse-dashboard",
-			icon: RibbonIcon,
-		},
-		{
-			title: "Lab Technician",
-			url: "/hms/lab-technician-dashboard",
-			icon: MicroscopeIcon,
-		},
-	],
-	navClouds: [
-		{
-			title: "Capture",
-			icon: IconCamera,
-			isActive: true,
-			url: "#",
-			items: [
-				{
-					title: "Active Proposals",
-					url: "#",
-				},
-				{
-					title: "Archived",
-					url: "#",
-				},
-			],
-		},
-		{
-			title: "Proposal",
-			icon: IconFileDescription,
-			url: "#",
-			items: [
-				{
-					title: "Active Proposals",
-					url: "#",
-				},
-				{
-					title: "Archived",
-					url: "#",
-				},
-			],
-		},
-		{
-			title: "Prompts",
-			icon: IconFileAi,
-			url: "#",
-			items: [
-				{
-					title: "Active Proposals",
-					url: "#",
-				},
-				{
-					title: "Archived",
-					url: "#",
-				},
-			],
-		},
-	],
-	navSecondary: [
-		{
-			title: "Settings",
-			url: "#",
-			icon: IconSettings,
-		},
-		{
-			title: "Get Help",
-			url: "#",
-			icon: IconHelp,
-		},
-		{
-			title: "Search",
-			url: "#",
-			icon: IconSearch,
-		},
-	],
-	documents: [
-		{
-			name: "Patient",
-			url: "/hms/documents/patient",
-			icon: IconDatabase,
-		},
-		{
-			name: "Medicine",
-			url: "/hms/documents/medicine",
-			icon: PillIcon,
-		},
-		{
-			name: "Payments",
-			url: "/hms/documents/payments",
-			icon: BadgeDollarSign,
-		},
-	],
+  user: {
+    name: "HMS User",
+    email: "user@hospital.com",
+    avatar: "/avatars/user.jpg",
+  },
+  navMain: [
+    {
+      title: "My Dashboard",
+      url: "/hms/dashboard",
+      icon: IconDashboard,
+    },
+    {
+      title: "Reception Dashboard",
+      url: "/app/workspace/Reception Dashboard",
+      icon: IconUserCheck,
+    },
+    {
+      title: "Doctor Dashboard",
+      url: "/app/workspace/Doctor Dashboard",
+      icon: IconUsers,
+    },
+    {
+      title: "Pharmacist Dashboard",
+      url: "/app/workspace/Pharmacist Dashboard",
+      icon: IconPill,
+    },
+    {
+      title: "Analytics",
+      url: "/app/workspace/Analytics",
+      icon: IconChartBar,
+    },
+    {
+      title: "Accounts",
+      url: "/app/workspace/Accounts",
+      icon: IconCreditCard,
+    },
+  ],
+  navSecondary: [
+    {
+      title: "Settings",
+      url: "#",
+      icon: IconSettings,
+    },
+    {
+      title: "Get Help",
+      url: "#",
+      icon: IconHelp,
+    },
+    {
+      title: "Search",
+      url: "#",
+      icon: IconSearch,
+    },
+  ],
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-	return (
-		<Sidebar collapsible="offcanvas" {...props}>
-			<SidebarHeader>
-				<SidebarMenu>
-					<SidebarMenuItem>
-						<SidebarMenuButton
-							asChild
-							className="data-[slot=sidebar-menu-button]:!p-1.5"
-						>
-							<a href="#">
-								<IconInnerShadowTop className="!size-5" />
-								<span className="text-base font-semibold">Sri Vijaya Lakshmi Hospital</span>
-							</a>
-						</SidebarMenuButton>
-					</SidebarMenuItem>
-				</SidebarMenu>
-			</SidebarHeader>
-			<SidebarContent>
-				<NavMain items={data.navMain} />
-				<NavDocuments items={data.documents} />
-				<NavSecondary items={data.navSecondary} className="mt-auto" />
-			</SidebarContent>
-			<SidebarFooter>
-				<NavUser user={data.user} />
-			</SidebarFooter>
-		</Sidebar>
-	)
+  const { resources } = useAvailableResources()
+  const [navQuery, setNavQuery] = React.useState("")
+  
+  // Generate HMS resources navigation
+  const hmsResources = React.useMemo(() => {
+    const iconMap: Record<string, any> = {
+      'Patient': IconUsers,
+      'Bed': IconBed,
+      'Employee': IconUserCheck,
+      'Lab Report': IconTestPipe,
+      'Lab Report Type': IconTestPipe,
+      'Medicine': IconPill,
+      'OP Record': IconClipboardList,
+      'Patient Visit': IconCalendar,
+      'Ward': IconBuilding,
+    }
+
+    return resources.map(resource => ({
+      name: resource,
+      url: `/hms/resources/${resource.toLowerCase().replace(/\s+/g, '-')}`,
+      icon: iconMap[resource] || IconActivity,
+    }))
+  }, [resources])
+
+  const filteredMain = React.useMemo(() => {
+    if (!navQuery) return data.navMain
+    const q = navQuery.toLowerCase()
+    return data.navMain.filter((i) => i.title.toLowerCase().includes(q))
+  }, [navQuery])
+
+  const filteredDocs = React.useMemo(() => {
+    if (!navQuery) return hmsResources
+    const q = navQuery.toLowerCase()
+    return hmsResources.filter((i) => i.name.toLowerCase().includes(q))
+  }, [navQuery, hmsResources])
+
+  return (
+    <Sidebar collapsible="offcanvas" {...props}>
+      <SidebarHeader>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton
+              asChild
+              className="data-[slot=sidebar-menu-button]:!p-1.5"
+            >
+              <Link to="/hms">
+                <IconActivity className="!size-5" />
+                <span className="text-base font-semibold">HMS</span>
+              </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+        <SidebarInput
+          value={navQuery}
+          onChange={(e) => setNavQuery(e.target.value)}
+          placeholder="Search navigation..."
+        />
+      </SidebarHeader>
+      <SidebarContent>
+        <NavMain items={filteredMain} />
+        <NavDocuments items={filteredDocs} />
+        <NavSecondary items={data.navSecondary} className="mt-auto" />
+      </SidebarContent>
+      <SidebarFooter>
+        <NavUser user={data.user} />
+      </SidebarFooter>
+    </Sidebar>
+  )
 }

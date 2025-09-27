@@ -1,45 +1,56 @@
 import React from 'react';
-import { Routes, Route, createBrowserRouter } from 'react-router-dom';
-import HomePage from '../pages/Home';
+import { createBrowserRouter } from 'react-router-dom';
 import { useFrappeAuth } from 'frappe-react-sdk';
-import ModernDashboard from '@/components/layouts/modern-dashboard';
 import PageNotFound from './PageNotFound';
-import DoctorDashboard from '@/pages/dashboards/DoctorDashboard';
-import LabTechnicianDashboard from '@/pages/dashboards/LabTechnicianDashboard';
-import ReceptionistDashboard from '@/pages/dashboards/ReceptionistDashboard';
-import AdminDashboard from '@/pages/dashboards/AdminDashboard';
-import NurseDashboard from '@/pages/dashboards/NurseDashboard';
-import ProtectedRoute from './ProtectedRoute';
+import Dashboard from '@/pages/dashboard';
+import HMSDashboard from '@/pages/dashboard/hms-dashboard';
+import DoctorDashboard from '@/pages/dashboards/doctor-dashboard';
+import DynamicResource from '@/pages/resources/dynamic-resource';
+import { MainLayout } from '@/components/main-layout';
 
 export const appRoutes = createBrowserRouter([
 	{
 		path: '/hms',
-		element: <ModernDashboard />,
 		children: [
 			{
-				path: 'my-dashboard',
-				element: <><HomePage /></>,
 				index: true,
+				element: <Dashboard />,
 			},
 			{
-				path: 'doctor-dashboard',
+				path: 'dashboard',
+				element: <MainLayout><HMSDashboard /></MainLayout>,
+			},
+			{
+				path: 'dashboard/doctor',
 				element: <DoctorDashboard />,
 			},
 			{
-				path: 'lab-technician-dashboard',
-				element: <LabTechnicianDashboard />,
+				path: 'resources/patient',
+				element: <MainLayout><DynamicResource doctype="Patient" title="Patients" /></MainLayout>,
 			},
 			{
-				path: 'reception-dashboard',
-				element: <ReceptionistDashboard />,
+				path: 'resources/employee',
+				element: <MainLayout><DynamicResource doctype="Employee" title="Employees" /></MainLayout>,
 			},
 			{
-				path: 'admin-dashboard',
-				element: <AdminDashboard />,
+				path: 'resources/patient-visit',
+				element: <MainLayout><DynamicResource doctype="Patient Visit" title="Patient Visits" /></MainLayout>,
 			},
 			{
-				path: 'nurse-dashboard',
-				element: <NurseDashboard />,
+				path: 'resources/lab-report',
+				element: <MainLayout><DynamicResource doctype="Lab Report" title="Lab Reports" /></MainLayout>,
+			},
+			{
+				path: 'resources/bed',
+				element: <MainLayout><DynamicResource doctype="Bed" title="Beds" /></MainLayout>,
+			},
+			{
+				path: 'resources/medicine',
+				element: <MainLayout><DynamicResource doctype="Medicine" title="Medicines" /></MainLayout>,
+			},
+			{
+				path: 'resources/op-record',
+				element: <MainLayout><DynamicResource doctype="OP Record" title="OP Records" /></MainLayout>,
 			},
 			{
 				path: '*',
@@ -54,36 +65,13 @@ export const appRoutes = createBrowserRouter([
 ]);
 
 const AppRoutes: React.FC = () => {
-
 	const { isLoading, isValidating } = useFrappeAuth();
 
 	if (isLoading || isValidating) {
 		return <div>Loading...</div>;
 	}
 
-	return (
-		<Routes>
-			{/* Protected route for home */}
-			<Route
-				path="/hms"
-				element={
-					// <ProtectedRoute>
-						<HomePage />
-					// </ProtectedRoute>
-				}
-			/>
-
-			{/* 404 */}
-			<Route
-				path="*"
-				element={
-					<div>
-						<h1>404 - Page Not Found</h1>
-					</div>
-				}
-			/>
-		</Routes>
-	);
+	return null; // Router is handled by RouterProvider in App.tsx
 };
 
 export default AppRoutes;
