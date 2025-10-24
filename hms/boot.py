@@ -12,7 +12,6 @@ def boot_session(bootinfo):
         "Medicine",
         "Bed",
         "Ward",
-        "OP Record",
         "Lab Report Type"
     ]
 

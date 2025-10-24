@@ -49,10 +49,6 @@ export const appRoutes = createBrowserRouter([
 				element: <MainLayout><DynamicResource doctype="Medicine" title="Medicines" /></MainLayout>,
 			},
 			{
-				path: 'resources/op-record',
-				element: <MainLayout><DynamicResource doctype="OP Record" title="OP Records" /></MainLayout>,
-			},
-			{
 				path: '*',
 				element: <PageNotFound />,
 			},

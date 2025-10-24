@@ -2,7 +2,7 @@
 @import "tw-animate-css";
 @config "../tailwind.config.js";
 
-@import "../node_modules/frappe-react-ui/dist/style.css";
+/* @import "../node_modules/frappe-react-ui/dist/style.css"; */
 
 :root {
   --background: oklch(0.9846 0.0017 247.8389);

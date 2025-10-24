@@ -26,7 +26,6 @@ const doctypeIcons: Record<string, React.ComponentType<any>> = {
   "Medicine": Pill,
   "Bed": Bed,
   "Ward": Building2,
-  "OP Record": Activity,
 }
 
 interface DynamicSidebarProps {

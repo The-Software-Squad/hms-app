@@ -2,25 +2,54 @@ import frappe
 
 def daily():
 	'''Runs daily once a day'''
-	close_expired_op_records()
+	expire_out_patient_records()
 
-def close_expired_op_records():
-	'''Closes all OP Records that have expired'''
+def expire_out_patient_records():
+	'''Updates Out Patient child records status to Expired if to date is older than current date'''
+	from frappe.query_builder import DocType
+	from frappe.query_builder import functions as fn
+	
 	today = frappe.utils.nowdate()
-	expired_op_records = frappe.get_all(
-		"OP Record",
-		filters={
-			"valid_till": ["<", today],
-			"status": "Open"
-		},
-		fields=["name"]
-	)
+	
+	# Define the child table
+	OutPatient = DocType("Out Patient")
+	frappe.log_error(f"Expiring Out Patient records as of {today}")
+	
+	try:
+		count = (
+			frappe.qb.from_(OutPatient)
+			.select(fn.Count("*"))
+			.where(
+				(OutPatient["select"] == "Active") &
+				(OutPatient.to < today) &
+				(OutPatient.to.isnotnull())
+			)
+		).run()
 
-	if not expired_op_records:
-		return
+		count = count[0][0] if count else 0
+		frappe.log_error(f"Found {count} records to expire")
 
-	for op_record in expired_op_records:
-		doc = frappe.get_doc("OP Record", op_record.name)
-		doc.status = "Closed"
-		doc.save()
+		if count == 0:
+			return 0
+		
+		# Now update them
+		(
+			frappe.qb.update(OutPatient)
+			.set(OutPatient["select"], "Expired")
+			.where(
+				(OutPatient["select"] == "Active") &
+				(OutPatient.to < today) &
+				(OutPatient.to.isnotnull())
+			)
+			.run()
+		)
+		
 		frappe.db.commit()
+		frappe.logger().info(f"Expired {count} Out Patient records")
+
+		return count
+
+	except Exception as e:
+		frappe.log_error(f"Error expiring Out Patient records: {str(e)}")
+		frappe.db.rollback()
+		return 0

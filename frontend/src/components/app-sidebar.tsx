@@ -104,7 +104,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       'Lab Report': IconTestPipe,
       'Lab Report Type': IconTestPipe,
       'Medicine': IconPill,
-      'OP Record': IconClipboardList,
       'Patient Visit': IconCalendar,
       'Ward': IconBuilding,
     }

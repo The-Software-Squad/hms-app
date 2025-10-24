@@ -171,7 +171,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-07-02 20:15:34.492668",
+ "modified": "2025-10-24 20:40:22.450212",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "Employee",
@@ -213,5 +213,6 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
+ "title_field": "employee_name",
  "track_changes": 1
 }

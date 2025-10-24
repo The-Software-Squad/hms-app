@@ -17,19 +17,19 @@ class Patient(Document):
 		date_ranges = []
 		latest_expiry_date = None
 
-		patient_op_list = self.get('patient_op_list')
+		patient_op_list = self.get('op_records')
 		if not patient_op_list:
 			return
 
 		# Loop through all the OP entries
-		for op_entry in self.get('patient_op_list'):
+		for op_entry in patient_op_list:
 			# Get the start and end date of the OP entry
-			start_date = getdate(op_entry.op_date)
-			end_date = getdate(op_entry.op_valid_till) if op_entry.op_valid_till else start_date + timedelta(days=14)
+			start_date = getdate(op_entry.get('from'))
+			end_date = getdate(op_entry.get('to')) if op_entry.get('to') else start_date + timedelta(days=30)
 
 			# Assign the end date to the OP entry if it was not already set
-			if not op_entry.op_valid_till:
-				op_entry.op_valid_till = end_date
+			if not op_entry.get('to'):
+				op_entry.to = end_date
 
 			# Check if the end date is the latest expiry date
 			if latest_expiry_date is None or end_date > latest_expiry_date:
@@ -44,8 +44,6 @@ class Patient(Document):
 			# Add the OP dates to the list
 			date_ranges.append((start_date, end_date))
 
-		# Set the latest expiry date
+		# Set the latest expiry date; no explicit save in validate
 		if latest_expiry_date:
 			self.latest_op_expires_on = latest_expiry_date
-			# save
-			self.save()

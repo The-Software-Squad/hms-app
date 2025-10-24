@@ -20,6 +20,11 @@
   "latest_op_expires_on",
   "column_break_xdpu",
   "follow_up",
+  "other_information_section",
+  "op_records",
+  "patient_visits_tab",
+  "history_section",
+  "previous_visits",
   "doctor_notes_tab",
   "doctor_notes_section",
   "patient_remarks_by_doctor"
@@ -130,11 +135,37 @@
    "fieldname": "details_tab",
    "fieldtype": "Tab Break",
    "label": "Details"
+  },
+  {
+   "fieldname": "other_information_section",
+   "fieldtype": "Section Break",
+   "label": "Other Information"
+  },
+  {
+   "fieldname": "op_records",
+   "fieldtype": "Table",
+   "label": "OP Records",
+   "options": "Out Patient"
+  },
+  {
+   "fieldname": "patient_visits_tab",
+   "fieldtype": "Tab Break",
+   "label": "Patient Visits"
+  },
+  {
+   "fieldname": "history_section",
+   "fieldtype": "Section Break",
+   "label": "History"
+  },
+  {
+   "fieldname": "previous_visits",
+   "fieldtype": "HTML",
+   "label": "Previous visits"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-07-02 20:06:17.630055",
+ "modified": "2025-10-24 20:41:02.821165",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "Patient",
@@ -183,5 +214,6 @@
  "sort_field": "creation",
  "sort_order": "DESC",
  "states": [],
+ "title_field": "patient_name",
  "track_changes": 1
 }

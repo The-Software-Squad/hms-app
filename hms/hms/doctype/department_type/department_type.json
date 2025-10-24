@@ -8,7 +8,9 @@
  "field_order": [
   "basic_details_section",
   "department_name",
-  "description"
+  "description",
+  "out_patient_fees",
+  "head_doctor"
  ],
  "fields": [
   {
@@ -27,12 +29,22 @@
    "fieldname": "basic_details_section",
    "fieldtype": "Section Break",
    "label": "Basic Details"
+  },
+  {
+   "fieldname": "out_patient_fees",
+   "fieldtype": "Currency",
+   "label": "Out Patient Fees"
+  },
+  {
+   "fieldname": "head_doctor",
+   "fieldtype": "Data",
+   "label": "Head Doctor"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-07-02 20:21:17.741192",
+ "modified": "2025-10-11 12:45:18.696674",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "Department Type",

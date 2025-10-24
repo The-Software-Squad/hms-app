@@ -1,6 +1,7 @@
 {
+ "app": "hms",
  "charts": [],
- "content": "[{\"id\":\"gdP_levJ0l\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Good Morning</b></span>\",\"col\":12}},{\"id\":\"_z01wXE5mE\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Patient Visits\",\"col\":4}}]",
+ "content": "[{\"id\":\"gdP_levJ0l\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Good Morning</b></span>\",\"col\":12}},{\"id\":\"BnOiUB2IgU\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Assigned Patients\",\"col\":6}},{\"id\":\"_z01wXE5mE\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Patient Visits\",\"col\":6}}]",
  "creation": "2024-08-02 20:05:17.621514",
  "custom_blocks": [],
  "docstatus": 0,
@@ -13,7 +14,7 @@
  "is_hidden": 0,
  "label": "Doctor Dashboard",
  "links": [],
- "modified": "2025-07-02 19:55:39.819765",
+ "modified": "2025-10-02 10:51:26.964463",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "Doctor Dashboard",
@@ -26,6 +27,11 @@
    "document_type": "Patient Visit",
    "label": "Patient Visits",
    "quick_list_filter": "[[\"Patient Visit\",\"visit_date\",\"Timespan\",\"today\",false]]"
+  },
+  {
+   "document_type": "IP Record",
+   "label": "Assigned Patients",
+   "quick_list_filter": "[[\"IP Record\",\"doctor\",\"=\",\"eval:frappe.session.user\",false]]"
   }
  ],
  "roles": [
@@ -38,5 +44,6 @@
  ],
  "sequence_id": 4.0,
  "shortcuts": [],
- "title": "Doctor Dashboard"
+ "title": "Doctor Dashboard",
+ "type": "Workspace"
 }

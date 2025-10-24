@@ -34,7 +34,6 @@
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
     "frappe-react-sdk": "^1.11.0",
-    "frappe-react-ui": "file:frappe-react-ui-0.1.0.tgz",
     "lucide-react": "^0.544.0",
     "next-themes": "^0.4.6",
     "react": "^19.1.0",
