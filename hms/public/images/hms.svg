@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="HMS">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="120" height="120" rx="16" fill="url(#g)"/>
+  <g fill="#fff">
+    <rect x="59" y="26" width="10" height="76" rx="2"/>
+    <rect x="26" y="59" width="76" height="10" rx="2"/>
+  </g>
+  <text x="64" y="110" text-anchor="middle" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="16" fill="#ffffff" opacity="0.9">HMS</text>
+</svg>

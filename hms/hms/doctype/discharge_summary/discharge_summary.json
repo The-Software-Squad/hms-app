@@ -2,9 +2,11 @@
  "actions": [],
  "allow_rename": 1,
  "creation": "2025-06-23 00:05:44.742124",
+ "autoname": "naming_series:",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "naming_series",
   "in_patient",
   "patient",
   "condition_at_discharge",
@@ -17,6 +19,13 @@
   "discharge_notes"
  ],
  "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "HMS-DS-.YYYY.-",
+   "set_only_once": 1
+  },
   {
    "fieldname": "in_patient",
    "fieldtype": "Link",
@@ -117,6 +126,7 @@
   }
  ],
  "row_format": "Dynamic",
+ "search_fields": "in_patient,patient,discharge_date,by_doctor",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],

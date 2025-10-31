@@ -1,11 +1,12 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:PV-{patient}-{YYYY}{MM}{DD}-{##}",
+ "autoname": "naming_series:",
  "creation": "2025-06-20 19:03:26.023601",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "naming_series",
   "patient",
   "patient_name",
   "doctor",
@@ -14,6 +15,7 @@
   "column_break_atla",
   "department",
   "visit_date",
+  "fee_validity",
   "follow_up",
   "doctor_summary_section",
   "remarks",
@@ -23,6 +25,13 @@
   "previous_visits"
  ],
  "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "HMS-PVIS-.YYYY.-",
+   "set_only_once": 1
+  },
   {
    "fieldname": "patient",
    "fieldtype": "Link",
@@ -48,8 +57,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Doctor",
-   "link_filters": "[[\"Employee\",\"designation\",\"=\",\"Doctor\"]]",
-   "options": "Employee",
+   "options": "Healthcare Practitioner",
    "reqd": 1
   },
   {
@@ -84,7 +92,7 @@
    "read_only": 1
   },
   {
-   "default": "Waiting",
+   "default": "Checked In",
    "fieldname": "status",
    "fieldtype": "Select",
    "in_filter": 1,
@@ -93,10 +101,10 @@
    "in_preview": 1,
    "in_standard_filter": 1,
    "label": "Status",
-   "options": "Scheduled\nChecked In\nUnder Consultation\nLab/Diagnostics Pending\nLab/Diagnostics Completed\nPrescription Given\nCompleted\nCancelled / No Show\nWaiting\nDoctor visit\nCompleted"
+   "options": "Scheduled\nChecked In\nUnder Consultation\nLab/Diagnostics Pending\nLab/Diagnostics Completed\nPrescription Given\nCompleted\nCancelled / No Show"
   },
   {
-   "fetch_from": "doctor.employee_user",
+   "fetch_from": "doctor.user",
    "fetch_if_empty": 1,
    "fieldname": "doctor_user",
    "fieldtype": "Data",
@@ -124,12 +132,30 @@
    "label": "Department",
    "options": "Department Type",
    "reqd": 1
+  },
+  {
+   "fieldname": "fee_validity",
+   "fieldtype": "Link",
+   "label": "Fee Validity",
+   "options": "Fee Validity",
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2025-10-24 21:02:07.127677",
+ "links": [
+  {
+   "group": "Patient",
+   "link_doctype": "Patient",
+   "link_fieldname": "name"
+  },
+  {
+   "group": "OP",
+   "link_doctype": "Fee Validity",
+   "link_fieldname": "patient_visit"
+  }
+ ],
+ "modified": "2025-10-26 03:13:20.307890",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "Patient Visit",
@@ -162,6 +188,7 @@
  ],
  "quick_entry": 1,
  "row_format": "Dynamic",
+ "search_fields": "patient,patient_name,visit_date,doctor",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],

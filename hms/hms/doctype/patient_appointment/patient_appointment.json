@@ -1,0 +1,53 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-10-26 00:13:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "patient",
+  "practitioner",
+  "department",
+  "status",
+  "column_break_a",
+  "appointment_date",
+  "start_time",
+  "end_time",
+  "remarks",
+  "patient_visit"
+ ],
+ "fields": [
+  {"fieldname": "naming_series", "fieldtype": "Select", "label": "Series", "options": "HMS-APT-.YYYY.-", "set_only_once": 1},
+  {"fieldname": "patient", "fieldtype": "Link", "label": "Patient", "options": "Patient", "in_list_view": 1, "reqd": 1},
+  {"fieldname": "practitioner", "fieldtype": "Link", "label": "Healthcare Practitioner", "options": "Healthcare Practitioner", "in_list_view": 1, "reqd": 1},
+  {"fieldname": "department", "fieldtype": "Link", "label": "Department", "options": "Department Type"},
+  {"default": "Scheduled", "fieldname": "status", "fieldtype": "Select", "label": "Status", "options": "Scheduled\nChecked In\nIn Service\nCompleted\nCancelled\nNo Show", "in_list_view": 1, "in_standard_filter": 1},
+  {"fieldname": "column_break_a", "fieldtype": "Column Break"},
+  {"fieldname": "appointment_date", "fieldtype": "Date", "label": "Appointment Date", "in_list_view": 1, "reqd": 1},
+  {"fieldname": "start_time", "fieldtype": "Time", "label": "Start Time", "in_list_view": 1, "reqd": 1},
+  {"fieldname": "end_time", "fieldtype": "Time", "label": "End Time"},
+  {"fieldname": "remarks", "fieldtype": "Small Text", "label": "Remarks"},
+  {"fieldname": "patient_visit", "fieldtype": "Link", "label": "Patient Visit", "options": "Patient Visit", "read_only": 1}
+ ],
+ "icon": "calendar",
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-10-26 00:13:00.000000",
+ "modified_by": "Administrator",
+ "module": "HMS",
+ "name": "Patient Appointment",
+ "owner": "Administrator",
+ "permissions": [
+  {"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1, "print": 1, "email": 1, "share": 1, "report": 1},
+  {"role": "Receptionist", "read": 1, "write": 1, "create": 1, "print": 1, "email": 1},
+  {"role": "Doctor", "read": 1}
+ ],
+ "quick_entry": 1,
+ "row_format": "Dynamic",
+ "sort_field": "appointment_date",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

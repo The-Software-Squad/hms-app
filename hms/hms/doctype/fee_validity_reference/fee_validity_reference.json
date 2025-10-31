@@ -1,0 +1,26 @@
+{
+ "actions": [],
+ "creation": "2025-10-26 00:30:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "visit"
+ ],
+ "fields": [
+  {"fieldname": "visit", "fieldtype": "Link", "label": "Patient Visit", "options": "Patient Visit", "in_list_view": 1, "reqd": 1}
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2025-10-26 00:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "HMS",
+ "name": "Fee Validity Reference",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
+

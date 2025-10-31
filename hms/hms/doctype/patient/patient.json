@@ -1,39 +1,68 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:P{YYYY}{MM}{DD}{###}",
+ "autoname": "naming_series:",
  "creation": "2024-07-04 18:01:29.207049",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "details_tab",
   "basic_details_section",
+  "naming_series",
   "patient_name",
-  "patient_age",
   "patient_gender",
-  "patient_location",
+  "blood_group",
+  "dob",
+  "age_html",
   "column_break_mahh",
   "patient_picture",
+  "status",
+  "uid",
   "patient_phone_number",
   "patient_email",
-  "follow_ups_section",
-  "latest_op_expires_on",
-  "column_break_xdpu",
+  "patient_location",
   "follow_up",
+  "validity_expiring_on",
   "other_information_section",
-  "op_records",
   "patient_visits_tab",
   "history_section",
   "previous_visits",
+  "background_tab",
+  "personal_section",
+  "occupation",
+  "column_break_owdw",
+  "marital_status",
+  "allergies_medical_and_surgical_history_section",
+  "allergies",
+  "surgical_history",
+  "column_break_qquy",
+  "medication",
+  "medical_history",
+  "risk_factors_section",
+  "tobacco_consumption_past",
+  "tobacco_consumption_present",
+  "alcohol_consumption_past",
+  "alcohol_consumption_present",
+  "column_break_vbas",
+  "occupational_hazards_and_environmental_factors",
+  "other_risk_factors",
   "doctor_notes_tab",
   "doctor_notes_section",
-  "patient_remarks_by_doctor"
+  "patient_remarks_by_doctor",
+  "patient_age"
  ],
  "fields": [
   {
    "fieldname": "basic_details_section",
    "fieldtype": "Section Break",
    "label": "Basic Details"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "HMS-PAT-.YYYY.-",
+   "set_only_once": 1
   },
   {
    "fieldname": "patient_name",
@@ -47,10 +76,28 @@
    "reqd": 1
   },
   {
+   "fieldname": "blood_group",
+   "fieldtype": "Select",
+   "label": "Blood Group",
+   "options": "\nA Positive\nA Negative\nAB Positive\nAB Negative\nB Positive\nB Negative\nO Positive\nO Negative"
+  },
+  {
+   "fieldname": "dob",
+   "fieldtype": "Date",
+   "label": "Date of Birth"
+  },
+  {
+   "fieldname": "age_html",
+   "fieldtype": "HTML",
+   "label": "Age",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
    "fieldname": "patient_age",
    "fieldtype": "Data",
-   "label": "Age",
-   "reqd": 1
+   "hidden": 1,
+   "label": "Age"
   },
   {
    "fieldname": "patient_gender",
@@ -60,10 +107,11 @@
   },
   {
    "fieldname": "patient_phone_number",
-   "fieldtype": "Phone",
+   "fieldtype": "Data",
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Phone Number",
+   "label": "Mobile",
+   "options": "Phone",
    "reqd": 1
   },
   {
@@ -77,6 +125,29 @@
    "label": "Email"
   },
   {
+   "fieldname": "validity_expiring_on",
+   "fieldtype": "Date",
+   "in_filter": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Validity Expiring On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Active\nDisabled"
+  },
+  {
+   "fieldname": "uid",
+   "fieldtype": "Data",
+   "label": "Identification Number (UID)",
+   "unique": 1
+  },
+  {
    "fieldname": "column_break_mahh",
    "fieldtype": "Column Break"
   },
@@ -87,24 +158,6 @@
    "in_standard_filter": 1,
    "label": "Location",
    "reqd": 1
-  },
-  {
-   "fieldname": "follow_ups_section",
-   "fieldtype": "Section Break",
-   "label": "Follow Ups"
-  },
-  {
-   "fieldname": "latest_op_expires_on",
-   "fieldtype": "Date",
-   "in_filter": 1,
-   "in_preview": 1,
-   "in_standard_filter": 1,
-   "label": "OP Expiring On",
-   "read_only": 1
-  },
-  {
-   "fieldname": "column_break_xdpu",
-   "fieldtype": "Column Break"
   },
   {
    "fieldname": "follow_up",
@@ -142,12 +195,6 @@
    "label": "Other Information"
   },
   {
-   "fieldname": "op_records",
-   "fieldtype": "Table",
-   "label": "OP Records",
-   "options": "Out Patient"
-  },
-  {
    "fieldname": "patient_visits_tab",
    "fieldtype": "Tab Break",
    "label": "Patient Visits"
@@ -161,11 +208,132 @@
    "fieldname": "previous_visits",
    "fieldtype": "HTML",
    "label": "Previous visits"
+  },
+  {
+   "fieldname": "allergies",
+   "fieldtype": "Small Text",
+   "label": "Allergies"
+  },
+  {
+   "fieldname": "medication",
+   "fieldtype": "Small Text",
+   "label": "Medication"
+  },
+  {
+   "fieldname": "medical_history",
+   "fieldtype": "Small Text",
+   "label": "Medical History"
+  },
+  {
+   "fieldname": "surgical_history",
+   "fieldtype": "Small Text",
+   "label": "Surgical History"
+  },
+  {
+   "fieldname": "occupation",
+   "fieldtype": "Data",
+   "label": "Occupation"
+  },
+  {
+   "fieldname": "marital_status",
+   "fieldtype": "Select",
+   "label": "Marital Status",
+   "options": "\nSingle\nMarried\nDivorced\nWidow"
+  },
+  {
+   "fieldname": "background_tab",
+   "fieldtype": "Tab Break",
+   "label": "Background"
+  },
+  {
+   "fieldname": "personal_section",
+   "fieldtype": "Section Break",
+   "label": "Personal"
+  },
+  {
+   "fieldname": "column_break_owdw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "allergies_medical_and_surgical_history_section",
+   "fieldtype": "Section Break",
+   "label": "Allergies, Medical and Surgical History"
+  },
+  {
+   "fieldname": "column_break_qquy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "risk_factors_section",
+   "fieldtype": "Section Break",
+   "label": "Risk Factors"
+  },
+  {
+   "fieldname": "tobacco_consumption_past",
+   "fieldtype": "Data",
+   "label": "Tobacco Consumption (Past)"
+  },
+  {
+   "fieldname": "tobacco_consumption_present",
+   "fieldtype": "Data",
+   "label": "Tobacco Consumption (Present)"
+  },
+  {
+   "fieldname": "alcohol_consumption_past",
+   "fieldtype": "Data",
+   "label": "Alcohol Consumption (Past)"
+  },
+  {
+   "fieldname": "alcohol_consumption_present",
+   "fieldtype": "Data",
+   "label": "Alcohol Consumption (Present)"
+  },
+  {
+   "fieldname": "column_break_vbas",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "occupational_hazards_and_environmental_factors",
+   "fieldtype": "Small Text",
+   "label": "Occupational Hazards and Environmental Factors"
+  },
+  {
+   "fieldname": "other_risk_factors",
+   "fieldtype": "Small Text",
+   "label": "Other Risk Factors"
   }
  ],
+ "icon": "fa fa-user",
+ "image_field": "patient_picture",
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2025-10-24 20:41:02.821165",
+ "links": [
+  {
+   "group": "Visits",
+   "link_doctype": "Fee Validity",
+   "link_fieldname": "patient"
+  },
+  {
+   "group": "Visits",
+   "link_doctype": "Patient Visit",
+   "link_fieldname": "patient"
+  },
+  {
+   "group": "Diagnostics",
+   "link_doctype": "Lab Report",
+   "link_fieldname": "patient"
+  },
+  {
+   "group": "Admissions",
+   "link_doctype": "IP Record",
+   "link_fieldname": "patient"
+  },
+  {
+   "group": "Admissions",
+   "link_doctype": "Discharge Summary",
+   "link_fieldname": "patient"
+  }
+ ],
+ "modified": "2025-10-26 01:33:43.644441",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "Patient",
@@ -210,7 +378,11 @@
    "write": 1
   }
  ],
+ "quick_entry": 1,
  "row_format": "Dynamic",
+ "search_fields": "patient_name,patient_phone_number,patient_email",
+ "show_name_in_global_search": 1,
+ "show_title_field_in_link": 1,
  "sort_field": "creation",
  "sort_order": "DESC",
  "states": [],

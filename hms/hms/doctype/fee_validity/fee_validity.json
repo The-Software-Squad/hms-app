@@ -1,0 +1,174 @@
+{
+ "actions": [],
+ "allow_copy": 1,
+ "allow_import": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-10-26 00:28:00",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "practitioner",
+  "patient",
+  "department",
+  "column_break_3",
+  "status",
+  "patient_visit",
+  "sales_invoice_ref",
+  "section_break_3",
+  "max_visits",
+  "visited",
+  "ref_visits",
+  "column_break_6",
+  "start_date",
+  "valid_till"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "HMS-FV-.YYYY.-",
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "practitioner",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Healthcare Practitioner",
+   "options": "Healthcare Practitioner",
+   "read_only": 1,
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "patient",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Patient",
+   "options": "Patient",
+   "read_only": 1,
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department Type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Active\nExpired\nCompleted\nCancelled",
+   "read_only": 1
+  },
+  {
+   "fieldname": "patient_visit",
+   "fieldtype": "Link",
+   "label": "Patient Visit (Initial)",
+   "options": "Patient Visit",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sales_invoice_ref",
+   "fieldtype": "Link",
+   "label": "Sales Invoice Reference",
+   "options": "Sales Invoice",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break",
+   "label": "Validity",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "max_visits",
+   "fieldtype": "Int",
+   "label": "Max number of free visits",
+   "read_only": 1
+  },
+  {
+   "fieldname": "visited",
+   "fieldtype": "Int",
+   "label": "Visits Completed",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ref_visits",
+   "fieldtype": "Table MultiSelect",
+   "label": "Reference Patient Visits",
+   "options": "Fee Validity Reference",
+   "read_only": 1
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "valid_till",
+   "fieldtype": "Date",
+   "label": "Valid Till",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "icon": "ticket",
+ "in_create": 1,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-10-26 03:11:41.119518",
+ "modified_by": "Administrator",
+ "module": "HMS",
+ "name": "Fee Validity",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Receptionist"
+  },
+  {
+   "read": 1,
+   "role": "Doctor"
+  }
+ ],
+ "quick_entry": 1,
+ "row_format": "Dynamic",
+ "search_fields": "practitioner, patient",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "practitioner",
+ "track_changes": 1
+}

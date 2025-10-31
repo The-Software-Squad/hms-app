@@ -12,7 +12,13 @@ def boot_session(bootinfo):
         "Medicine",
         "Bed",
         "Ward",
-        "Lab Report Type"
+        "Lab Report Type",
+        "Healthcare Practitioner",
+        "Practitioner Schedule",
+        "Practitioner Schedule Time Slot",
+        "Patient Appointment",
+        "Fee Validity",
+        "Fee Validity Reference"
     ]
 
     # Initialize dicts inside bootinfo

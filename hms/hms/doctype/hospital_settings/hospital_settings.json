@@ -8,7 +8,16 @@
   "hopital_name",
   "phone_number",
   "email",
-  "location_point"
+  "location_point",
+  "integration_section",
+  "link_customer_to_patient",
+  "default_customer_group",
+  "default_territory",
+  "default_price_list",
+  "followup_section",
+  "enable_free_follow_ups",
+  "valid_days",
+  "max_visits"
  ],
  "fields": [
   {
@@ -30,6 +39,83 @@
    "fieldname": "location_point",
    "fieldtype": "Geolocation",
    "label": "Location"
+  },
+  {
+   "fieldname": "integration_section",
+   "fieldtype": "Section Break",
+   "label": "ERPNext Integration"
+  },
+  {
+   "default": "0",
+   "fieldname": "link_customer_to_patient",
+   "fieldtype": "Check",
+   "label": "Link Customer to Patient",
+   "description": "Create/maintain a Customer for each Patient"
+  },
+  {
+   "fieldname": "default_customer_group",
+   "fieldtype": "Link",
+   "label": "Default Customer Group",
+   "options": "Customer Group"
+  },
+  {
+   "fieldname": "default_territory",
+   "fieldtype": "Link",
+   "label": "Default Territory",
+   "options": "Territory"
+  },
+  {
+   "fieldname": "default_price_list",
+   "fieldtype": "Link",
+   "label": "Default Selling Price List",
+   "options": "Price List"
+  },
+  {
+   "fieldname": "followup_section",
+   "fieldtype": "Section Break",
+   "label": "Follow-up Settings"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_free_follow_ups",
+   "fieldtype": "Check",
+   "label": "Enable Free Follow-ups"
+  },
+  {
+   "default": 7,
+   "fieldname": "valid_days",
+   "fieldtype": "Int",
+   "label": "Validity (Days)"
+  },
+  {
+   "default": 1,
+   "fieldname": "max_visits",
+   "fieldtype": "Int",
+   "label": "Max Free Visits"
+  },
+  {
+   "fieldname": "billing_section",
+   "fieldtype": "Section Break",
+   "label": "Billing"
+  },
+  {
+   "fieldname": "fee_validity_item_name",
+   "fieldtype": "Data",
+   "label": "Fee Validity Item Name",
+   "default": "Fee Validity"
+  },
+  {
+   "fieldname": "fee_validity_rate",
+   "fieldtype": "Currency",
+   "label": "Fee Validity Rate",
+   "default": 0
+  },
+  {
+   "fieldname": "default_income_account",
+   "fieldtype": "Link",
+   "label": "Default Income Account",
+   "options": "Account",
+   "description": "Used when creating invoices for Fee Validity if company defaults are not set"
   }
  ],
  "index_web_pages_for_search": 1,

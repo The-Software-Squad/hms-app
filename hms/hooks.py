@@ -4,6 +4,20 @@ app_publisher = "nani-samireddy"
 app_description = "hospital Management System"
 app_email = "nanisamireddy05@gmail.com"
 app_license = "mit"
+
+# App visuals and home
+app_icon = "octicon octicon-hubot"
+app_color = "blue"
+app_home = "/app/hms"
+
+add_to_apps_screen = [
+	{
+		"name": "hms",
+		"logo": "/assets/hms/images/hms.svg",
+		"title": "HMS",
+		"route": "/app/hms",
+	}
+]
 # required_apps = []
 
 
@@ -20,6 +34,22 @@ website_route_rules = [
 		"to_route": "hms",
 	},
 ]
+
+global_search_doctypes = {
+	"HMS": [
+		{"doctype": "Patient", "index": 1},
+		{"doctype": "Patient Visit", "index": 2},
+		{"doctype": "IP Record", "index": 3},
+		{"doctype": "Discharge Summary", "index": 4},
+		{"doctype": "Lab Report", "index": 5},
+		{"doctype": "Healthcare Practitioner", "index": 6},
+		{"doctype": "Patient Appointment", "index": 7},
+		{"doctype": "Fee Validity", "index": 8},
+		{"doctype": "Ward", "index": 9},
+		{"doctype": "Bed", "index": 10},
+		{"doctype": "Medicine", "index": 11}
+	]
+}
 
 
 # Fixtures
@@ -73,9 +103,11 @@ fixtures = [
 # home_page = "login"
 
 # website user home page (by Role)
-# role_home_page = {
-# 	"Role": "home_page"
-# }
+role_home_page = {
+	"Receptionist": "/app/reception-dashboard",
+	"Doctor": "/app/doctor-dashboard",
+	"Pharmacist": "/app/pharmacist-dashboard",
+}
 
 # Generators
 # ----------
@@ -146,27 +178,29 @@ fixtures = [
 # 	"ToDo": "custom_app.overrides.CustomToDo"
 # }
 
-# Document Events
-# ---------------
-# Hook on document methods and events
+"""
+Document Events
+---------------
+Hook on document methods and events
+"""
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+	"Patient Visit": {
+		"after_insert": "hms.hms.doctype.fee_validity.fee_validity.manage_fee_validity_on_visit",
+	}
+}
 
 # Scheduled Tasks
 # ---------------
+
 
 scheduler_events = {
 	# "all": [
 	# 	"hms.tasks.all"
 	# ],
 	"daily": [
-		"hms.tasks.daily"
+		"hms.tasks.daily",
+		"hms.hms.doctype.fee_validity.fee_validity.update_validity_status",
 	],
 	# "hourly": [
 	# 	"hms.tasks.hourly"
@@ -254,4 +288,3 @@ scheduler_events = {
 # default_log_clearing_doctypes = {
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
-

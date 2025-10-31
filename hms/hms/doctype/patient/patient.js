@@ -5,22 +5,47 @@ frappe.ui.form.on("Patient", {
 		if (!frm.doc.__islocal) {
 			// Show IP Records Button
 			add_ip_record_button(frm);
-			// ---------- Fetch and Update Fields ----------
-			fetch_and_update_fields(frm);
+    // ---------- Fetch and Update Fields ----------
+            fetch_and_update_fields(frm);
 			// Conditionally show New Patient Visit if active Out Patient exists
 			add_new_patient_visit_button_if_active_op(frm);
 			// Render patient history table in HTML field
 			render_previous_visits_table(frm);
 		}
 
-		// Add view buttons for Visit History, Lab Reports, and IP Records
-		add_view_buttons(frm);
+        // Add view buttons for Visit History, Lab Reports, and IP Records
+        add_view_buttons(frm);
+
+		// Update age display if DOB present
+		update_age_html(frm);
+
+		// Address & Contact UI
+		frm.toggle_display(['address_html', 'contact_html', 'address_contacts'], !frm.is_new());
+		if (frm.is_new()) {
+			frappe.contacts && frappe.contacts.clear_address_and_contact(frm);
+		} else {
+			frappe.contacts && frappe.contacts.render_address_and_contact(frm);
+		}
 	},
 	refresh(frm) {
-		if (!frm.doc.__islocal) {
-			add_new_patient_visit_button_if_active_op(frm);
-			render_previous_visits_table(frm);
+        if (!frm.doc.__islocal) {
+            add_new_patient_visit_button(frm);
+            render_previous_visits_table(frm);
+        }
+
+		// Keep age HTML in sync
+		update_age_html(frm);
+
+		// Address & Contact UI
+		frm.toggle_display(['address_html', 'contact_html', 'address_contacts'], !frm.is_new());
+		if (frm.is_new()) {
+			frappe.contacts && frappe.contacts.clear_address_and_contact(frm);
+		} else {
+			frappe.contacts && frappe.contacts.render_address_and_contact(frm);
 		}
+	},
+	dob(frm) {
+		update_age_html(frm);
 	}
 });
 
@@ -54,52 +79,38 @@ function add_view_buttons(frm) {
 }
 
 function fetch_and_update_fields(frm) {
-	const api_endpoints = [
-		{
-			method: "hms.api.patient.get_latest_op_expiry",
-			fieldname: "latest_op_expires_on"
-		},
-		{
-			method: "hms.api.patient.get_latest_follow_up",
-			fieldname: "follow_up"
-		}
-	];
+    const calls = [
+        {
+            method: "hms.api.patient.get_latest_follow_up",
+            fieldname: "follow_up"
+        },
+        {
+            method: "hms.api.patient.get_latest_validity_expiry",
+            fieldname: "validity_expiring_on"
+        }
+    ];
 
-	api_endpoints.forEach(endpoint => {
-		frappe.call({
-			method: endpoint.method,
-			args: {
-				patient: frm.doc.name
-			},
-			callback: (r) => {
-				const new_value = r.message;
-				const current_value = frm.doc[endpoint.fieldname];
-				
-				if (new_value && new_value !== current_value) {
-					frm.set_value(endpoint.fieldname, new_value);
-					
-					// save the form after updating fields
-					frm.save();
-				}
-			}
-		});
-	});
-
+    calls.forEach((c) => {
+        frappe.call({
+            method: c.method,
+            args: { patient: frm.doc.name },
+            callback: (r) => {
+                const new_value = r.message;
+                const current_value = frm.doc[c.fieldname];
+                if (new_value && new_value !== current_value) {
+                    frm.set_value(c.fieldname, new_value);
+                    frm.save();
+                }
+            }
+        });
+    });
 }
 
-function add_new_patient_visit_button_if_active_op(frm) {
-	frappe.call({
-		method: "hms.api.patient.has_active_out_patient",
-		args: { patient: frm.doc.name },
-		callback: (r) => {
-			if (r.message) {
-				frm.add_custom_button("New Patient Visit", () => {
-					frappe.route_options = { patient: frm.doc.name };
-					frappe.set_route("Form", "Patient Visit", "new-patient-visit");
-				});
-			}
-		}
-	});
+function add_new_patient_visit_button(frm) {
+    frm.add_custom_button("New Patient Visit", () => {
+        frappe.route_options = { patient: frm.doc.name };
+        frappe.set_route("Form", "Patient Visit", "new-patient-visit");
+    });
 }
 
 function add_ip_record_button(frm) {
@@ -197,57 +208,41 @@ function render_previous_visits_table(frm) {
 	});
 }
 
-frappe.ui.form.on('Out Patient', {
-	op_records_add(frm, cdt, cdn) {
-		let row = locals[cdt][cdn];
-		
-		// Get the current date.
-		let current_date = frappe.datetime.nowdate();
-		
-		// Check for overlapping dates
-		if (isDateOverlapping(frm, cdt, cdn, current_date)) {
-			return;
+// Removed Out Patient child table handlers as Fee Validity supersedes OP
+
+function update_age_html(frm) {
+	const dob = frm.doc.dob;
+	const target = frm.fields_dict.age_html?.$wrapper;
+	if (!target) return;
+
+	if (!dob) {
+		target.html('<span class="text-muted">—</span>');
+		return;
+	}
+
+	try {
+		const birth = frappe.datetime.str_to_obj(dob);
+		const today = new Date();
+		let years = today.getFullYear() - birth.getFullYear();
+		let months = today.getMonth() - birth.getMonth();
+		let days = today.getDate() - birth.getDate();
+
+		if (days < 0) {
+			months -= 1;
+			days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+		}
+		if (months < 0) {
+			years -= 1;
+			months += 12;
 		}
 
-		// Set the 'from' date to the current date if it's empty
-		if (!row.from) {
-			frappe.model.set_value(cdt, cdn, 'from', current_date);
-		}
+		const parts = [];
+		if (years > 0) parts.push(`${years}y`);
+		if (months > 0) parts.push(`${months}m`);
+		if (years <= 0 && months <= 0) parts.push(`${days}d`);
 
-		if (row.from && !row.to) {  // Only if 'to' is empty
-			let to_date = frappe.datetime.add_days(row.from, 30);
-			frappe.model.set_value(cdt, cdn, 'to', to_date);
-		}
-	},
-
-	from(frm, cdt, cdn) {
-		let row = locals[cdt][cdn];
-		
-		// Check for overlapping dates
-		if (isDateOverlapping(frm, cdt, cdn, row.from)) {
-			frappe.model.set_value(cdt, cdn, 'from', null);
-			frappe.msgprint(__('The selected "From" date overlaps with an existing Out Patient record. Please choose a different date.'));
-			return;
-		}
-
-		if (row.from) {  // Only if 'to' is empty
-			let to_date = frappe.datetime.add_days(row.from, 30);
-			frappe.model.set_value(cdt, cdn, 'to', to_date);
-		}
-	},
-});
-
-function isDateOverlapping(frm, cdt, cdn, selectedDate) {
-	let isOverlapping = false;
-	frm.doc.op_records.forEach(record => {
-		if (record.name !== cdn) { // Exclude the current record being edited
-			let recordFrom = record.from;
-			let recordTo = record.to || frappe.datetime.add_days(record.from, 30); // Default to 30 days if 'to' is not set
-
-			if (selectedDate >= recordFrom && selectedDate <= recordTo) {
-				isOverlapping = true;
-			}
-		}
-	});
-	return isOverlapping;
+		target.html(`<span>${parts.join(' ')}</span>`);
+	} catch (e) {
+		target.html('<span class="text-muted">—</span>');
+	}
 }

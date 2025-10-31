@@ -1,0 +1,43 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-10-26 00:11:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "practitioner",
+  "effective_from",
+  "effective_upto",
+  "column_break_a",
+  "time_slots"
+ ],
+ "fields": [
+  {"fieldname": "naming_series", "fieldtype": "Select", "label": "Series", "options": "HMS-PS-.YYYY.-", "set_only_once": 1},
+  {"fieldname": "practitioner", "fieldtype": "Link", "label": "Healthcare Practitioner", "options": "Healthcare Practitioner", "reqd": 1, "in_list_view": 1},
+  {"fieldname": "effective_from", "fieldtype": "Date", "label": "Effective From", "in_list_view": 1},
+  {"fieldname": "effective_upto", "fieldtype": "Date", "label": "Effective Upto"},
+  {"fieldname": "column_break_a", "fieldtype": "Column Break"},
+  {"fieldname": "time_slots", "fieldtype": "Table", "label": "Time Slots", "options": "Practitioner Schedule Time Slot"}
+ ],
+ "icon": "calendar",
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-10-26 00:11:00.000000",
+ "modified_by": "Administrator",
+ "module": "HMS",
+ "name": "Practitioner Schedule",
+ "owner": "Administrator",
+ "permissions": [
+  {"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1, "print": 1, "email": 1, "share": 1, "report": 1},
+  {"role": "Doctor", "read": 1},
+  {"role": "Receptionist", "read": 1, "create": 1, "write": 1}
+ ],
+ "quick_entry": 1,
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
+

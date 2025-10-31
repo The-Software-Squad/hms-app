@@ -1,5 +1,4 @@
 import frappe
-from hms.utils import has_active_out_patient_record
 
 
 @frappe.whitelist()
@@ -48,39 +47,9 @@ def get_previous_patient_visits(patient, exclude_visit=None, limit=10, offset=0)
 	return visits
 
 
-@frappe.whitelist()
-def has_active_out_patient(patient: str) -> bool:
-	"""Return True if patient has an active Out Patient (child) record.
-
-	This is a thin wrapper over utils for convenient client-side checks.
-	"""
-	if not patient:
-		return False
-	try:
-		return bool(has_active_out_patient_record(patient))
-	except Exception:
-		return False
+## Removed Out Patient based API in favor of Fee Validity flow
 
 from frappe.utils import today
-
-@frappe.whitelist()
-def get_latest_op_expiry(patient):
-	"""Return the latest Out Patient expiry date from Patient's child table.
-
-	Falls back to None if no rows present or dates missing.
-	"""
-	if not patient:
-		return None
-	try:
-		p = frappe.get_doc("Patient", patient)
-		latest = None
-		for row in getattr(p, "op_records", []) or []:
-			row_to = row.get("to") if isinstance(row, dict) else getattr(row, "to", None)
-			if row_to and (latest is None or row_to > latest):
-				latest = row_to
-		return latest
-	except Exception:
-		return None
 
 @frappe.whitelist()
 def get_latest_follow_up(patient):
@@ -92,6 +61,25 @@ def get_latest_follow_up(patient):
 		limit=1
 	)
 	return result[0].follow_up if result and result[0].follow_up else None
+
+@frappe.whitelist()
+def get_latest_validity_expiry(patient):
+	"""Return the furthest valid_till among active Fee Validities for patient."""
+	if not patient:
+		return None
+	try:
+		row = frappe.db.sql(
+			"""
+			select max(valid_till) as dt
+			from `tabFee Validity`
+			where patient=%s and status='Active'
+			""",
+			(patient,),
+			as_dict=True,
+		)
+		return row[0].dt if row and row[0].dt else None
+	except Exception:
+		return None
 
 @frappe.whitelist()
 def get_previous_treatments(ip_record, start=0, page_length=5, exclude_treatment=None):

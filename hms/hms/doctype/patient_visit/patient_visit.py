@@ -5,19 +5,12 @@ import frappe
 from frappe.model.document import Document
 from frappe import _
 from datetime import datetime
-from hms.utils import has_active_out_patient_record
 
 class PatientVisit(Document):
 	def before_insert(self):
 		if not self.patient:
 			frappe.throw(_("Please select a patient for creating a patient visit"), title="Patient Required")
-		
-		# check if the patient has an active Out Patient record (child table entry)
-		if not has_active_out_patient_record(self.patient):
-			frappe.throw(_("Patient does not have an active Out Patient record. Please add one before proceeding."), title="No Active Out Patient")
-		
-
-		
+		# No OP gating: Fee Validity is managed automatically on visit insert
 	# def validate(self):
 	# 	if self.is_new():
 	# 		if not self.op_record:

@@ -1,12 +1,13 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:IP-{patient}-{YYYY}{MM}{DD}",
+ "autoname": "naming_series:",
  "creation": "2025-06-22 23:31:16.668264",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "summary_section",
+  "naming_series",
   "patient",
   "admission_date",
   "bed",
@@ -22,6 +23,13 @@
    "fieldname": "summary_section",
    "fieldtype": "Section Break",
    "label": "Summary"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "HMS-IP-.YYYY.-",
+   "set_only_once": 1
   },
   {
    "fieldname": "patient",
@@ -109,6 +117,7 @@
   }
  ],
  "row_format": "Dynamic",
+ "search_fields": "patient,admission_date,status,doctor",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []
