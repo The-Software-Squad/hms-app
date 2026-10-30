@@ -14,7 +14,7 @@
    "label": "Payment Mode"
   }
  ],
- "content": "[{\"id\":\"GfyfucCzc9\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Accounts</span>\",\"col\":12}},{\"id\":\"cA-4eQPzC4\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Total Collection\",\"col\":12}},{\"id\":\"Q4zeddu25D\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Payment Mode\",\"col\":6}},{\"id\":\"TYjJD2luC2\",\"type\":\"chart\",\"data\":{\"chart_name\":\"By Purpose\",\"col\":12}}]",
+ "content": "[{\"id\": \"hms-user-guide\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"User guide\", \"col\": 3}}, {\"id\": \"GfyfucCzc9\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\">Accounts</span>\", \"col\": 12}}, {\"id\": \"cA-4eQPzC4\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Total Collection\", \"col\": 12}}, {\"id\": \"Q4zeddu25D\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Payment Mode\", \"col\": 6}}, {\"id\": \"TYjJD2luC2\", \"type\": \"chart\", \"data\": {\"chart_name\": \"By Purpose\", \"col\": 12}}, {\"id\": \"accounts-0\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Invoices and Credits\", \"col\": 4}}, {\"id\": \"accounts-1\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Payments and Refunds\", \"col\": 4}}, {\"id\": \"accounts-reconciliation\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Reconciliation\", \"col\": 4}}]",
  "creation": "2025-06-22 18:02:29.455423",
  "custom_blocks": [],
  "docstatus": 0,
@@ -27,7 +27,7 @@
  "is_hidden": 0,
  "label": "Accounts",
  "links": [],
- "modified": "2025-10-09 18:59:52.909641",
+ "modified": "2026-10-19 11:00:00.000000",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "Accounts",
@@ -39,10 +39,38 @@
  "roles": [
   {
    "role": "System Manager"
+  },
+  {
+   "role": "Receptionist"
   }
  ],
  "sequence_id": 6.0,
- "shortcuts": [],
+ "shortcuts": [
+  {
+   "type": "DocType",
+   "link_to": "HMS Invoice",
+   "label": "Invoices and Credits",
+   "doc_view": "List"
+  },
+  {
+   "type": "DocType",
+   "link_to": "Payment Recipit",
+   "label": "Payments and Refunds",
+   "doc_view": "List"
+  },
+  {
+   "type": "Report",
+   "link_to": "HMS Reconciliation",
+   "label": "Reconciliation",
+   "doc_view": "",
+   "report_ref_doctype": "HMS Invoice"
+  },
+  {
+   "type": "Page",
+   "link_to": "hms-guide",
+   "label": "User guide"
+  }
+ ],
  "title": "Accounts",
  "type": "Workspace"
 }

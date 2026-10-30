@@ -1,136 +1,55 @@
-// Copyright (c) 2025, nani-samireddy and contributors
-// For license information, please see license.txt
-
 frappe.ui.form.on("In Patient Treatment", {
-	onload(frm) {
+	refresh(frm) {
 		if (frm.is_new()) return;
-
-		let offset = 0;
-		const page_size = 10;
-		let loading = false;
-		let no_more_data = false;
-
 		const wrapper = frm.fields_dict.previous_treatments?.$wrapper;
-		wrapper.html('<div id="treatment-container" style="padding: 8px;"></div>');
-		const container = wrapper.find("#treatment-container");
-
-		function render_treatments(treatments) {
-			treatments.forEach(t => {
-				const treatmentDate = frappe.datetime.str_to_user(t.date || '');
-				const doctor = t.doctor || '—';
-				const diagnosis = t.diagnosis_update || '—';
-				const meds = t.medications_given || '—';
-
-				// Build vitals table
-				let vitals_html = '';
-				if (t.vitals && t.vitals.length > 0) {
-					vitals_html += `
-					<p><strong>Vitals:</strong></p>
-					<div class="table-responsive">
-					<table class="table table-bordered table-sm">
-						<thead class="table-light">
-							<tr>
-								<th>Time</th>
-								<th>Temp (°F)</th>
-								<th>Pulse</th>
-								<th>BP</th>
-								<th>Resp. Rate</th>
-								<th>Recorded By</th>
-							</tr>
-						</thead>
-						<tbody>
-					`;
-
-					t.vitals.forEach(v => {
-						vitals_html += `
-							<tr>
-								<td>${v.time || '-'}</td>
-								<td>${v.temperature ?? '-'}</td>
-								<td>${v.pulse ?? '-'}</td>
-								<td>${v.blood_pressure || '-'}</td>
-								<td>${v.respiratory_rate ?? '-'}</td>
-								<td>${frappe.utils.escape_html(v.recorded_by || '-')}</td>
-							</tr>`;
-					});
-
-					vitals_html += `
-						</tbody>
-					</table>
-					</div>`;
-				} else {
-					vitals_html = `<p><strong>Vitals:</strong> No vitals recorded.</p>`;
-				}
-
-				// Append treatment card
-				container.append(`
-<div class="treatment-entry" style="margin-bottom: 16px; padding: 12px; border: 1px solid #d1d8dd; border-radius: 6px;">
-	<div class="treatment-header" style="
-		display: grid;
-		grid-template-columns: 2fr 2fr 1fr;
-		column-gap: 12px;
-		row-gap: 4px;
-		align-items: center;
-		margin-bottom: 18px;
-	">
-		<div>
-			<strong>Date:</strong> ${treatmentDate}<br>
-			<strong>Doctor:</strong> ${frappe.utils.escape_html(doctor)}
-		</div>
-		<div>
-			<a href="/app/in-patient-treatment/${t.name}" target="_blank" class="btn btn-sm btn-primary">
-			Edit Details
-			</a>
-		</div>
-	</div>
-	${vitals_html}
-	<p><strong>Diagnosis:</strong><br>
-		<pre style="white-space: pre-wrap; margin: 4px 0;">${diagnosis}</pre>
-	</p>
-	<p><strong>💊 Medications:</strong><br>
-		<pre style="white-space: pre-wrap; margin: 4px 0;">${meds}</pre>
-	</p>
-</div>
-				`);
-			});
-		}
-
-		function load_treatments() {
-			if (loading || no_more_data) return;
-			loading = true;
-
-			frappe.call({
-				method: "hms.api.patient.get_previous_treatments",
-				args: {
-					ip_record: frm.doc.in_patient,
-					start: offset,
-					page_length: page_size,
-					exclude_treatment: frm.doc.name
-				},
-				callback(r) {
-					const data = r.message || [];
-					if (data.length === 0) {
-						no_more_data = true;
-					} else {
-						render_treatments(data);
-						offset += data.length;
-					}
-					loading = false;
-				}
-			});
-		}
-
-		// Initial load
-		load_treatments();
-
-		// Infinite Scroll
-		container.on('scroll', function () {
-			const scrollTop = container.scrollTop();
-			const scrollHeight = container.prop('scrollHeight');
-			const containerHeight = container.outerHeight();
-
-			if ((scrollTop + containerHeight) / scrollHeight > 0.7 && !loading) {
-				load_treatments();
+		if (!wrapper) return;
+		wrapper.empty();
+		const list = $("<div>").appendTo(wrapper);
+		const more = $("<button type='button' class='btn btn-default btn-sm'>")
+			.text(__("Load treatment history"))
+			.appendTo(wrapper);
+		let start = 0;
+		more.on("click", async () => {
+			more.prop("disabled", true);
+			try {
+				const { message: rows } = await frappe.call({
+					method: "hms.api.patient.get_previous_treatments",
+					args: {
+						ip_record: frm.doc.in_patient,
+						exclude_treatment: frm.doc.name,
+						start,
+						page_length: 10,
+					},
+				});
+				(rows || []).forEach((row) => {
+					const card = $("<div class='border rounded p-3 mb-3'>").appendTo(list);
+					$("<a>")
+						.attr("href", `/desk/in-patient-treatment/${encodeURIComponent(row.name)}`)
+						.text(`${row.date} · ${row.doctor || ""}`)
+						.appendTo(card);
+					for (const value of [row.diagnosis_update, row.medications_given])
+						$("<div>")
+							.text(strip_html(value || ""))
+							.appendTo(card);
+					(row.vitals || []).forEach((v) =>
+						$("<p>")
+							.text(
+								`${v.time}: ${v.temperature ?? "—"} °F; pulse ${
+									v.pulse ?? "—"
+								}; BP ${v.blood_pressure || "—"}; respirations ${
+									v.respiratory_rate ?? "—"
+								}; ${v.recorded_by || ""}`
+							)
+							.appendTo(card)
+					);
+				});
+				start += (rows || []).length;
+				more.text((rows || []).length < 10 ? __("All history loaded") : __("Load more"));
+				more.prop("disabled", (rows || []).length < 10);
+			} catch (error) {
+				more.prop("disabled", false);
 			}
 		});
-	}
+		more.trigger("click");
+	},
 });

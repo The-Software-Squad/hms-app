@@ -49,7 +49,8 @@
   "doctor_notes_tab",
   "doctor_notes_section",
   "patient_remarks_by_doctor",
-  "patient_age"
+  "patient_age",
+  "duplicate_candidates"
  ],
  "fields": [
   {
@@ -122,7 +123,8 @@
   {
    "fieldname": "patient_email",
    "fieldtype": "Data",
-   "label": "Email"
+   "label": "Email",
+   "options": "Email"
   },
   {
    "fieldname": "validity_expiring_on",
@@ -139,7 +141,8 @@
    "in_filter": 1,
    "in_list_view": 1,
    "label": "Status",
-   "options": "Active\nDisabled"
+   "options": "Active\nDisabled",
+   "default": "Active"
   },
   {
    "fieldname": "uid",
@@ -182,7 +185,8 @@
   {
    "fieldname": "patient_remarks_by_doctor",
    "fieldtype": "Text Editor",
-   "label": "Remarks"
+   "label": "Remarks",
+   "permlevel": 1
   },
   {
    "fieldname": "details_tab",
@@ -212,22 +216,26 @@
   {
    "fieldname": "allergies",
    "fieldtype": "Small Text",
-   "label": "Allergies"
+   "label": "Allergies",
+   "permlevel": 1
   },
   {
    "fieldname": "medication",
    "fieldtype": "Small Text",
-   "label": "Medication"
+   "label": "Medication",
+   "permlevel": 1
   },
   {
    "fieldname": "medical_history",
    "fieldtype": "Small Text",
-   "label": "Medical History"
+   "label": "Medical History",
+   "permlevel": 1
   },
   {
    "fieldname": "surgical_history",
    "fieldtype": "Small Text",
-   "label": "Surgical History"
+   "label": "Surgical History",
+   "permlevel": 1
   },
   {
    "fieldname": "occupation",
@@ -271,22 +279,26 @@
   {
    "fieldname": "tobacco_consumption_past",
    "fieldtype": "Data",
-   "label": "Tobacco Consumption (Past)"
+   "label": "Tobacco Consumption (Past)",
+   "permlevel": 1
   },
   {
    "fieldname": "tobacco_consumption_present",
    "fieldtype": "Data",
-   "label": "Tobacco Consumption (Present)"
+   "label": "Tobacco Consumption (Present)",
+   "permlevel": 1
   },
   {
    "fieldname": "alcohol_consumption_past",
    "fieldtype": "Data",
-   "label": "Alcohol Consumption (Past)"
+   "label": "Alcohol Consumption (Past)",
+   "permlevel": 1
   },
   {
    "fieldname": "alcohol_consumption_present",
    "fieldtype": "Data",
-   "label": "Alcohol Consumption (Present)"
+   "label": "Alcohol Consumption (Present)",
+   "permlevel": 1
   },
   {
    "fieldname": "column_break_vbas",
@@ -295,12 +307,20 @@
   {
    "fieldname": "occupational_hazards_and_environmental_factors",
    "fieldtype": "Small Text",
-   "label": "Occupational Hazards and Environmental Factors"
+   "label": "Occupational Hazards and Environmental Factors",
+   "permlevel": 1
   },
   {
    "fieldname": "other_risk_factors",
    "fieldtype": "Small Text",
-   "label": "Other Risk Factors"
+   "label": "Other Risk Factors",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "duplicate_candidates",
+   "fieldtype": "HTML",
+   "label": "Possible duplicates",
+   "read_only": 1
   }
  ],
  "icon": "fa fa-user",
@@ -341,41 +361,53 @@
  "owner": "Administrator",
  "permissions": [
   {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
    "role": "System Manager",
-   "share": 1,
-   "write": 1
+   "permlevel": 0,
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "print": 1,
+   "report": 1
   },
   {
-   "create": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
+   "role": "System Manager",
+   "permlevel": 1,
    "read": 1,
-   "report": 1,
-   "role": "Receptionist",
-   "select": 1,
-   "share": 1,
-   "write": 1
+   "write": 1,
+   "create": 0,
+   "print": 1,
+   "report": 1
   },
   {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
    "role": "Doctor",
-   "select": 1,
-   "share": 1,
-   "write": 1
+   "permlevel": 0,
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "print": 1,
+   "report": 1
+  },
+  {
+   "role": "Doctor",
+   "permlevel": 1,
+   "read": 1,
+   "write": 1,
+   "create": 0,
+   "print": 1,
+   "report": 1
+  },
+  {
+   "role": "Receptionist",
+   "permlevel": 0,
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "print": 1,
+   "report": 1
+  },
+  {
+   "role": "Pharmacist",
+   "select": 1
   }
  ],
  "quick_entry": 1,

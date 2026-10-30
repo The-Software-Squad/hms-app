@@ -1,138 +1,185 @@
-// Copyright (c) 2025, nani-samireddy and contributors
-// For license information, please see license.txt
-
-frappe.ui.form.on('Patient Visit', {
-	onload_post_render(frm) {
-		
-		frm.add_custom_button("Send Medication Mail", () => {
-			frappe.call({
-				method: "hms.api.mailer.send_medication_mail",
-				args: {
-					visit: frm.doc.name
-				},
-				callback: (r) => {
-					if (r.message) {
-						frappe.show_alert({
-							message: "Medication mail sent successfully!",
-							indicator: "green"
-						});
-					} else {
-						frappe.show_alert({
-							message: "Failed to send medication mail.",
-							indicator: "red"
-						});
-					}
-				}
-			});
-		});
-
-		if (!frm.doc.__islocal && frm.doc.patient) {
-			const wrapper = frm.fields_dict.previous_visits.$wrapper;
-			wrapper.html('<div id="visit-container" style=" padding: 8px;"></div>');
-
-			let offset = 0;
-			const page_size = 10;
-			const initial_load = 7;
-			let loading = false;
-			const container = wrapper.find('#visit-container');
-
-			function render_visits(visits) {
-				visits.forEach(v => {
-					const visitDate = frappe.datetime.str_to_user(v.visit_date || '');
-					const followUp = v.follow_up ? frappe.datetime.str_to_user(v.follow_up) : '—';
-					const doctor = v.doctor || '—';
-					// Handle lab reports
-					let reports_html = '';
-					if (v.lab_reports && v.lab_reports.length > 0) {
-						reports_html += `<p><strong>Lab Reports:</strong><ul style="padding-left: 16px;">`;
-						v.lab_reports.forEach(report => {
-							const reportDate = report.received_on ? frappe.datetime.str_to_user(report.received_on) : '—';
-							const link = report.report_file
-								? `<a href="${report.report_file}" target="_blank" style="margin-left: 6px;" class="btn btn-sm btn-secondary">Download</a>`
-								: '';
-							const docLink = `<a href="/app/lab-report/${report.name}" target="_blank" style="margin-left: 6px;" class="btn btn-sm btn-secondary">Open Doc</a>`;
-							reports_html += `<li>${frappe.utils.escape_html(report.report_type || 'Unnamed')} (${reportDate}) ${link} ${docLink}</li>`;
-						});
-						reports_html += `</ul></p>`;
-					}
-
-					container.append(`
-	  <div class="visit-entry" style="margin-bottom: 16px; padding: 12px; border: 1px solid #d1d8dd; border-radius: 6px;">
-		<div class="visit-header" style="
-		display: grid;
-		grid-template-columns: 2fr 2fr 1fr;
-		column-gap: 12px;
-		row-gap: 4px;
-		align-items: center;
-		margin-bottom: 18px;
-		">
-			<div>
-				<strong>Visit Date:&nbsp;</strong> ${visitDate}<br>
-				<strong>Follow-Up:</strong> ${followUp}
-			</div>
-			<div>
-				<strong>Doctor:</strong> ${frappe.utils.escape_html(doctor)}
-			</div>
-			<div style="text-align: right;">
-				<a href="/app/patient-visit/${v.name}" target="_blank" class="btn btn-sm btn-primary">
-				Edit Details
-				</a>
-			</div>
-		</div>
-		<div class="report-details" style="margin-bottom: 12px;">
-		${reports_html}
-		</div>
-		<p><strong>Remarks:</strong><br>
-		  <pre style="white-space: pre-wrap; margin: 4px 0;">${v.remarks || '—'}</pre>
-		</p>
-		<p><strong>💊 Medications:</strong><br>
-		  <pre style="white-space: pre-wrap; margin: 4px 0;">${frappe.utils.escape_html(v.medication_details || '—')}</pre>
-		</p>
-	  </div>
-	`);
-				});
-			}
-
-			function load_visits(limit, start = 0) {
-				if (loading) return;
-				loading = true;
-				frappe.call({
-					method: 'hms.api.patient.get_previous_patient_visits',
-					args: {
-						patient: frm.doc.patient,
-						exclude_visit: frm.doc.name,
-						limit,
-						offset: start
-					},
-					callback(r) {
-						if (r.message && r.message.length > 0) {
-							render_visits(r.message);
-							offset += r.message.length;
-						}
-						loading = false;
-					}
-				});
-			}
-
-			// Load initial 7
-			load_visits(initial_load);
-
-			// Infinite Scroll
-			container.on('scroll', function () {
-				const scrollTop = container.scrollTop();
-				const scrollHeight = container.prop('scrollHeight');
-				const containerHeight = container.outerHeight();
-
-				if ((scrollTop + containerHeight) / scrollHeight > 0.7 && !loading) {
-					load_visits(page_size, offset);
-				}
-			});
+frappe.ui.form.on("Patient Visit", {
+	refresh(frm) {
+		if (
+			!frm.is_new() &&
+			!["Completed", "Cancelled / No Show", "Closed Early", "Discharged"].includes(
+				frm.doc.status
+			) &&
+			frappe.model.can_create("HMS Patient Departure")
+		) {
+			frm.add_custom_button(
+				__("Record Departure"),
+				() =>
+					frappe.new_doc("HMS Patient Departure", {
+						source_doctype: frm.doctype,
+						source_name: frm.doc.name,
+					}),
+				__("Create")
+			);
 		}
-	}
+
+		if (frm.is_new()) return;
+		if (frm.doc.follow_up && frappe.model.can_create("Patient Appointment"))
+			frm.add_custom_button(
+				__("Book Follow-up"),
+				() =>
+					frappe.new_doc("Patient Appointment", {
+						patient: frm.doc.patient,
+						practitioner: frm.doc.doctor,
+						department: frm.doc.department,
+						appointment_date: frm.doc.follow_up,
+						follow_up_visit: frm.doc.name,
+					}),
+				__("Create")
+			);
+		const clinical = frappe.user_roles.some((role) =>
+			["Doctor", "System Manager"].includes(role)
+		);
+		if (
+			clinical &&
+			!["Completed", "Closed Early", "Cancelled / No Show"].includes(frm.doc.status)
+		) {
+			frm.add_custom_button(
+				__("Request Lab Report"),
+				() =>
+					frappe.new_doc("Lab Report", {
+						visit_reference: frm.doc.name,
+						patient: frm.doc.patient,
+						requested_on: frappe.datetime.get_today(),
+					}),
+				__("Create")
+			);
+		}
+		if (clinical) {
+			frm.add_custom_button(
+				__("Preview Medication Calendar"),
+				async () => {
+					const { message } = await frappe.call({
+						method: "hms.api.mailer.preview_medication_calendar",
+						args: { visit: frm.doc.name },
+					});
+					const dialog = new frappe.ui.Dialog({
+						title: __("Medication Calendar Preview"),
+						fields: [
+							{
+								fieldname: "calendar",
+								fieldtype: "Code",
+								options: "Text",
+								label: __("Saved medication schedule"),
+								read_only: 1,
+							},
+						],
+					});
+					dialog.set_value("calendar", message);
+					dialog.show();
+				},
+				__("Medication")
+			);
+			frm.add_custom_button(
+				__("Send Medication Mail"),
+				() => {
+					if (frm.is_dirty()) return frappe.msgprint(__("Save changes before sending."));
+					frappe.confirm(
+						__("Queue the saved medication schedule to the patient's email?"),
+						() =>
+							frappe.call({
+								method: "hms.api.mailer.send_medication_mail",
+								type: "POST",
+								args: { visit: frm.doc.name },
+								freeze: true,
+								callback: (r) => {
+									frappe.msgprint(
+										r.message.duplicate
+											? __(
+													"This prescription is already queued or sent. See its delivery record."
+											  )
+											: __(
+													"Medication email queued. Check delivery status for confirmation."
+											  )
+									);
+									frappe.set_route(
+										"Form",
+										"HMS Medication Delivery",
+										r.message.delivery
+									);
+								},
+							})
+					);
+				},
+				__("Medication")
+			);
+			render_visit_history(frm);
+		}
+		if (frm.doc.invoice && frappe.model.can_read("HMS Invoice"))
+			frm.add_custom_button(
+				__("Invoice"),
+				() => frappe.set_route("Form", "HMS Invoice", frm.doc.invoice),
+				__("View")
+			);
+		if (frappe.model.can_create("Meds Out"))
+			frm.add_custom_button(
+				__("Dispense Prescription"),
+				() =>
+					frappe.new_doc("Meds Out", {
+						patient: frm.doc.patient,
+						patient_visit: frm.doc.name,
+					}),
+				__("Create")
+			);
+	},
 });
 
-// function add_custom_buttons(frm) {
-// 	if (!frm.doc.__islocal && frm.doc.patient) {
-		
-// 	}
-// }
+function render_visit_history(frm) {
+	const wrapper = frm.fields_dict.previous_visits?.$wrapper;
+	if (!wrapper) return;
+	wrapper.empty();
+	const list = $("<div>").appendTo(wrapper);
+	const more = $("<button type='button' class='btn btn-default btn-sm'>")
+		.text(__("Load previous visits"))
+		.appendTo(wrapper);
+	let offset = 0;
+	more.on("click", async () => {
+		more.prop("disabled", true);
+		try {
+			const { message: rows } = await frappe.call({
+				method: "hms.api.patient.get_previous_patient_visits",
+				args: { patient: frm.doc.patient, exclude_visit: frm.doc.name, limit: 10, offset },
+			});
+			(rows || []).forEach((visit) => {
+				const card = $("<div class='border rounded p-3 mb-3'>").appendTo(list);
+				$("<a>")
+					.attr("href", `/desk/patient-visit/${encodeURIComponent(visit.name)}`)
+					.text(`${visit.visit_date} · ${visit.doctor_name || visit.doctor}`)
+					.appendTo(card);
+				// Notes are displayed as text; attachments are validated paths, assigned through DOM attributes.
+				$("<div class='mt-2'>")
+					.text(strip_html(visit.remarks || ""))
+					.appendTo(card);
+				$("<pre class='mt-2'>")
+					.text(visit.medication_details || "")
+					.appendTo(card);
+				(visit.lab_reports || []).forEach((report) => {
+					$("<a class='btn btn-default btn-sm mr-2'>")
+						.attr("href", `/desk/lab-report/${encodeURIComponent(report.name)}`)
+						.text(report.report_type || report.name)
+						.appendTo(card);
+					if (/^\/private\/files\/[^<>"'\\\r\n]+$/.test(report.report_file || ""))
+						$("<a class='btn btn-default btn-sm mr-2'>")
+							.attr({
+								href: report.report_file,
+								target: "_blank",
+								rel: "noopener noreferrer",
+							})
+							.text(__("Download"))
+							.appendTo(card);
+				});
+			});
+			offset += (rows || []).length;
+			more.text((rows || []).length < 10 ? __("All visits loaded") : __("Load more"));
+			more.prop("disabled", (rows || []).length < 10);
+		} catch (error) {
+			more.prop("disabled", false);
+		}
+	});
+	more.trigger("click");
+}

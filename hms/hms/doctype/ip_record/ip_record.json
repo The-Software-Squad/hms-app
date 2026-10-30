@@ -16,7 +16,15 @@
   "doctor",
   "section_break_ijix",
   "diagnosis",
-  "notes"
+  "notes",
+  "practitioner",
+  "discharge_date",
+  "discharge_summary",
+  "reopen_reason",
+  "doctor_user",
+  "departure_record",
+  "departure_outcome",
+  "departed_on"
  ],
  "fields": [
   {
@@ -35,13 +43,15 @@
    "fieldname": "patient",
    "fieldtype": "Link",
    "label": "Patient",
-   "options": "Patient"
+   "options": "Patient",
+   "reqd": 1
   },
   {
    "default": "Today",
    "fieldname": "admission_date",
    "fieldtype": "Date",
-   "label": "Admission Date"
+   "label": "Admission Date",
+   "reqd": 1
   },
   {
    "default": "Admitted",
@@ -59,17 +69,20 @@
    "fieldname": "bed",
    "fieldtype": "Link",
    "label": "Bed",
-   "options": "Bed"
+   "options": "Bed",
+   "reqd": 1
   },
   {
    "fieldname": "diagnosis",
    "fieldtype": "Text Editor",
-   "label": "Diagnosis"
+   "label": "Diagnosis",
+   "permlevel": 1
   },
   {
    "fieldname": "notes",
    "fieldtype": "Text Editor",
-   "label": "Notes"
+   "label": "Notes",
+   "permlevel": 1
   },
   {
    "fieldname": "column_break_mdrb",
@@ -79,12 +92,63 @@
    "fieldname": "section_break_ijix",
    "fieldtype": "Section Break",
    "label": "Remarks"
+  },
+  {
+   "fieldname": "practitioner",
+   "fieldtype": "Link",
+   "label": "Treating Doctor",
+   "options": "Healthcare Practitioner",
+   "reqd": 1
+  },
+  {
+   "fieldname": "discharge_date",
+   "fieldtype": "Date",
+   "label": "Discharge Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "discharge_summary",
+   "fieldtype": "Link",
+   "label": "Discharge Summary",
+   "options": "Discharge Summary",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reopen_reason",
+   "fieldtype": "Small Text",
+   "label": "Reopen Reason"
+  },
+  {
+   "fieldname": "doctor_user",
+   "fieldtype": "Link",
+   "options": "User",
+   "label": "Doctor User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "departure_record",
+   "fieldtype": "Link",
+   "label": "Departure Record",
+   "options": "HMS Patient Departure",
+   "read_only": 1
+  },
+  {
+   "fieldname": "departure_outcome",
+   "fieldtype": "Data",
+   "label": "Departure Outcome",
+   "read_only": 1
+  },
+  {
+   "fieldname": "departed_on",
+   "fieldtype": "Datetime",
+   "label": "Departed On",
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-24 16:49:36.956559",
+ "modified": "2026-10-22 14:15:45.405554",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "IP Record",
@@ -92,33 +156,55 @@
  "owner": "Administrator",
  "permissions": [
   {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
    "role": "System Manager",
-   "share": 1,
-   "write": 1
+   "permlevel": 0,
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "print": 1,
+   "report": 1
   },
   {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
    "role": "Receptionist",
-   "share": 1,
-   "write": 1
+   "permlevel": 0,
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "print": 1,
+   "report": 1
+  },
+  {
+   "role": "Doctor",
+   "permlevel": 0,
+   "read": 1,
+   "write": 1,
+   "create": 0,
+   "print": 1,
+   "report": 1
+  },
+  {
+   "role": "System Manager",
+   "permlevel": 1,
+   "read": 1,
+   "write": 1,
+   "create": 0,
+   "print": 1,
+   "report": 1
+  },
+  {
+   "role": "Doctor",
+   "permlevel": 1,
+   "read": 1,
+   "write": 1,
+   "create": 0,
+   "print": 1,
+   "report": 1
   }
  ],
  "row_format": "Dynamic",
  "search_fields": "patient,admission_date,status,doctor",
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

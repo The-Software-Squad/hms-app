@@ -41,7 +41,8 @@
    "in_list_view": 1,
    "label": "Total Occupied",
    "non_negative": 1,
-   "options": "Ward Type"
+   "options": "Ward Type",
+   "read_only": 1
   },
   {
    "allow_in_quick_entry": 1,

@@ -19,7 +19,12 @@
   "free_followups_section",
   "enable_free_follow_ups",
   "valid_days",
-  "max_visits"
+  "max_visits",
+  "followup_policy",
+  "presence_section",
+  "presence_status",
+  "presence_updated_on",
+  "presence_updated_by"
  ],
  "fields": [
   {
@@ -47,7 +52,7 @@
    "read_only": 1
   },
   {
-   "fetch_from": "employee.user_id",
+   "fetch_from": "employee.employee_user",
    "fieldname": "user",
    "fieldtype": "Link",
    "label": "User",
@@ -113,12 +118,45 @@
    "fieldtype": "Data",
    "label": "Designation",
    "read_only": 1
+  },
+  {
+   "fieldname": "followup_policy",
+   "fieldtype": "Select",
+   "label": "Follow-up Policy",
+   "options": "Inherit\nEnabled\nDisabled",
+   "default": "Inherit"
+  },
+  {
+   "fieldname": "presence_section",
+   "fieldtype": "Section Break",
+   "label": "Reported availability"
+  },
+  {
+   "fieldname": "presence_status",
+   "fieldtype": "Select",
+   "label": "Availability",
+   "options": "Not Recorded\nAvailable\nAway\nOff Duty",
+   "default": "Not Recorded",
+   "read_only": 1
+  },
+  {
+   "fieldname": "presence_updated_on",
+   "fieldtype": "Datetime",
+   "label": "Reported On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "presence_updated_by",
+   "fieldtype": "Link",
+   "label": "Reported By",
+   "options": "User",
+   "read_only": 1
   }
  ],
  "icon": "health",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-10-26 02:00:33.180090",
+ "modified": "2026-10-22 14:15:45.406608",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "Healthcare Practitioner",
@@ -150,5 +188,9 @@
  "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "practitioner_name",
+ "search_fields": "practitioner_name,user,department",
+ "show_title_field_in_link": 1,
+ "track_changes": 1
 }

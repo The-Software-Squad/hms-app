@@ -1,0 +1,24 @@
+{
+ "doctype": "Page",
+ "name": "hms-guide",
+ "page_name": "hms-guide",
+ "title": "HMS User Guide",
+ "module": "HMS",
+ "standard": "Yes",
+ "creation": "2026-10-19 11:00:00.000000",
+ "modified": "2026-10-19 11:00:00.000000",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Receptionist"
+  },
+  {
+   "role": "Doctor"
+  },
+  {
+   "role": "Pharmacist"
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "doctype": "Page",
+ "name": "hospital-live",
+ "page_name": "hospital-live",
+ "title": "Hospital Live",
+ "module": "HMS",
+ "standard": "Yes",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Receptionist"
+  },
+  {
+   "role": "Doctor"
+  },
+  {
+   "role": "Pharmacist"
+  }
+ ]
+}

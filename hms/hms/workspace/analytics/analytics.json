@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"NLu11sHHFu\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Analytics</span>\",\"col\":12}},{\"id\":\"d8-7m2cOkS\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Patient visits\",\"col\":3}},{\"id\":\"qOYmh4b06P\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"New Patients\",\"col\":4}}]",
+ "content": "[{\"id\": \"hms-user-guide\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"User guide\", \"col\": 3}}, {\"id\": \"NLu11sHHFu\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\">Analytics</span>\", \"col\": 12}}, {\"id\": \"d8-7m2cOkS\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Total Patient visits\", \"col\": 3}}, {\"id\": \"qOYmh4b06P\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"New Patients\", \"col\": 4}}]",
  "creation": "2025-06-22 19:14:58.671416",
  "custom_blocks": [],
  "docstatus": 0,
@@ -13,7 +13,7 @@
  "is_hidden": 0,
  "label": "Analytics",
  "links": [],
- "modified": "2025-06-24 16:59:36.718872",
+ "modified": "2026-10-19 11:00:00.000000",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "Analytics",
@@ -37,6 +37,12 @@
   }
  ],
  "sequence_id": 5.0,
- "shortcuts": [],
+ "shortcuts": [
+  {
+   "type": "Page",
+   "link_to": "hms-guide",
+   "label": "User guide"
+  }
+ ],
  "title": "Analytics"
 }

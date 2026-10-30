@@ -1,0 +1,15 @@
+{
+  "captured_on": "29 October 2026",
+  "notice": "Updated continuous screen recordings with visible cursor movement and click indicators are pending. Superseded keyframe GIFs are not referenced by the guide.",
+  "workflows": [],
+  "stills": [
+    {
+      "id": "hospital-live",
+      "file": "hospital-live-overview.jpg",
+      "captured_on": "29 October 2026",
+      "source": "Browser screenshot from the isolated HMS workflow-test site",
+      "sha256": "541a644015d64ad714c55b12460d53989620af42dd4dd89f2b66bde374b705a1",
+      "scope": "Hospital Live overview after saved consultation actions; patient names hidden"
+    }
+  ]
+}

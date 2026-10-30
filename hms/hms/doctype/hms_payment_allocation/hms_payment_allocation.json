@@ -1,0 +1,35 @@
+{
+ "doctype": "DocType",
+ "name": "HMS Payment Allocation",
+ "module": "HMS",
+ "engine": "InnoDB",
+ "field_order": [
+  "invoice",
+  "amount"
+ ],
+ "fields": [
+  {
+   "fieldname": "invoice",
+   "fieldtype": "Link",
+   "label": "Invoice",
+   "options": "HMS Invoice",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount",
+   "reqd": 1,
+   "non_negative": 1,
+   "in_list_view": 1,
+   "options": "currency"
+  }
+ ],
+ "permissions": [],
+ "istable": 1,
+ "track_changes": 0,
+ "autoname": "hash",
+ "sort_field": "creation",
+ "sort_order": "DESC"
+}

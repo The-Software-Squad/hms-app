@@ -1,0 +1,1250 @@
+{
+  "title": "HMS user guide",
+  "version": 7,
+  "updated": "29 October 2026",
+  "screenshot_notice": "Examples follow Maya Patel, Dr Alex Morgan and Paracetamol 500 mg through the HMS workflows. Contact addresses use example domains; the reminder demonstration does not send email.",
+  "guides": [
+    {
+      "id": "start",
+      "title": "Find your way around",
+      "category": "Getting started",
+      "roles": [
+        "Receptionist",
+        "Doctor",
+        "Pharmacist",
+        "System Manager"
+      ],
+      "audience": "Receptionist · Doctor · Pharmacist · System Manager",
+      "summary": "Find your workspace, records and help.",
+      "description": "HMS uses Frappe Desk. Your assigned roles determine which records and actions are available. This guide explains operational tasks; it does not grant access.",
+      "prerequisites": [
+        "An existing staff login and assigned HMS role."
+      ],
+      "steps": [
+        {
+          "title": "Open HMS",
+          "detail": "Sign in with your usual Frappe account and choose HMS from the app chooser. The removed custom React dashboard is no longer used."
+        },
+        {
+          "title": "Choose a workflow section",
+          "detail": "The HMS sidebar groups links under Reception, Clinical Care, Inpatient Care, Pharmacy, Accounts, Reports and Administration. Select a section to expand it; choose its dashboard or open a record list. Overview and User guide stay at the top. Your roles determine which links appear."
+        },
+        {
+          "title": "Open a record",
+          "detail": "Use a link inside the relevant sidebar section, a dashboard shortcut or Desk search. Confirm the record ID as well as the patient name before changing anything."
+        },
+        {
+          "title": "Get help for the task",
+          "detail": "Choose User guide from a workspace or Help on a supported form. Search by a task, field, button or status; filter by category or role."
+        },
+        {
+          "title": "Read a walkthrough",
+          "detail": "Open a chapter and select an available screenshot to enlarge it. Where a GIF example is available, expand Watch walkthrough and choose Play walkthrough. Missing media is labelled pending. Use Print / save PDF for one chapter or Print all chapters for the full guide."
+        }
+      ],
+      "check": "The workspace and actions match your role. Empty lists and zero counts are normal on a new installation.",
+      "note": "If an action is missing, refresh Desk and ask your System Manager to check roles and any site-specific permissions. Do not borrow another staff account.",
+      "related": [
+        "registration",
+        "booking",
+        "intake",
+        "billing"
+      ],
+      "route": [
+        "reception-dashboard"
+      ],
+      "screenshots": [],
+      "walkthrough": null,
+      "verified_on": null,
+      "reviewed_on": "19 October 2026",
+      "verification_note": "Source reviewed; full workflow and role-specific browser verification pending.",
+      "media_note": "Updated screenshots and a screen-recorded GIF are being prepared. The written steps are available below."
+    },
+    {
+      "id": "hospital-live",
+      "title": "Watch hospital activity in 3D",
+      "category": "Getting started",
+      "roles": [
+        "Receptionist",
+        "Doctor",
+        "Pharmacist",
+        "System Manager"
+      ],
+      "audience": "Receptionist · Doctor · Pharmacist · System Manager",
+      "summary": "See action-driven patient characters, doctor rooms, waiting seats and current care activity.",
+      "description": "Hospital Live is a grouped 3D schematic of saved HMS activity. Every character represents an allowed HMS record. The page reads saved states; it does not advance clinical care, track physical positions or change patient records when you move the camera.",
+      "prerequisites": [
+        "An HMS staff role; active practitioners and saved visits for a populated view. A WebGL 2 browser enables the 3D scene; the activity list works when 3D is unavailable."
+      ],
+      "steps": [
+        {
+          "title": "Open Hospital Live",
+          "detail": "Choose Hospital Live · 3D near the top of the HMS sidebar. Counts cover only records available to your role. The page refreshes every 15 seconds while visible; Refresh checks immediately, and Pause updates freezes further polling."
+        },
+        {
+          "title": "Configure rooms and waiting seats",
+          "detail": "A System Manager chooses Configure layout and opens Hospital Settings → Hospital Live · 3D layout. Add one enabled row per active doctor, give each room a different name, and choose 1–24 waiting seats. Row order sets the schematic layout. Without configured rows, each allowed active practitioner receives a consultation room with eight seats. Six rooms appear per floor view; the arrows open the next group."
+        },
+        {
+          "title": "Read characters from HMS actions",
+          "detail": "A Scheduled appointment has no seated patient. Check In creates a waiting character in that doctor’s queue. Under Consultation moves that patient into the doctor’s room. Lab/Diagnostics Pending places the patient in diagnostics; Lab/Diagnostics Completed returns the visit to the doctor’s waiting area. Prescription Given places the patient at the next-step area, or pharmacy when a posted sale remains uncollected. Completed, Closed Early and Cancelled / No Show remove the visit from the active floor."
+        },
+        {
+          "title": "Separate old open work and other care areas",
+          "detail": "Earlier outpatient visits that remain open are listed under Earlier open visits, excluded from today’s waiting seats. Inpatient admissions stay active until discharged. Tracked posted pharmacy sales show outstanding handovers; posting/return/collection actions update that queue. An admission takes precedence over an OP avatar for the same patient, and an active consultation takes precedence over another waiting visit."
+        },
+        {
+          "title": "Report doctor availability",
+          "detail": "Select a room. The linked Doctor can report their own Available, Away or Off Duty status; a System Manager can report any active doctor. Availability is dated and resets to Not Recorded on a new day. A doctor character is drawn for a recorded active consultation or today’s Available report. An appointment alone never proves the doctor is present."
+        },
+        {
+          "title": "Inspect and navigate",
+          "detail": "Select a room label, character or activity row to inspect its recorded state. Open HMS record takes you to the underlying form, where normal permissions and workflow rules apply. Drag to orbit, Shift + drag to pan, scroll or use +/− to zoom, and use Top view or Reset view. Expand gives the map more space."
+        },
+        {
+          "title": "Review exceptions and privacy",
+          "detail": "Patient names are hidden by default; Show patient names reveals only labels available to your role. Review multiple active consultations, seat overflow, earlier open visits, missing room mappings, stale connections and truncation notices. The 3D view shows at most 160 patient characters and 24 beds; the activity list and original HMS forms retain additional permitted records."
+        }
+      ],
+      "check": "The scene changes after a saved HMS action, room waiting counts match today’s active visit records, and selected activity opens the correct underlying HMS record.",
+      "note": "Positions, chairs and walking paths are schematic, not real-time location sensing. Multiple changes between 15-second snapshots may appear as one transition. Reduced-motion preferences disable walking animation. A connection failure clearly leaves the last snapshot stale; it does not continue inventing activity. Results are limited to 1,000 per record type and the activity list shows 200 rows at a time; use original HMS lists for larger data sets.",
+      "related": [
+        "check-in",
+        "consultation",
+        "labs",
+        "dispense",
+        "admission"
+      ],
+      "route": [
+        "hospital-live"
+      ],
+      "screenshots": [
+        {
+          "file": "hospital-live-overview.jpg",
+          "caption": "Hospital Live: doctor rooms, grouped waiting seats, active care areas and recorded patient activity. Select a room to inspect its current HMS records."
+        }
+      ],
+      "walkthrough": null,
+      "verified_on": null,
+      "reviewed_on": "29 October 2026",
+      "verification_note": "Model and API tests cover action mapping, permissions, configuration, attendance and older-visit handling. Full user-guide role/media verification remains separate.",
+      "media_note": "The overview shows the implemented page on 29 October 2026. Continuous screen-recorded GIF coverage remains pending."
+    },
+    {
+      "id": "registration",
+      "title": "Find, register and update a patient",
+      "category": "Reception",
+      "roles": [
+        "Receptionist",
+        "Doctor",
+        "System Manager"
+      ],
+      "audience": "Receptionist · Doctor · System Manager",
+      "summary": "Search existing records before creating a patient.",
+      "description": "Patient records keep a stable identity while names, contact details and demographic information can be updated. Shared names or family phone numbers do not prove that records are duplicates.",
+      "prerequisites": [
+        "An assigned role with Patient create/write permission; verified registration details."
+      ],
+      "steps": [
+        {
+          "title": "Search before creating",
+          "detail": "Open Patient and search by the patient ID, name and phone number. Review existing candidates instead of creating a second record immediately."
+        },
+        {
+          "title": "Register when needed",
+          "detail": "Choose Add Patient and enter Name, Mobile and Location. Add the available date of birth, gender, email and identification details; choose Save."
+        },
+        {
+          "title": "Review duplicate warnings",
+          "detail": "Possible duplicates are links for review. Compare identifiers and dates of birth. Ask a System Manager to review a merge if the same person has two records."
+        },
+        {
+          "title": "Update contact details",
+          "detail": "Edit Mobile or Email on the patient and save. Phone-only changes and removing an email synchronize with the linked Contact too."
+        },
+        {
+          "title": "Start the next task",
+          "detail": "Use Create → Book Appointment, New Walk-in Visit or New Admission. Viewing the patient does not save follow-up dates or other changes."
+        }
+      ],
+      "check": "The saved patient has its own ID and current contact information. Existing history remains linked to that ID.",
+      "note": "A future date of birth or invalid contact format must be corrected before saving. Only clinical roles can read clinical-history details; reception can still manage demographics.",
+      "related": [
+        "duplicates",
+        "booking",
+        "check-in"
+      ],
+      "route": [
+        "List",
+        "Patient"
+      ],
+      "screenshots": [],
+      "walkthrough": null,
+      "verified_on": null,
+      "reviewed_on": "19 October 2026",
+      "verification_note": "Source reviewed; full workflow and role-specific browser verification pending.",
+      "media_note": "Updated screenshots and a screen-recorded GIF are being prepared. The written steps are available below."
+    },
+    {
+      "id": "duplicates",
+      "title": "Review and merge duplicate patients",
+      "category": "Administration",
+      "roles": [
+        "System Manager"
+      ],
+      "audience": "System Manager",
+      "summary": "Keep one identity after an explicit duplicate review.",
+      "description": "Merging redirects the source patient’s links to the selected surviving patient and keeps an audit snapshot. It is a permanent administrative action, so compare both records first.",
+      "prerequisites": [
+        "System Manager access; both patient records reviewed; a clear reason."
+      ],
+      "steps": [
+        {
+          "title": "Compare the records",
+          "detail": "Open each patient and compare identification, date of birth, contact details and clinical history. Choose which patient ID will remain."
+        },
+        {
+          "title": "Resolve blockers",
+          "detail": "Conflicting identification or birth dates, two active admissions, or financial records on the source prevent merging. Reconcile those issues before proceeding."
+        },
+        {
+          "title": "Open the source patient",
+          "detail": "Choose Actions → Merge Duplicate. In Keep this patient select the surviving patient, then enter a specific Reason."
+        },
+        {
+          "title": "Confirm the reviewed merge",
+          "detail": "Review the confirmation showing the target patient ID, then confirm only when the two records are the same person."
+        },
+        {
+          "title": "Check the surviving record",
+          "detail": "The target patient opens. Check its demographics and history, and use the HMS Patient Merge list to review the reason, actor and retained source snapshot."
+        }
+      ],
+      "check": "Only the selected target identity remains, and an HMS Patient Merge audit entry records the source and reason.",
+      "note": "A shared name or phone number is not sufficient evidence. If a financial-record blocker appears, keep the records separate until billing identity has been reviewed.",
+      "related": [
+        "registration",
+        "billing"
+      ],
+      "route": [
+        "List",
+        "HMS Patient Merge"
+      ],
+      "screenshots": [],
+      "walkthrough": null,
+      "verified_on": null,
+      "reviewed_on": "19 October 2026",
+      "verification_note": "Source reviewed; full workflow and role-specific browser verification pending.",
+      "media_note": "Updated screenshots and a screen-recorded GIF are being prepared. The written steps are available below."
+    },
+    {
+      "id": "staff",
+      "title": "Configure staff, doctors and schedules",
+      "category": "Administration",
+      "roles": [
+        "System Manager"
+      ],
+      "audience": "System Manager",
+      "summary": "Link a doctor to a staff account and working hours.",
+      "description": "A Healthcare Practitioner links an Employee to an enabled User with the Doctor role. Schedules define when appointments can be booked; active records alone do not create availability.",
+      "prerequisites": [
+        "A staff User with the Doctor role; Employee and Department Type records."
+      ],
+      "steps": [
+        {
+          "title": "Link the employee",
+          "detail": "Open Employee, select User on the Employee record and the department, and keep the employee Active. Save the staff record. HR fields remain restricted to administrators."
+        },
+        {
+          "title": "Create the practitioner",
+          "detail": "Open Healthcare Practitioner and select the Employee and department. The name and user are derived from that employee. Enable Active and save."
+        },
+        {
+          "title": "Set follow-up policy",
+          "detail": "Choose Inherit, Enabled or Disabled. Enabled uses the practitioner’s positive validity days and free-visit cap; Inherit follows Hospital Settings."
+        },
+        {
+          "title": "Enter availability",
+          "detail": "Create a Practitioner Schedule for that practitioner. Add weekday start/end slots and any effective date range, then save."
+        },
+        {
+          "title": "Try a booking",
+          "detail": "Book a slot fully inside a saved shift. Positive, non-overlapping windows are required. An inactive employee or disabled/non-Doctor user cannot serve as an active practitioner."
+        }
+      ],
+      "check": "The practitioner shows the correct linked User and appointments fit the intended shift.",
+      "note": "Do not change a practitioner link to substitute another doctor in historical visits. Reception can manage scheduling only where permissions allow it. Hospital settings, practitioner setup, schedules and admissions now retain change history. Use Departments for clinical configuration; Medical departments and Patient care types are legacy reference lists.",
+      "related": [
+        "booking",
+        "eligibility"
+      ],
+      "route": [
+        "List",
+        "Healthcare Practitioner"
+      ],
+      "screenshots": [],
+      "walkthrough": null,
+      "verified_on": null,
+      "reviewed_on": "22 October 2026",
+      "verification_note": "Source reviewed; full workflow and role-specific browser verification pending.",
+      "media_note": "Updated screenshots and a screen-recorded GIF are being prepared. The written steps are available below."
+    },
+    {
+      "id": "booking",
+      "title": "Book or reschedule an appointment",
+      "category": "Reception",
+      "roles": [
+        "Receptionist",
+        "System Manager"
+      ],
+      "audience": "Receptionist · System Manager",
+      "summary": "Reserve a valid slot with the right doctor and department.",
+      "description": "Appointments check practitioner availability and overlapping reservations. Before check-in an appointment can be rescheduled; after a visit is linked, cancel and rebook to preserve the episode identity.",
+      "prerequisites": [
+        "An active patient and practitioner with a saved Practitioner Schedule."
+      ],
+      "steps": [
+        {
+          "title": "Start from the patient",
+          "detail": "Open the patient and choose Create → Book Appointment. Confirm the Patient and Practitioner."
+        },
+        {
+          "title": "Enter the slot",
+          "detail": "Set Appointment Date, Start Time, End Time and Department. The server fills an omitted end with 30 minutes, but the entire slot must still fit the shift."
+        },
+        {
+          "title": "Save the booking",
+          "detail": "Keep Status Scheduled and save. Availability and overlapping appointments are checked again on the server."
+        },
+        {
+          "title": "Reschedule before check-in",
+          "detail": "For an unlinked scheduled booking, edit the date/time and save. Choose another slot if a conflict appears."
+        },
+        {
+          "title": "Cancel and rebook when necessary",
+          "detail": "After check-in, consultation progress sets In Service and Completed automatically; reception cannot mark clinical completion or a no-show. Resolve linked lab requests, dispensing and financial balances before cancelling an unused episode, then create a new appointment when needed."
+        }
+      ],
+      "check": "The saved Scheduled appointment identifies the intended patient, doctor, department and complete time interval.",
+      "note": "For an out-of-shift or overlap error, refresh the schedule and choose an available slot. A concurrent request can receive a retryable transaction conflict; refresh before retrying.",
+      "related": [
+        "check-in",
+        "staff",
+        "follow-ups"
+      ],
+      "route": [
+        "List",
+        "Patient Appointment"
+      ],
+      "screenshots": [],
+      "walkthrough": null,
+      "verified_on": null,
+      "reviewed_on": "22 October 2026",
+      "verification_note": "Source reviewed; full workflow and role-specific browser verification pending.",
+      "media_note": "Updated screenshots and a screen-recorded GIF are being prepared. The written steps are available below."
+    },
+    {
+      "id": "check-in",
+      "title": "Check in a booked or walk-in patient",
+      "category": "Reception",
+      "roles": [
+        "Receptionist",
+        "System Manager"
+      ],
+      "audience": "Receptionist · System Manager",
+      "summary": "Create one consultation visit for the arrival.",
+      "description": "Check In converts a saved appointment into a linked Patient Visit. Walk-ins start a visit directly. A clinical episode’s patient, practitioner, department and visit date are retained after creation.",
+      "prerequisites": [
+        "A saved scheduled appointment, or an active patient and practitioner for a walk-in."
+      ],
+      "steps": [
+        {
+          "title": "Confirm arrival details",
+          "detail": "Open the Scheduled appointment and verify the patient ID, practitioner, date and department. Save any changes first."
+        },
+        {
+          "title": "Choose Check In",
+          "detail": "Select Check In once. Status changes to Checked In and Patient Visit links to the consultation record. Repeating the action reuses that visit."
+        },
+        {
+          "title": "Open the linked visit",
+          "detail": "Follow Patient Visit and confirm Checked In. The doctor can continue the consultation there."
+        },
+        {
+          "title": "Register a walk-in instead",
+          "detail": "From Patient choose Create → New Walk-in Visit. Select Doctor, Department and Visit date, keep Status Checked In and save."
+        },
+        {
+          "title": "Review eligibility and charge",
+          "detail": "The saved visit may link Fee Validity or an Invoice. The clinical follow-up queue is separate from free-fee eligibility."
+        }
+      ],
+      "check": "One saved visit represents the arrival and links back to its appointment when applicable.",
+      "note": "Do not enter a Patient Visit link manually or reuse a visit for another patient. To cancel an unused episode, resolve its lab requests, any posted medicines and payments first. Fully credited and refunded consultation invoices are retained with their credit history; an unpaid uncredited consultation charge is voided.",
+      "related": [
+        "booking",
+        "consultation",
+        "eligibility"
+      ],
+      "route": [
+        "List",
+        "Patient Appointment"
+      ],
+      "screenshots": [],
+      "walkthrough": null,
+      "verified_on": null,
+      "reviewed_on": "22 October 2026",
+      "verification_note": "Source reviewed; full workflow and role-specific browser verification pending.",
+      "media_note": "Updated screenshots and a screen-recorded GIF are being prepared. The written steps are available below."
+    },
+    {
+      "id": "consultation",
+      "title": "Record a consultation and corrections",
+      "category": "Clinical care",
+      "roles": [
+        "Doctor",
+        "System Manager"
+      ],
+      "audience": "Doctor · System Manager",
+      "summary": "Review history, record findings and complete the visit.",
+      "description": "The consultation records clinical findings, prescriptions and follow-up plans. Completion keeps an actor and date, while later corrections require a new reason and preserve history.",
+      "prerequisites": [
+        "A checked-in Patient Visit; Doctor access."
+      ],
+      "steps": [
+        {
+          "title": "Confirm the episode",
+          "detail": "Open the visit and verify Patient, Doctor, Department and Visit date. In Previous Visits use Load previous visits, then Load more when offered, to review available history."
+        },
+        {
+          "title": "Record findings",
+          "detail": "Set the consultation status as work progresses and enter Remarks. Use Medication Details for additional instructions and Medication Schedule for timed prescriptions."
+        },
+        {
+          "title": "Resolve laboratory work",
+          "detail": "Use Create → Request Lab Report during an active consultation. Review or cancel each pending report before completing or cancelling the consultation. Closed consultations cannot accept new lab requests; create a new visit for further care."
+        },
+        {
+          "title": "Plan the follow-up",
+          "detail": "Enter Follow up, Follow Up Status and any outreach notes. This clinical date is independent of the fee-validity expiry."
+        },
+        {
+          "title": "Record leaving before care is finished",
+          "detail": "If the patient leaves, choose Create → Record Departure and describe the actual outcome. Left Before Seen is for a visit without clinical work. Clinical staff close other departures as Closed Early, with assessment/advice and an owner/due date for unresolved lab results."
+        },
+        {
+          "title": "Complete or correct",
+          "detail": "Set Status Completed after recording findings and save. To amend completed clinical content or the Follow up date, enter a new Correction Reason before saving the revised record. Confirm that the saved status appears and Not Saved clears."
+        }
+      ],
+      "check": "The completed visit retains its findings, completion actor/date and linked reports. Patient/doctor/date identity is unchanged.",
+      "note": "A missing-findings or pending-lab error explains what remains. Completed or cancelled visits cannot be reopened as a new consultation. Medicines already used in prescriptions cannot have their identity or pharmacy item changed; create a new catalogue entry and amend a completed prescription with a new Correction Reason. Closed Early visits also require a new Correction Reason for clinical amendments and cannot be reopened. Their invoices and dispensing history remain for separate reconciliation.",
+      "related": [
+        "labs",
+        "reminders",
+        "follow-ups",
+        "departures"
+      ],
+      "route": [
+        "List",
+        "Patient Visit"
+      ],
+      "screenshots": [],
+      "walkthrough": null,
+      "verified_on": null,
+      "reviewed_on": "22 October 2026",
+      "verification_note": "Source reviewed; full workflow and role-specific browser verification pending.",
+      "media_note": "Updated screenshots and a screen-recorded GIF are being prepared. The written steps are available below."
+    },
+    {
+      "id": "labs",
+      "title": "Request, receive and review a lab report",
+      "category": "Clinical care",
+      "roles": [
+        "Receptionist",
+        "Doctor",
+        "System Manager"
+      ],
+      "audience": "Receptionist · Doctor · System Manager",
+      "summary": "Keep an uploaded result attached to its own patient and visit.",
+      "description": "Lab Report tracks Requested, Received, Reviewed or Cancelled states for a private uploaded report. It does not connect to a laboratory instrument or external results service.",
+      "prerequisites": [
+        "A saved visit; a configured Lab Report Type; a private report file when receiving."
+      ],
+      "steps": [
+        {
+          "title": "Request from the visit",
+          "detail": "A Doctor or System Manager opens Patient Visit and chooses Create → Request Lab Report. Select Report Type and Requested On, then save. Patient is derived from the visit. Reception can manage the report through its permitted forms; the visit shortcut is clinical-only."
+        },
+        {
+          "title": "Receive the file",
+          "detail": "Open the same report. Upload the report through Report File with private storage, enter Received On and set Status Received. Save the record."
+        },
+        {
+          "title": "Review clinically",
+          "detail": "A Doctor opens the correct patient/visit and file, records the review by setting Status Reviewed, and saves. Reception cannot mark a clinical review."
+        },
+        {
+          "title": "Resolve a request that will not proceed",
+          "detail": "Set an unreviewed request to Cancelled when appropriate, retaining the reason in the available record notes/comments according to your local process."
+        },
+        {
+          "title": "Complete the consultation",
+          "detail": "Return to the visit after all reports are Reviewed or Cancelled. A reviewed report’s file and review details are retained."
+        },
+        {
+          "title": "Track results after a departure",
+          "detail": "For a patient who left during care, open Clinical Care → Departures and pending reviews and filter Pending Results Review to Pending. Review or cancel the linked requests as appropriate, then a Doctor uses Resolve Results Review on the departure. Leaving does not cancel a received result or count as clinical review."
+        }
+      ],
+      "check": "The result belongs to the right visit/patient, downloads with permission, and shows the review actor/date.",
+      "note": "Public/external URLs and files belonging to another report are rejected. Upload the correct private file instead. Received/Reviewed requires both a file and a received date.",
+      "related": [
+        "consultation",
+        "reminders",
+        "departures"
+      ],
+      "route": [
+        "List",
+        "Lab Report"
+      ],
+      "screenshots": [],
+      "walkthrough": null,
+      "verified_on": null,
+      "reviewed_on": "22 October 2026",
+      "verification_note": "Source reviewed; full workflow and role-specific browser verification pending.",
+      "media_note": "Updated screenshots and a screen-recorded GIF are being prepared. The written steps are available below."
+    },
+    {
+      "id": "reminders",
+      "title": "Prescribe and send medication reminders",
+      "category": "Clinical care",
+      "roles": [
+        "Doctor",
+        "System Manager"
+      ],
+      "audience": "Doctor · System Manager",
+      "summary": "Preview a dated schedule and track its email queue.",
+      "description": "Medication Schedule produces a calendar attachment from saved dosing windows. Sending records a delivery request per prescription version and recipient; queued mail is different from successful delivery.",
+      "prerequisites": [
+        "A patient email; a saved Medicine Timing; a prescription in Prescription Given or Completed; outgoing email configured by an administrator for real sends."
+      ],
+      "steps": [
+        {
+          "title": "Complete the prescription row",
+          "detail": "Select Medicine, Dose, Timing, start date and Duration (days). For pharmacy dispensing also enter an approved Quantity in the row’s expanded form."
+        },
+        {
+          "title": "Check the elapsed duration",
+          "detail": "Duration is the total calendar span. Seven days with a two-day interval gives events on days 1, 3, 5 and 7, using the site’s timezone."
+        },
+        {
+          "title": "Save and preview",
+          "detail": "Save the visit with Prescription Given or Completed, then choose Medication → Preview Medication Calendar. Review dates, times and medicine instructions."
+        },
+        {
+          "title": "Queue deliberately",
+          "detail": "Choose Medication → Send Medication Mail, review the confirmation and confirm the saved recipient. The delivery record opens; repeat clicks reuse the same request."
+        },
+        {
+          "title": "Check delivery or recover",
+          "detail": "Use Refresh Delivery Status on HMS Medication Delivery. Sent requires the queue’s sent status. For Failed, correct the outgoing-account issue and use Retry Failed Email; changed prescriptions or recipients need a new preview/send."
+        }
+      ],
+      "check": "The requested delivery has the expected patient, recipient, actor and status. A Queued response alone does not mean the email arrived.",
+      "note": "No schedule, an invalid recipient or a missing outgoing queue must be corrected. The walkthrough previews the calendar and inspects delivery status without sending email.",
+      "related": [
+        "consultation",
+        "dispense"
+      ],
+      "route": [
+        "List",
+        "HMS Medication Delivery"
+      ],
+      "screenshots": [],
+      "walkthrough": null,
+      "verified_on": null,
+      "reviewed_on": "19 October 2026",
+      "verification_note": "Source reviewed; full workflow and role-specific browser verification pending.",
+      "media_note": "Updated screenshots and a screen-recorded GIF are being prepared. The written steps are available below."
+    },
+    {
+      "id": "follow-ups",
+      "title": "Manage clinical follow-ups",
+      "category": "Reception",
+      "roles": [
+        "Receptionist",
+        "Doctor",
+        "System Manager"
+      ],
+      "audience": "Receptionist · Doctor · System Manager",
+      "summary": "Work the due queue and link the next appointment.",
+      "description": "Clinical follow-ups track the care plan and outreach progress. Fee eligibility tracks whether a consultation can be free; neither one proves the other.",
+      "prerequisites": [
+        "A saved visit with a Follow up date."
+      ],
+      "steps": [
+        {
+          "title": "Set the care plan",
+          "detail": "On the visit enter Follow up and leave Follow Up Status Pending. Save the record."
+        },
+        {
+          "title": "Open the due queue",
+          "detail": "Open Follow-ups. Due Follow-ups includes Pending or Contacted dates up to today; blank, future and cancelled visits are excluded."
+        },
+        {
+          "title": "Record contact progress",
+          "detail": "After following your hospital’s contact process, update Follow Up Status to Contacted and enter Follow Up Notes. Saving a note does not send a message."
+        },
+        {
+          "title": "Book the next appointment",
+          "detail": "Use Create → Book Follow-up from the source visit. Confirm the date and practitioner, choose a valid slot and save; the source is marked Scheduled."
+        },
+        {
+          "title": "Close or restore the queue item",
+          "detail": "Completion of the linked appointment closes the item. Cancelling the linked appointment restores Pending when no other active booking covers it. Close outreach manually when the care plan is resolved."
+        }
+      ],
+      "check": "The care plan has a date and a meaningful outreach status; scheduled follow-ups retain their source visit link.",
+      "note": "Do not infer free eligibility from a follow-up date. An empty queue can correctly mean there are no due dated Pending/Contacted visits.",
+      "related": [
+        "booking",
+        "eligibility",
+        "consultation"
+      ],
+      "route": [
+        "follow-ups"
+      ],
+      "screenshots": [],
+      "walkthrough": null,
+      "verified_on": null,
+      "reviewed_on": "19 October 2026",
+      "verification_note": "Source reviewed; full workflow and role-specific browser verification pending.",
+      "media_note": "Updated screenshots and a screen-recorded GIF are being prepared. The written steps are available below."
+    },
+    {
+      "id": "eligibility",
+      "title": "Understand free follow-up eligibility",
+      "category": "Reception",
+      "roles": [
+        "Receptionist",
+        "Doctor",
+        "System Manager"
+      ],
+      "audience": "Receptionist · Doctor · System Manager",
+      "summary": "Understand the allowed free visits and inclusive expiry date.",
+      "description": "Fee Validity links an initial paid consultation to a limited number of free follow-ups with the same practitioner. The cap counts free follow-ups, excluding the initial visit.",
+      "prerequisites": [
+        "Hospital Settings policy configured by a System Manager; any practitioner override reviewed."
+      ],
+      "steps": [
+        {
+          "title": "Review the policy",
+          "detail": "Ask a System Manager to review Enable Free Follow-ups, Validity (Days) and Max Free Visits in Hospital Settings. Practitioners can have an Inherit, Enabled or Disabled Follow-up Policy. Reception and doctors can read Fee Validity; Hospital Settings is administrator-only."
+        },
+        {
+          "title": "Save the initial consultation",
+          "detail": "Check in or save a walk-in visit. When enabled it starts an eligibility window and creates the configured consultation charge; a zero fee produces no invoice."
+        },
+        {
+          "title": "Read the window",
+          "detail": "Open Fee Validity from the visit. Start Date is included: seven days means that date through six days later. Visits Completed counts the free follow-up references; Max number of free visits is the cap, excluding the initial visit."
+        },
+        {
+          "title": "Use a qualifying follow-up",
+          "detail": "Eligibility uses the actual Visit date, including when the visit is entered late. A visit inside the matching practitioner window consumes an unused free place even if that window is labelled Expired today. Cancelled windows never qualify. After the cap, the next visit starts a new paid episode."
+        },
+        {
+          "title": "Cancel in the right order",
+          "detail": "Cancelling a free follow-up releases its place. To cancel an initial visit with used follow-ups, resolve those linked visits first. Cancelled windows remain cancelled."
+        }
+      ],
+      "check": "The window dates, free references and cap explain why the consultation was charged or eligible.",
+      "note": "The active-date range and remaining allowance must match the actual Visit date. Expired describes the window today; a historical visit may still qualify within its original dates. Cancelled windows cannot grant eligibility. Disabled policy creates normal consultation charges without a free window.",
+      "related": [
+        "check-in",
+        "billing",
+        "follow-ups"
+      ],
+      "route": [
+        "List",
+        "Fee Validity"
+      ],
+      "screenshots": [],
+      "walkthrough": null,
+      "verified_on": null,
+      "reviewed_on": "22 October 2026",
+      "verification_note": "Source reviewed; full workflow and role-specific browser verification pending.",
+      "media_note": "Updated screenshots and a screen-recorded GIF are being prepared. The written steps are available below."
+    },
+    {
+      "id": "departures",
+      "title": "Record a patient leaving before care is finished",
+      "category": "Clinical care",
+      "roles": [
+        "Receptionist",
+        "Doctor",
+        "System Manager"
+      ],
+      "audience": "Receptionist · Doctor · System Manager",
+      "summary": "Record the actual departure, preserve work already done and assign pending results.",
+      "description": "A departure is separate from clinical completion and financial settlement. The care record keeps a readable link to the finalized departure; payment, credits, medicine returns and follow-up remain explicit actions.",
+      "prerequisites": [
+        "A saved active consultation or admission. Clinical departures require Doctor access."
+      ],
+      "steps": [
+        {
+          "title": "Confirm the care record",
+          "detail": "Open the correct Patient Visit or IP Record and choose Create → Record Departure. Verify the patient and care record before recording what happened."
+        },
+        {
+          "title": "Select the observed outcome",
+          "detail": "For a visit without clinical work choose Left Before Seen; Reception can finalize it only after unresolved labs, posted medicines and consultation charges are resolved by their existing cancellation rules. For other departures a Doctor selects Left During Care, Declined Further Care, Transferred or Left Without Notice. For an admission that never started treatment use Admission Cancelled."
+        },
+        {
+          "title": "Record the time, reason and clinical advice",
+          "detail": "Enter Departed On and Reason. A Doctor records the assessment, advice, destination or referral details that are known in Clinical Notes. Do not imply that consent, handover or advice was received if the patient left without notice."
+        },
+        {
+          "title": "Assign unfinished lab work",
+          "detail": "When a visit has unresolved lab requests, enter an active Pending Results Owner and Results Review Due. Finalization is blocked without both. Review received results and cancel only requests that did not proceed; a departure does not erase lab history."
+        },
+        {
+          "title": "Finalize and verify",
+          "detail": "Save, review, then Finalize Departure. Left Before Seen uses cancellation. Other visits become Closed Early and retain existing findings, bills and dispensing. Admissions become Discharged with the departure outcome and release their bed atomically. No discharge summary or recovery condition is invented."
+        },
+        {
+          "title": "Reconcile and continue follow-up",
+          "detail": "Arrange credits/refunds, uncollected medicine reversals or collected returns separately. Clinical staff use the departure list filtered to Pending reviews and Resolve Results Review only after every linked lab request is Reviewed or Cancelled. Book a new appointment/visit if the patient returns; reopening an admission requires a reason and an available bed."
+        }
+      ],
+      "check": "The departure has the correct outcome/time/actor, the care record links to it, inpatient bed occupancy is released, and any unresolved lab work remains visibly assigned.",
+      "note": "A finalized departure cannot be overwritten. Add a comment for later context; closed clinical notes require a new correction reason. A failed finalization leaves the care record and bed unchanged. Leaving does not mean the bill is settled or the prescribed medicines were collected.",
+      "related": [
+        "consultation",
+        "labs",
+        "discharge",
+        "dispense",
+        "billing"
+      ],
+      "route": [
+        "List",
+        "HMS Patient Departure"
+      ],
+      "screenshots": [],
+      "walkthrough": null,
+      "verified_on": null,
+      "reviewed_on": "22 October 2026",
+      "verification_note": "Source reviewed and server integration cases added; full role-specific browser verification pending.",
+      "media_note": "Updated screenshots and a screen-recorded GIF are being prepared. The written steps are available below."
+    },
+    {
+      "id": "admission",
+      "title": "Admit, allocate a bed and transfer",
+      "category": "Inpatient care",
+      "roles": [
+        "Receptionist",
+        "System Manager"
+      ],
+      "audience": "Receptionist · System Manager",
+      "summary": "Create one active admission and keep bed occupancy consistent.",
+      "description": "An IP Record identifies the inpatient episode and its responsible practitioner. Saving an allocation or transfer updates the relevant beds and ward occupancy together.",
+      "prerequisites": [
+        "An active patient, practitioner and available Bed in a Ward."
+      ],
+      "steps": [
+        {
+          "title": "Start the admission",
+          "detail": "On Patient choose Create → New Admission. Confirm Patient, Admission Date and Practitioner."
+        },
+        {
+          "title": "Choose an available bed",
+          "detail": "Select an available Bed and Status Admitted, then save. A bed is required before any admission can be saved. A patient can have only one active admission and another patient’s occupied bed cannot be selected."
+        },
+        {
+          "title": "Review occupancy",
+          "detail": "Open the Bed to verify Current Patient and Current Admission. Ward Total Occupied is maintained by admission changes."
+        },
+        {
+          "title": "Transfer within the same episode",
+          "detail": "On the active IP Record select another available Bed and save. The previous bed is released and the new bed is allocated in the same transaction."
+        },
+        {
+          "title": "Continue inpatient care",
+          "detail": "Use Create → Record Treatment for clinical care or Create → Discharge Summary when ready for discharge. Those actions require clinical permissions."
+        }
+      ],
+      "check": "The active admission owns exactly the selected bed and the previous bed is free after a transfer.",
+      "note": "Do not edit bed occupancy directly or change an admission’s patient to reuse the record. An active-admission or occupied-bed conflict requires choosing the correct existing episode/available bed.",
+      "related": [
+        "care",
+        "discharge"
+      ],
+      "route": [
+        "List",
+        "IP Record"
+      ],
+      "screenshots": [],
+      "walkthrough": null,
+      "verified_on": null,
+      "reviewed_on": "22 October 2026",
+      "verification_note": "Source reviewed; full workflow and role-specific browser verification pending.",
+      "media_note": "Updated screenshots and a screen-recorded GIF are being prepared. The written steps are available below."
+    },
+    {
+      "id": "care",
+      "title": "Record inpatient care and vitals",
+      "category": "Inpatient care",
+      "roles": [
+        "Doctor",
+        "System Manager"
+      ],
+      "audience": "Doctor · System Manager",
+      "summary": "Add dated care and measurements to the right admission.",
+      "description": "In Patient Treatment belongs to one admission and derives its patient from that episode. It records who entered the care and vitals; measurements must be checked with the displayed units.",
+      "prerequisites": [
+        "An IP Record; Doctor access and verified observations."
+      ],
+      "steps": [
+        {
+          "title": "Start from the admission",
+          "detail": "Open the active IP Record and choose Create → Record Treatment. Check In Patient, the derived Patient and Treating Doctor."
+        },
+        {
+          "title": "Enter dated care",
+          "detail": "Choose the Date and enter Medications Given and Diagnosis Update. The date must be between admission and today and cannot be after discharge."
+        },
+        {
+          "title": "Add vitals",
+          "detail": "Add each Vitals row, choose its Time and enter the observed values using the field’s displayed units. Expand the row for fields not visible in the grid."
+        },
+        {
+          "title": "Save and review",
+          "detail": "Save the treatment. Recorded By and new vital authors come from the logged-in account. Use View → Treatment History on IP Record for the list, or Previous Treatments → Load treatment history / Load more on a treatment to review earlier entries."
+        },
+        {
+          "title": "Correct transparently",
+          "detail": "Keep the historical record and make a documented correction using your hospital’s correction process and version history. Do not delete the episode’s care history."
+        }
+      ],
+      "check": "The saved care entry belongs to the intended admission and patient, has a valid date and shows the actual recording user.",
+      "note": "Contradictory patient/admission associations, dates outside the episode or negative measurements are rejected. Verify units and observations rather than bypassing validation.",
+      "related": [
+        "admission",
+        "discharge"
+      ],
+      "route": [
+        "List",
+        "In Patient Treatment"
+      ],
+      "screenshots": [],
+      "walkthrough": null,
+      "verified_on": null,
+      "reviewed_on": "19 October 2026",
+      "verification_note": "Source reviewed; full workflow and role-specific browser verification pending.",
+      "media_note": "Updated screenshots and a screen-recorded GIF are being prepared. The written steps are available below."
+    },
+    {
+      "id": "discharge",
+      "title": "Finalize discharge or reopen admission",
+      "category": "Inpatient care",
+      "roles": [
+        "Doctor",
+        "System Manager"
+      ],
+      "audience": "Doctor · System Manager",
+      "summary": "Finalize the summary and release the bed together.",
+      "description": "A discharge draft is a clinical document in progress. Finalize Discharge closes the admission, links the summary and releases the bed in one transaction.",
+      "prerequisites": [
+        "An active admission and a saved draft Discharge Summary; Doctor access."
+      ],
+      "steps": [
+        {
+          "title": "Prepare the summary",
+          "detail": "On IP Record choose Create → Discharge Summary. Verify the patient, admission and Practitioner; enter Discharge Date, Final Diagnosis, Discharge Notes, Condition at Discharge and any Follow Up."
+        },
+        {
+          "title": "Save the draft",
+          "detail": "Save and review the summary. Saving a Draft does not discharge the patient or free the bed."
+        },
+        {
+          "title": "Finalize deliberately",
+          "detail": "Choose Finalize Discharge and confirm. This records the actor/date, changes IP Record to Discharged and releases the bed together."
+        },
+        {
+          "title": "Check the result",
+          "detail": "Open the admission and bed to confirm the discharge link/date and released allocation. Review the patient follow-up date when provided."
+        },
+        {
+          "title": "Record a different departure",
+          "detail": "For transfer, refusal of further care or leaving without notice, open the admission and choose Create → Record Departure. A Doctor records the actual outcome, time, reason and assessment/advice, then Finalize Departure releases the bed. Admission Cancelled is allowed only before treatment starts."
+        },
+        {
+          "title": "Reopen only when appropriate",
+          "detail": "Use Actions → Reopen Admission with a reason. The selected bed must be available. A subsequent discharge needs a new summary; finalized summary corrections require a new Correction Reason."
+        }
+      ],
+      "check": "The summary is Finalized, the admission is Discharged and the bed is available.",
+      "note": "If the transaction fails, refresh both records before retrying. Do not manually set Discharged or overwrite a completed summary to represent a new discharge.",
+      "related": [
+        "admission",
+        "care",
+        "follow-ups",
+        "departures"
+      ],
+      "route": [
+        "List",
+        "Discharge Summary"
+      ],
+      "screenshots": [],
+      "walkthrough": null,
+      "verified_on": null,
+      "reviewed_on": "22 October 2026",
+      "verification_note": "Source reviewed; full workflow and role-specific browser verification pending.",
+      "media_note": "Updated screenshots and a screen-recorded GIF are being prepared. The written steps are available below."
+    },
+    {
+      "id": "intake",
+      "title": "Receive medicines and inspect stock lots",
+      "category": "Pharmacy",
+      "roles": [
+        "Pharmacist",
+        "System Manager"
+      ],
+      "audience": "Pharmacist · System Manager",
+      "summary": "Post received batches before they become available stock.",
+      "description": "Meds In take records supplier receipt details. Stock changes only through Post Intake, which creates traceable lots and append-only movements.",
+      "prerequisites": [
+        "Meds Provider and Med Item records; verified batch, expiry, quantity, cost and currency."
+      ],
+      "steps": [
+        {
+          "title": "Enter the receipt",
+          "detail": "Open Meds In take and create a record. Select Provider, Date, supplier Invoice Number and Currency."
+        },
+        {
+          "title": "Add batch rows",
+          "detail": "For each row select Medical Item Name and enter Batch Number, Count, Expires At and Single Item Price. Expand rows for the full fields."
+        },
+        {
+          "title": "Review totals and save",
+          "detail": "Review the calculated Price, Discount and Total, then save. Draft available stock remains zero."
+        },
+        {
+          "title": "Post Intake",
+          "detail": "Choose Post Intake and confirm. Only nonexpired, valid quantities can be posted. Posting again reuses the posted record."
+        },
+        {
+          "title": "Inspect the lot and history",
+          "detail": "Open the row’s Stock Lot or HMS Stock Lot list. Check item, batch, expiry, currency and Available Quantity; use HMS Stock Movement for its history. Cancel Intake requires a reason and enough remaining stock to reverse the original receipt."
+        }
+      ],
+      "check": "The intake is Posted and the new lot has the received quantity and a Stock received movement.",
+      "note": "Posted rows cannot be edited to change stock. Use a return/reversing adjustment as appropriate. Legacy intake is read-only and cannot establish opening stock automatically.",
+      "related": [
+        "dispense",
+        "stock-adjustments",
+        "legacy"
+      ],
+      "route": [
+        "List",
+        "Meds In take"
+      ],
+      "screenshots": [],
+      "walkthrough": null,
+      "verified_on": null,
+      "reviewed_on": "19 October 2026",
+      "verification_note": "Source reviewed; full workflow and role-specific browser verification pending.",
+      "media_note": "Updated screenshots and a screen-recorded GIF are being prepared. The written steps are available below."
+    },
+    {
+      "id": "dispense",
+      "title": "Dispense, hand over and return medicines",
+      "category": "Pharmacy",
+      "roles": [
+        "Pharmacist",
+        "System Manager"
+      ],
+      "audience": "Pharmacist · System Manager",
+      "summary": "Track posted stock, actual handovers and inspected returns separately.",
+      "description": "Post Dispensing removes available stock and creates a charge. Record Handover separately records the recipient and actual quantity supplied. A return creates a credit; the pharmacist chooses quarantine or restock after checking the medicines. Cash refunds remain separate.",
+      "prerequisites": [
+        "Posted stock; Medicine mapped to Med Item; doctor-approved dispense Quantity for a prescription."
+      ],
+      "steps": [
+        {
+          "title": "Start from the prescription",
+          "detail": "On a saved Prescription Given or Completed visit choose Create → Dispense Prescription. Confirm Patient and Patient Visit."
+        },
+        {
+          "title": "Add From Prescription",
+          "detail": "Choose Add From Prescription, select the named medicine, choose an available unexpired Stock Lot, enter Quantity and Selling Unit Price, then choose Add Item. Review the earliest expiry before selecting a physical lot."
+        },
+        {
+          "title": "Save and post",
+          "detail": "Save the Meds Out draft, check Currency and the rows, then choose Post Dispensing and confirm. Drafts do not reserve stock; posting rechecks available and approved quantities."
+        },
+        {
+          "title": "Review the result",
+          "detail": "The record is Posted, stock decreases and Invoice links to the issued charge. Record Payment is a separate action."
+        },
+        {
+          "title": "Record the actual handover",
+          "detail": "On a posted sale choose Record Handover. Confirm the remaining lots, enter Recipient Name and Collected On, and reduce quantities to those actually supplied. Save, then Post Handover. Repeat for a partial collection; Collection Status shows Not Collected, Partly Collected, Collected or Returned. Posting a sale does not prove a handover."
+        },
+        {
+          "title": "Record an uncollected reversal or collected return",
+          "detail": "On the posted sale choose Record Return. Keep the original customer, lot, price and prescription reference. Enter only actual quantities, choose Return Origin Uncollected or Collected and enter Return Reason. The selected origin is capped against the matching collection history. Historical sales without handover tracking require Legacy Not Tracked."
+        },
+        {
+          "title": "Inspect and choose the stock destination",
+          "detail": "Return Disposition defaults to Quarantine. Quarantined stock cannot be sold or handed out as available inventory. Choose Restock only after the pharmacist verifies the pack and applicable storage/expiry requirements; expired returns must remain quarantined. Save and Post Dispensing to record the return and invoice credit. Refund money separately when required."
+        },
+        {
+          "title": "Release or dispose quarantined medicines",
+          "detail": "Use a Stock Adjustment with Release Quarantine or Dispose Quarantine, a positive quantity and an inspection/disposal reason. Release moves the same quantity from quarantine to available stock; disposal removes it from quarantine. An expired lot cannot be released."
+        }
+      ],
+      "check": "The sale has the correct charge, handover records identify the recipient and quantities actually supplied, and returns credit only eligible quantities into the selected stock bucket.",
+      "note": "Expired or insufficient stock, an unmapped medicine or an exceeded approved quantity blocks posting. A medicine already used by prescriptions cannot be remapped to a different pharmacy item; ask the appropriate clinical staff to create a new medicine and correct the prescription. One lot can appear once per record; use separate records if the same lot serves multiple prescription rows. Stock removed by posting is held for this sale until handover or an explicit uncollected return. A collected return does not create another handover allowance on the same sale; use a new approved dispensing record for a replacement.",
+      "related": [
+        "intake",
+        "stock-adjustments",
+        "billing"
+      ],
+      "route": [
+        "List",
+        "Meds Out"
+      ],
+      "screenshots": [],
+      "walkthrough": null,
+      "verified_on": null,
+      "reviewed_on": "22 October 2026",
+      "verification_note": "Source reviewed; full workflow and role-specific browser verification pending.",
+      "media_note": "Updated screenshots and a screen-recorded GIF are being prepared. The written steps are available below."
+    },
+    {
+      "id": "stock-adjustments",
+      "title": "Adjust stock with a reason",
+      "category": "Pharmacy",
+      "roles": [
+        "Pharmacist",
+        "System Manager"
+      ],
+      "audience": "Pharmacist · System Manager",
+      "summary": "Record a counted difference without erasing movements.",
+      "description": "Count Correction changes the available balance by a signed quantity. Release Quarantine transfers inspected units from quarantine to available stock; Dispose Quarantine removes units from quarantine. Every posting retains the reason, actor and movement history.",
+      "prerequisites": [
+        "A posted stock lot and a verified physical count/reason."
+      ],
+      "steps": [
+        {
+          "title": "Inspect the lot",
+          "detail": "Open HMS Stock Lot and check item, batch, expiry, Available Quantity and Quarantined Quantity. Review Stock Movements and their Stock Bucket before deciding the correction."
+        },
+        {
+          "title": "Create the adjustment",
+          "detail": "Select Stock Lot and Adjustment Type. For Count Correction enter a positive quantity to add or negative to remove available stock. For Release Quarantine or Dispose Quarantine enter a positive quantity taken from the quarantine balance."
+        },
+        {
+          "title": "Explain the correction",
+          "detail": "Enter a specific Reason, such as a verified count difference or damaged units. A zero quantity or missing reason is rejected."
+        },
+        {
+          "title": "Save and Post Adjustment",
+          "detail": "Save, review the signed quantity, then choose Post Adjustment and confirm. Posting rechecks the current balance."
+        },
+        {
+          "title": "Review and reverse when needed",
+          "detail": "Check both lot balances and the matching movement bucket. A quarantine release creates equal negative quarantine and positive available movements. A disposal creates only a negative quarantine movement. Posted records are immutable; record any further correction explicitly with its actual reason."
+        }
+      ],
+      "check": "The lot balance changes by exactly the posted signed quantity, and the movement retains the source and actor.",
+      "note": "Negative balances are rejected. An expired lot cannot be dispensed, handed over or released from quarantine. Count Correction does not release quarantine; use the explicit Release Quarantine action after inspection.",
+      "related": [
+        "intake",
+        "dispense",
+        "reporting"
+      ],
+      "route": [
+        "List",
+        "HMS Stock Adjustment"
+      ],
+      "screenshots": [],
+      "walkthrough": null,
+      "verified_on": null,
+      "reviewed_on": "22 October 2026",
+      "verification_note": "Source reviewed; full workflow and role-specific browser verification pending.",
+      "media_note": "Updated screenshots and a screen-recorded GIF are being prepared. The written steps are available below."
+    },
+    {
+      "id": "billing",
+      "title": "Issue invoices, record payments and refunds",
+      "category": "Billing",
+      "roles": [
+        "Receptionist",
+        "Pharmacist",
+        "System Manager"
+      ],
+      "audience": "Receptionist · Pharmacist · System Manager",
+      "summary": "Reconcile charges, credits, posted receipts and refund dues.",
+      "description": "Standalone HMS invoices and allocations track operational balances. They do not process money through a gateway or provide a general ledger, tax, insurance or automatic inpatient-tariff system.",
+      "prerequisites": [
+        "An issued source invoice or a reviewed manual charge; patient and currency confirmed."
+      ],
+      "steps": [
+        {
+          "title": "Review or issue the invoice",
+          "detail": "Consultation and posted pharmacy actions create issued source invoices. For other charges create HMS Invoice with Patient/Payer, Date, Currency and Items, save and choose Issue Invoice."
+        },
+        {
+          "title": "Record Payment",
+          "detail": "On an invoice with an outstanding amount choose Record Payment. Check patient, amount, date, Payment Mode, Towards and Allocations. The full receipt must be allocated to issued invoices for the same patient/currency."
+        },
+        {
+          "title": "Post Payment",
+          "detail": "Save and review, then choose Post Payment and confirm. A draft does not count as payment. The server prevents overpayment and retains posted allocations."
+        },
+        {
+          "title": "Credit a reduced charge",
+          "detail": "Use Create Credit on the original invoice, review the amount and issue it. For returned medicines use Record Return on the dispensing source to keep stock and credit aligned."
+        },
+        {
+          "title": "Record Refund",
+          "detail": "On the original posted Receive receipt choose Record Refund. Adjust the amount/allocations to the actual refund, save and post. It cannot exceed the original unrefunded allocation or remaining paid balance."
+        },
+        {
+          "title": "Reconcile",
+          "detail": "Open HMS Reconciliation for credits, Net Receipts, Outstanding and Refund Due. A refund alone does not reduce the charge. A fully credited and fully refunded consultation can be cancelled while retaining its original invoice, credit and receipts. A partially credited consultation must have its remaining charge resolved before cancellation. Unpaid uncredited source charges are voided through their source; standalone invoices use Void Invoice with a reason."
+        }
+      ],
+      "check": "The invoice balance reflects issued credits and net posted allocated receipts; draft receipts are excluded.",
+      "note": "Currency/patient mismatch, overpayment, excess credit or an excessive refund is rejected. Posted financial records cannot be edited or deleted; use the documented reversal path.",
+      "related": [
+        "dispense",
+        "reporting",
+        "legacy"
+      ],
+      "route": [
+        "List",
+        "HMS Invoice"
+      ],
+      "screenshots": [],
+      "walkthrough": null,
+      "verified_on": null,
+      "reviewed_on": "22 October 2026",
+      "verification_note": "Source reviewed; full workflow and role-specific browser verification pending.",
+      "media_note": "Updated screenshots and a screen-recorded GIF are being prepared. The written steps are available below."
+    },
+    {
+      "id": "reporting",
+      "title": "Read dashboards and investigate discrepancies",
+      "category": "Reporting",
+      "roles": [
+        "Receptionist",
+        "Doctor",
+        "Pharmacist",
+        "System Manager"
+      ],
+      "audience": "All HMS staff for their permitted dashboards; Receptionist · Pharmacist · System Manager for HMS Reconciliation; pharmacy roles for stock",
+      "summary": "Use the right view for due work, census, stock and money.",
+      "description": "Dashboard labels distinguish current operational counts from historic activity. Reconciliation explains invoice balances, while stock lots and movements explain quantities.",
+      "prerequisites": [
+        "Read access to the relevant records/report."
+      ],
+      "steps": [
+        {
+          "title": "Check the definition",
+          "detail": "Reception shows new patients, visits on Visit date and Current Inpatients. Follow-ups shows due clinical dates; Fee Validity shows financial eligibility."
+        },
+        {
+          "title": "Read collections correctly",
+          "detail": "Accounts charts and Recorded Receipts show gross recorded Receive receipts before refunds. Drafts are excluded; Legacy Recorded receipts may still need allocation."
+        },
+        {
+          "title": "Use HMS Reconciliation",
+          "detail": "With Receptionist, Pharmacist or System Manager access, open HMS Reconciliation. Filter by Patient or Outstanding only. Compare Invoiced, Credits, Net Receipts, Outstanding and Refund Due. Different currencies are not added together. Doctor-only access does not include this report."
+        },
+        {
+          "title": "Trace stock differences",
+          "detail": "With Pharmacist or System Manager access, open HMS Stock Lot for current quantities and HMS Stock Movement for signed movements. Inspect the linked intake, dispensing or adjustment instead of changing the balance directly."
+        },
+        {
+          "title": "Investigate the source",
+          "detail": "For a missing or unexpected number, check date filters, status, currency, role permissions, source links and whether the record is Draft, Posted, Legacy or cancelled. Save corrections through the source workflow."
+        }
+      ],
+      "check": "The report definition, record states and underlying sources explain the displayed totals.",
+      "note": "Empty charts can be correct on a new site or after restrictive filters. If data still disagrees, give an administrator the record IDs and expected calculation; do not send patient details through an unapproved channel.",
+      "related": [
+        "billing",
+        "follow-ups",
+        "stock-adjustments"
+      ],
+      "route": [
+        "reception-dashboard"
+      ],
+      "screenshots": [],
+      "walkthrough": null,
+      "verified_on": null,
+      "reviewed_on": "19 October 2026",
+      "verification_note": "Source reviewed; full workflow and role-specific browser verification pending.",
+      "media_note": "Updated screenshots and a screen-recorded GIF are being prepared. The written steps are available below."
+    },
+    {
+      "id": "legacy",
+      "title": "Reconcile records after an upgrade",
+      "category": "Administration",
+      "roles": [
+        "System Manager"
+      ],
+      "audience": "System Manager",
+      "summary": "Establish reviewed opening stock and allocate historical receipts.",
+      "description": "An upgrade retains historical documents without inventing inventory movements or invoice/payment matches. Legacy statuses distinguish that retained history from the new posting ledger.",
+      "prerequisites": [
+        "A verified site backup; administrator and pharmacy/billing review."
+      ],
+      "steps": [
+        {
+          "title": "Keep the backup",
+          "detail": "Before schema changes retain the site database, public/private files and site configuration according to your normal backup process."
+        },
+        {
+          "title": "Review Legacy stock",
+          "detail": "Old intake/dispensing documents remain Legacy and cannot be posted again. Compare them with the physical count and retained supplier/sales evidence."
+        },
+        {
+          "title": "Establish opening stock",
+          "detail": "Create reviewed new intake records for verified opening batches and quantities, then post them. Do not post an old receipt a second time or assume old totals equal current stock."
+        },
+        {
+          "title": "Allocate Legacy Recorded receipts",
+          "detail": "Old receipts keep their amount, date and payer. Review the correct invoices, enter full allocations and choose Post Payment to include them in reconciled balances."
+        },
+        {
+          "title": "Resolve historical ambiguity explicitly",
+          "detail": "Review missing clinical associations, overlapping bookings, bed state, fee windows, private attachments and site custom permissions. Preserve disputed history until an administrator resolves it. Historical posted sales have no proven collection history: do not invent recipients or handover dates. Use Legacy Not Tracked with a documented return origin/reason if a physical return is accepted. Medical Department and Patient Care Type are retained for compatibility but removed from the current sidebar; use Department Type for department setup."
+        }
+      ],
+      "check": "Opening lots have an explicit reviewed source and historical receipts are either clearly unallocated or explicitly reconciled.",
+      "note": "Never match a patient or invoice only by display name. Some older records need human review under the stricter validators; do not bypass them with direct balance edits.",
+      "related": [
+        "intake",
+        "billing",
+        "reporting"
+      ],
+      "route": [
+        "List",
+        "Payment Recipit"
+      ],
+      "screenshots": [],
+      "walkthrough": null,
+      "verified_on": null,
+      "reviewed_on": "22 October 2026",
+      "verification_note": "Source reviewed; full workflow and role-specific browser verification pending.",
+      "media_note": "Updated screenshots and a screen-recorded GIF are being prepared. The written steps are available below."
+    }
+  ],
+  "review_notice": "The guide includes source-reviewed instructions and a browser-checked Hospital Live overview updated on 29 October 2026. Full role-by-role workflow and media verification remains pending.",
+  "media_notice": "A Hospital Live overview screenshot is available. Other updated screenshots and continuous cursor-visible workflow recordings remain in preparation."
+}

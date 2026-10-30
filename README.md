@@ -2,6 +2,10 @@
 
 hospital Management System
 
+HMS uses standard Frappe Desk for its forms and dashboards. Open `/desk/patient`
+to start; legacy `/hms` URLs redirect there. The custom React frontend has been
+removed, so HMS has no separate frontend dependency install or build step.
+
 ### Installation
 
 You can install this app using the [bench](https://github.com/frappe/bench) CLI:
@@ -11,6 +15,17 @@ cd $PATH_TO_YOUR_BENCH
 bench get-app $URL_OF_THIS_REPO --branch develop
 bench install-app hms
 ```
+
+### Standalone workflows and documentation
+
+Pharmacy stock, invoices, payment allocation and refunds run within HMS on Frappe;
+ERPNext is not required. See [workflow rules and regression checks](docs/WORKFLOWS.md)
+and the [staff user guide](docs/user-guide/README.md). The guide includes 22 chapters,
+a [quick reference](docs/USER-GUIDE-QUICK-REFERENCE.md), a Hospital Live screenshot,
+and a printable edition. Workflow screenshots and cursor/click GIF recordings remain
+on the capture checklist. See the
+[media checklist](docs/USER-GUIDE-MEDIA-STATUS.md) for pending captures and the
+[maintenance notes](docs/USER-GUIDE-MAINTENANCE.md) for offline export.
 
 ### Contributing
 

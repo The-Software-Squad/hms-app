@@ -8,30 +8,25 @@ app_license = "mit"
 # App visuals and home
 app_icon = "octicon octicon-hubot"
 app_color = "blue"
-app_home = "/app/hms"
+app_home = "/desk/patient"
 
 add_to_apps_screen = [
 	{
 		"name": "hms",
 		"logo": "/assets/hms/images/hms.svg",
 		"title": "HMS",
-		"route": "/app/hms",
+		"route": "/desk/patient",
 	}
 ]
 # required_apps = []
 
 
-# Boot
-# ----
-# extend_bootinfo = "hms.boot.boot_session"
-
-extend_bootinfo = "hms.boot.boot_session"
-
-# Website redirects
-website_route_rules = [
+# Keep bookmarks for the removed custom frontend on standard Desk.
+website_redirects = [
 	{
-		"from_route": "/hms/<path:app_path>",
-		"to_route": "hms",
+		"source": r"/hms(?:/.*)?",
+		"target": "/desk/patient",
+		"redirect_http_status": 302,
 	},
 ]
 
@@ -47,7 +42,7 @@ global_search_doctypes = {
 		{"doctype": "Fee Validity", "index": 8},
 		{"doctype": "Ward", "index": 9},
 		{"doctype": "Bed", "index": 10},
-		{"doctype": "Medicine", "index": 11}
+		{"doctype": "Medicine", "index": 11},
 	]
 }
 
@@ -55,21 +50,15 @@ global_search_doctypes = {
 # Fixtures
 # ----------
 fixtures = [
-	{
-		"doctype": "Custom HTML Block",
-		"filters": [["name", "in", ("HMS Dashboard Profile")]]
-	},
-	{
-		"doctype": "Role",
-		"filters": [["name", "in", ("Receptionist", "Pharmacist", "Doctor")]]
-	}
+	{"doctype": "Custom HTML Block", "filters": [["name", "in", ("HMS Dashboard Profile")]]},
+	{"doctype": "Role", "filters": [["name", "in", ("Receptionist", "Pharmacist", "Doctor")]]},
 ]
 # Includes in <head>
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/hms/css/hms.css"
-# app_include_js = "/assets/hms/js/hms.js"
+app_include_css = "/assets/hms/css/user_guide.css"
+app_include_js = "/assets/hms/js/user_guide.js?v=7"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/hms/css/hms.css"
@@ -195,6 +184,7 @@ doc_events = {
 
 
 scheduler_events = {
+	"hourly": ["hms.api.mailer.update_delivery_statuses"],
 	# "all": [
 	# 	"hms.tasks.all"
 	# ],

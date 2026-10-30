@@ -1,0 +1,79 @@
+{
+ "doctype": "DocType",
+ "name": "HMS Patient Merge",
+ "module": "HMS",
+ "engine": "InnoDB",
+ "field_order": [
+  "source_patient",
+  "target_patient",
+  "reason",
+  "performed_by",
+  "performed_on",
+  "source_snapshot",
+  "legacy_id"
+ ],
+ "fields": [
+  {
+   "fieldname": "source_patient",
+   "fieldtype": "Data",
+   "label": "Source Patient",
+   "reqd": 1
+  },
+  {
+   "fieldname": "target_patient",
+   "fieldtype": "Link",
+   "label": "Target Patient",
+   "options": "Patient",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reason",
+   "fieldtype": "Small Text",
+   "label": "Reason",
+   "reqd": 1
+  },
+  {
+   "fieldname": "performed_by",
+   "fieldtype": "Link",
+   "label": "Performed By",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "performed_on",
+   "fieldtype": "Datetime",
+   "label": "Performed On",
+   "reqd": 1
+  },
+  {
+   "fieldname": "source_snapshot",
+   "fieldtype": "JSON",
+   "label": "Source Snapshot",
+   "reqd": 1
+  },
+  {
+   "fieldname": "legacy_id",
+   "fieldtype": "Data",
+   "label": "Previous Record ID",
+   "read_only": 1,
+   "hidden": 1
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "permlevel": 0,
+   "read": 1,
+   "write": 0,
+   "create": 0,
+   "print": 1,
+   "report": 1
+  }
+ ],
+ "istable": 0,
+ "track_changes": 1,
+ "autoname": "HMS-MRG-.YYYY.-.#####",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "naming_rule": "Expression"
+}

@@ -1,0 +1,770 @@
+.hospital-live {
+	--hl-ink: #193f38;
+	--hl-muted: #71817a;
+	--hl-line: #dce5dd;
+	--hl-bg: #f4f6f0;
+	font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+	color: var(--hl-ink);
+	background: var(--hl-bg);
+	padding: 28px;
+	border-radius: 16px;
+	margin: 8px 0 30px;
+}
+.hospital-live * {
+	box-sizing: border-box;
+}
+.hospital-live button {
+	font-family: inherit;
+	cursor: pointer;
+}
+.hospital-live button:disabled {
+	opacity: 0.42;
+	cursor: default;
+}
+.hospital-live button:focus-visible,
+.hl-scene:focus-visible {
+	outline: 3px solid #53a990;
+	outline-offset: 3px;
+}
+.hl-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+	margin-bottom: 24px;
+}
+.hl-eyebrow {
+	font-size: 10px;
+	font-weight: 700;
+	letter-spacing: 2.2px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin: 0 0 13px;
+	color: #5b776c;
+}
+.hl-mark {
+	font-size: 20px;
+	letter-spacing: -2px;
+	display: grid;
+	place-items: center;
+	position: relative;
+	width: 35px;
+	height: 35px;
+	background: #205a49;
+	color: #fff;
+	border-radius: 11px;
+}
+.hl-mark span {
+	position: absolute;
+	font-size: 12px;
+	right: 4px;
+	top: 1px;
+	letter-spacing: 0;
+	color: #c7e7b4;
+}
+.hl-header h1 {
+	font-size: 38px;
+	font-weight: 600;
+	letter-spacing: -1.8px;
+	margin: 0 0 7px;
+	line-height: 1.1;
+}
+.hl-header h1 > span {
+	color: #89a76e;
+}
+.hl-subtitle {
+	color: var(--hl-muted);
+	font-size: 13px;
+	margin: 0;
+}
+.hl-header-actions {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	flex-wrap: wrap;
+	gap: 9px;
+	max-width: 440px;
+}
+.hl-connection {
+	display: flex;
+	align-items: center;
+	gap: 7px;
+	font-size: 11px;
+	color: var(--hl-muted);
+	width: 100%;
+	justify-content: flex-end;
+}
+.hl-connection i {
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: #b3bfb4;
+}
+.hl-connection.connected i {
+	background: #389a78;
+	box-shadow: 0 0 0 3px #389a7815;
+}
+.hl-connection.error i {
+	background: #bd695b;
+}
+.hl-connection.paused i {
+	background: #c39b51;
+}
+.hl-button {
+	padding: 8px 12px;
+	border: 1px solid #cfdccf;
+	background: #fcfdf9;
+	color: var(--hl-ink);
+	border-radius: 7px;
+	font-size: 12px !important;
+}
+.hl-button:hover {
+	background: #e6eee3;
+}
+.hl-metrics {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 11px;
+	margin-bottom: 22px;
+}
+.hl-metric {
+	position: relative;
+	padding: 16px 18px;
+	background: #fdfef9;
+	border: 1px solid var(--hl-line);
+	border-radius: 11px;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	overflow: hidden;
+}
+.hl-metric:before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 18px;
+	height: 22px;
+	width: 3px;
+	background: var(--accent, #7cae99);
+	border-radius: 0 2px 2px 0;
+}
+.hl-metric-label {
+	font-size: 12px;
+	font-weight: 600;
+	color: #53695f;
+}
+.hl-metric strong {
+	font-size: 32px;
+	font-weight: 500;
+	letter-spacing: -1.1px;
+	line-height: 1.25;
+}
+.hl-metric-detail {
+	font-size: 10px;
+	color: #839187;
+}
+.hospital-live .waiting {
+	--accent: #dba34e;
+}
+.hospital-live .consultation {
+	--accent: #369e89;
+}
+.hospital-live .diagnostics {
+	--accent: #669bc7;
+}
+.hospital-live .pharmacy {
+	--accent: #9a85c4;
+}
+.hospital-live .inpatient {
+	--accent: #db8b78;
+}
+.hl-workbench {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 268px;
+	gap: 16px;
+	align-items: start;
+}
+.hl-map-panel {
+	background: #eaf1ee;
+	border: 1px solid #d5e0d8;
+	border-radius: 12px;
+	overflow: hidden;
+	position: relative;
+}
+.hl-map-toolbar {
+	padding: 14px 16px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	border-bottom: 1px solid #d5dfd6;
+	background: #f8fbf5;
+}
+.hl-section-kicker {
+	font-size: 10px;
+	font-weight: 700;
+	letter-spacing: 1.6px;
+	color: #678072;
+}
+.hl-schematic {
+	font-size: 10px;
+	margin-left: 9px;
+	padding: 3px 6px;
+	background: #e9eee4;
+	border-radius: 4px;
+	color: #7b8978;
+	white-space: nowrap;
+}
+.hl-view-controls {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	gap: 4px;
+}
+.hl-view-controls button {
+	border: 0;
+	background: transparent;
+	color: #647d70;
+	padding: 4px 6px;
+	border-radius: 4px;
+	font-size: 10px;
+}
+.hl-view-controls button:hover,
+.hl-view-controls button[aria-pressed="true"] {
+	background: #dce9df;
+	color: #214f41;
+}
+.hl-scene {
+	position: relative;
+	width: 100%;
+	height: 580px;
+	overflow: hidden;
+	background: #eaf1ee;
+}
+.hl-scene canvas {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.hl-scene-labels {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	overflow: hidden;
+}
+.hl-world-label {
+	position: absolute;
+	left: 0;
+	top: 0;
+	white-space: nowrap;
+	font-size: 9px;
+	font-weight: 650;
+	letter-spacing: 0.25px;
+	color: #3f6556;
+	background: #fffffff0;
+	border: 1px solid #d6e1d4;
+	border-radius: 5px;
+	padding: 5px 8px;
+	box-shadow: 0 3px 10px #1c46370b;
+	max-width: 235px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.hl-world-label:is(button) {
+	pointer-events: auto;
+}
+.hl-room-label {
+	color: #2e584a;
+	border-bottom: 2px solid #8aaf9f;
+}
+.hl-seats-label {
+	font-size: 8px;
+	background: #f8f7eddf;
+	color: #8f7a51;
+	border-color: #e2dfc7;
+	padding: 3px 7px;
+}
+.hl-zone-label {
+	letter-spacing: 1.1px;
+	font-size: 8px;
+}
+.hl-sign-label {
+	font-size: 12px;
+	letter-spacing: 4px;
+	background: transparent;
+	border: 0;
+	box-shadow: none;
+	color: #719181;
+}
+.hl-map-bottom {
+	padding: 0 14px 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 8px;
+}
+.hl-legend {
+	display: flex;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+.hl-dot {
+	font-size: 9px;
+	color: #5a7165;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+.hl-dot:before {
+	content: "";
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: var(--accent);
+}
+.hl-camera-buttons {
+	display: flex;
+	gap: 5px;
+}
+.hl-camera-buttons button,
+.hl-pagination button {
+	border: 1px solid #d4ded3;
+	background: #f9fcf6;
+	color: #597360;
+	border-radius: 5px;
+	height: 25px;
+	min-width: 25px;
+}
+.hl-map-caption {
+	border-top: 1px solid #d5e0d8;
+	padding: 9px 14px;
+	display: flex;
+	justify-content: space-between;
+	gap: 12px;
+	font-size: 9px;
+	color: #7c8d80;
+	background: #f7faf4;
+}
+.hl-pagination {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	white-space: nowrap;
+}
+.hl-inspector {
+	background: #fffef8;
+	border: 1px solid var(--hl-line);
+	border-radius: 12px;
+	padding: 20px;
+	max-height: 730px;
+	overflow: auto;
+}
+.hl-selection {
+	padding-bottom: 18px;
+	border-bottom: 1px solid #e4eadf;
+	margin-bottom: 18px;
+}
+.hl-selection h2 {
+	font-size: 24px;
+	line-height: 1.2;
+	letter-spacing: -0.65px;
+	font-weight: 500;
+	margin: 12px 0;
+}
+.hl-selection p {
+	font-size: 11px;
+	color: #829083;
+	margin: 10px 0;
+}
+.hl-action-note {
+	padding: 13px;
+	border-radius: 7px;
+	background: #edf2e8;
+	font-size: 11px;
+	color: #68805d;
+	margin-top: 18px;
+}
+.hl-room-list h3 {
+	font-size: 12px;
+	margin: 0 0 12px;
+	font-weight: 650;
+}
+.hl-room-card {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 100%;
+	text-align: left;
+	padding: 12px 0;
+	border: 0;
+	border-bottom: 1px solid #edf0e6;
+	background: transparent;
+	gap: 2px;
+	color: #3b584a;
+}
+.hl-room-card:hover {
+	background: #f5f7ee;
+}
+.hl-room-card strong {
+	font-size: 12px;
+	font-weight: 600;
+}
+.hl-room-number {
+	font-size: 9px;
+	text-transform: uppercase;
+	letter-spacing: 1.2px;
+	color: #93a085;
+}
+.hl-room-department {
+	font-size: 10px;
+	color: #9aa291;
+}
+.hl-room-state {
+	font-size: 10px;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	margin-top: 5px;
+	color: #919983;
+}
+.hl-room-state:before {
+	content: "";
+	width: 5px;
+	height: 5px;
+	background: #aebaa1;
+	border-radius: 50%;
+}
+.hl-room-state.busy {
+	color: #38856e;
+}
+.hl-room-state.busy:before {
+	background: #38856e;
+}
+.hl-room-count {
+	font-size: 10px;
+	color: #7f8b77;
+	margin-top: 3px;
+}
+.hl-notice:not(:empty) {
+	padding: 12px 15px;
+	background: #f1ead8;
+	border: 1px solid #e7dfc5;
+	border-radius: 8px;
+	color: #8b7d57;
+	font-size: 11px;
+	margin-top: 15px;
+}
+.hl-activity {
+	margin-top: 25px;
+	background: #fdfef9;
+	border: 1px solid var(--hl-line);
+	border-radius: 11px;
+	overflow: hidden;
+}
+.hl-activity-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 18px 20px;
+	gap: 12px;
+	border-bottom: 1px solid #e4eadf;
+}
+.hl-activity h2 {
+	font-size: 20px;
+	letter-spacing: -0.5px;
+	font-weight: 500;
+	margin: 4px 0 0;
+}
+.hl-filters {
+	display: flex;
+	gap: 3px;
+	flex-wrap: wrap;
+}
+.hl-filters button {
+	border: 0;
+	background: transparent;
+	color: #829080;
+	font-size: 11px;
+	padding: 6px 9px;
+	border-radius: 5px;
+}
+.hl-filters button.is-active {
+	background: #e7efe3;
+	color: #315b40;
+}
+.hl-activity-row {
+	display: grid;
+	grid-template-columns: 28px minmax(100px, 1fr) minmax(100px, 1fr) 180px 15px;
+	align-items: center;
+	gap: 12px;
+	width: 100%;
+	text-align: left;
+	border: 0;
+	border-bottom: 1px solid #edf0e7;
+	background: transparent;
+	padding: 12px 20px;
+	color: #42604b;
+	font-size: 11px;
+}
+.hl-activity-row:hover {
+	background: #f3f7ed;
+}
+.hl-activity-row strong {
+	font-weight: 550;
+}
+.hl-avatar {
+	display: grid;
+	place-items: center;
+	border-radius: 50%;
+	width: 25px;
+	height: 25px;
+	color: var(--accent);
+	background: color-mix(in srgb, var(--accent, #7a9b89) 12%, #fff);
+}
+.hl-status {
+	font-size: 10px;
+	color: var(--accent, #77977b);
+	border: 1px solid color-mix(in srgb, var(--accent, #7a9b89) 20%, transparent);
+	background: color-mix(in srgb, var(--accent, #7a9b89) 7%, #fff);
+	padding: 3px 8px;
+	border-radius: 5px;
+	justify-self: start;
+	display: inline-block;
+}
+.hl-activity-doctor {
+	color: #8b9785;
+}
+.hl-row-arrow {
+	color: #a1ae9a;
+}
+.hl-empty {
+	padding: 32px;
+	text-align: center;
+	color: #8e9b84;
+	font-size: 12px;
+}
+.hl-footer {
+	display: flex;
+	justify-content: space-between;
+	gap: 16px;
+	font-size: 10px;
+	color: #8b9a86;
+	margin-top: 15px;
+}
+.hl-loading,
+.hl-renderer-notice {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 16px;
+	font-size: 13px;
+	color: #74907e;
+	padding: 35px;
+	text-align: center;
+}
+.hl-loading span {
+	border: 2px solid #d3dfd2;
+	border-top-color: #60937c;
+	border-radius: 50%;
+	height: 27px;
+	width: 27px;
+	animation: hl-spin 1.3s linear infinite;
+}
+.hl-renderer-notice {
+	background: #eaf1eeed;
+	z-index: 3;
+}
+.hl-record-link {
+	padding: 8px 0;
+	background: transparent;
+	border: 0;
+	text-align: left;
+	color: #3a7c61;
+	font-size: 12px;
+	margin-right: 8px;
+}
+.hl-detail-status {
+	font-size: 11px;
+	padding: 9px;
+	background: #eef3e7;
+	border-radius: 5px;
+	color: #6c805f;
+}
+.hl-availability {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	margin-top: 12px;
+}
+.hl-small-button {
+	border: 1px solid #d6e1cb;
+	background: #f2f6eb;
+	color: #658156;
+	border-radius: 5px;
+	font-size: 10px !important;
+	padding: 5px;
+}
+.hospital-live .hl-warning {
+	color: #a27d3b;
+}
+.hospital-live .hl-fine-print {
+	font-size: 10px;
+	color: #9aa591;
+}
+.hl-expanded .hl-workbench {
+	grid-template-columns: minmax(0, 1fr);
+}
+.hl-expanded .hl-inspector {
+	display: none;
+}
+.hl-expanded .hl-scene {
+	height: 76vh;
+	min-height: 540px;
+}
+@keyframes hl-spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+@media (min-width: 1600px) {
+	.hl-scene {
+		height: 670px;
+	}
+}
+@media (max-width: 1150px) {
+	.hospital-live {
+		padding: 18px;
+	}
+	.hl-workbench {
+		grid-template-columns: minmax(0, 1fr) 225px;
+		gap: 10px;
+	}
+	.hl-inspector {
+		padding: 15px;
+	}
+	.hl-map-toolbar {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+	.hl-metric {
+		padding: 13px;
+	}
+	.hl-metric-detail {
+		font-size: 9px;
+	}
+	.hl-header h1 {
+		font-size: 33px;
+	}
+	.hl-scene {
+		height: 520px;
+	}
+	.hl-map-caption > span {
+		max-width: 220px;
+	}
+	.hl-activity-header {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}
+@media (max-width: 800px) {
+	.hospital-live {
+		padding: 12px;
+	}
+	.hl-header {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+	.hl-header-actions {
+		justify-content: flex-start;
+		max-width: none;
+	}
+	.hl-connection {
+		justify-content: flex-start;
+		width: auto;
+	}
+	.hl-metrics {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 7px;
+	}
+	.hl-metric strong {
+		font-size: 27px;
+	}
+	.hl-metric-detail {
+		display: none;
+	}
+	.hl-workbench {
+		grid-template-columns: minmax(0, 1fr);
+	}
+	.hl-inspector {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 18px;
+		max-height: 350px;
+	}
+	.hl-selection {
+		border: 0;
+	}
+	.hl-scene {
+		height: 480px;
+	}
+	.hl-activity-row {
+		grid-template-columns: 25px 1fr 135px;
+		gap: 8px;
+		padding: 10px 12px;
+	}
+	.hl-activity-doctor,
+	.hl-row-arrow {
+		display: none;
+	}
+	.hl-footer {
+		flex-direction: column;
+		gap: 5px;
+	}
+	.hl-map-caption > span {
+		display: none;
+	}
+	.hl-map-caption {
+		justify-content: flex-end;
+	}
+	.hl-header h1 {
+		font-size: 31px;
+	}
+}
+@media (prefers-reduced-motion: reduce) {
+	.hl-loading span {
+		animation: none;
+	}
+}
+@media print {
+	.hl-scene,
+	.hl-map-toolbar,
+	.hl-camera-buttons,
+	.hl-header-actions,
+	.hl-filters {
+		display: none;
+	}
+	.hl-workbench {
+		display: block;
+	}
+	.hl-inspector {
+		max-height: none;
+	}
+	.hospital-live {
+		padding: 0;
+		background: white;
+	}
+	.hl-activity-list {
+		max-height: none;
+	}
+	.hl-activity-row {
+		break-inside: avoid;
+	}
+}
+
+.hospital-live .prescription {
+	--accent: #8fac85;
+}

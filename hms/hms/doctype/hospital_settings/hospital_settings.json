@@ -17,7 +17,10 @@
   "followup_section",
   "enable_free_follow_ups",
   "valid_days",
-  "max_visits"
+  "max_visits",
+  "currency",
+  "simulation_section",
+  "simulation_rooms"
  ],
  "fields": [
   {
@@ -43,32 +46,37 @@
   {
    "fieldname": "integration_section",
    "fieldtype": "Section Break",
-   "label": "ERPNext Integration"
+   "label": "Legacy Integration Settings"
   },
   {
    "default": "0",
    "fieldname": "link_customer_to_patient",
    "fieldtype": "Check",
    "label": "Link Customer to Patient",
-   "description": "Create/maintain a Customer for each Patient"
+   "description": "Create/maintain a Customer for each Patient",
+   "hidden": 1,
+   "read_only": 1
   },
   {
    "fieldname": "default_customer_group",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Default Customer Group",
-   "options": "Customer Group"
+   "hidden": 1,
+   "read_only": 1
   },
   {
    "fieldname": "default_territory",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Default Territory",
-   "options": "Territory"
+   "hidden": 1,
+   "read_only": 1
   },
   {
    "fieldname": "default_price_list",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Default Selling Price List",
-   "options": "Price List"
+   "hidden": 1,
+   "read_only": 1
   },
   {
    "fieldname": "followup_section",
@@ -85,13 +93,17 @@
    "default": 7,
    "fieldname": "valid_days",
    "fieldtype": "Int",
-   "label": "Validity (Days)"
+   "label": "Validity (Days)",
+   "non_negative": 1,
+   "description": "Elapsed days including the initial visit day."
   },
   {
    "default": 1,
    "fieldname": "max_visits",
    "fieldtype": "Int",
-   "label": "Max Free Visits"
+   "label": "Max Free Visits",
+   "non_negative": 1,
+   "description": "Number of free follow-ups, excluding the initial visit."
   },
   {
    "fieldname": "billing_section",
@@ -107,21 +119,42 @@
   {
    "fieldname": "fee_validity_rate",
    "fieldtype": "Currency",
-   "label": "Fee Validity Rate",
-   "default": 0
+   "label": "Default Consultation Fee",
+   "default": 0,
+   "options": "currency"
   },
   {
    "fieldname": "default_income_account",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Default Income Account",
-   "options": "Account",
-   "description": "Used when creating invoices for Fee Validity if company defaults are not set"
+   "description": "Used when creating invoices for Fee Validity if company defaults are not set",
+   "hidden": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Data",
+   "label": "Currency",
+   "default": "INR",
+   "reqd": 1
+  },
+  {
+   "fieldname": "simulation_section",
+   "fieldtype": "Section Break",
+   "label": "Hospital Live \u00b7 3D layout"
+  },
+  {
+   "fieldname": "simulation_rooms",
+   "fieldtype": "Table",
+   "label": "Doctor rooms and waiting seats",
+   "options": "HMS Simulation Room",
+   "description": "One room per doctor. Row order sets the schematic layout. Without configured rooms, active practitioners receive eight waiting seats each."
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-07-24 18:16:05.564919",
+ "modified": "2026-10-22 14:15:45.406066",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "Hospital Settings",
@@ -140,5 +173,6 @@
  ],
  "sort_field": "creation",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

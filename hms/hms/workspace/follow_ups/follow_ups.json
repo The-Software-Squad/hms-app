@@ -1,7 +1,7 @@
 {
  "app": "hms",
  "charts": [],
- "content": "[]",
+ "content": "[{\"id\": \"hms-user-guide\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"User guide\", \"col\": 3}}, {\"id\": \"follow-title\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\">Clinical follow-ups and financial eligibility</span>\", \"col\": 12}}, {\"id\": \"follow-visits\", \"type\": \"quick_list\", \"data\": {\"quick_list_name\": \"Due Follow-ups\", \"col\": 6}}, {\"id\": \"follow-validity\", \"type\": \"quick_list\", \"data\": {\"quick_list_name\": \"Active Validities\", \"col\": 6}}, {\"id\": \"follow-actions\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Manage Follow-ups\", \"col\": 3}}, {\"id\": \"follow-appointments\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Appointments\", \"col\": 3}}]",
  "creation": "2025-10-26 02:15:00.000000",
  "custom_blocks": [],
  "docstatus": 0,
@@ -14,7 +14,7 @@
  "is_hidden": 0,
  "label": "Follow-ups",
  "links": [],
- "modified": "2025-10-26 02:15:00.000000",
+ "modified": "2026-10-19 11:00:00.000000",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "Follow-ups",
@@ -24,41 +24,47 @@
  "public": 1,
  "quick_lists": [
   {
-   "document_type": "Fee Validity",
-   "label": "Active Validities",
-   "quick_list_filter": "[[\"Fee Validity\",\"status\",\"=\",\"Active\",false]]"
+   "document_type": "Patient Visit",
+   "label": "Due Follow-ups",
+   "quick_list_filter": "[[\"Patient Visit\", \"follow_up\", \"is\", \"set\"], [\"Patient Visit\", \"follow_up\", \"<=\", frappe.datetime.get_today()], [\"Patient Visit\", \"follow_up_status\", \"in\", [\"Pending\", \"Contacted\"]], [\"Patient Visit\", \"status\", \"!=\", \"Cancelled / No Show\"]]"
   },
   {
    "document_type": "Fee Validity",
-   "label": "Expiring This Week",
-   "quick_list_filter": "[[\"Fee Validity\",\"valid_till\",\"Timespan\",\"this week\",false],[\"Fee Validity\",\"status\",\"=\",\"Active\",false]]"
+   "label": "Active Validities",
+   "quick_list_filter": "[[\"Fee Validity\", \"status\", \"=\", \"Active\"]]"
   }
  ],
  "roles": [
-  { "role": "Receptionist" },
-  { "role": "System Manager" },
-  { "role": "Doctor" }
+  {
+   "role": "Receptionist"
+  },
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Doctor"
+  }
  ],
  "sequence_id": 3.0,
  "shortcuts": [
   {
-   "color": "Blue",
-   "doc_view": "List",
-   "label": "Fee Validity",
-   "link_to": "Fee Validity",
-   "stats_filter": "[]",
-   "type": "DocType"
+   "type": "DocType",
+   "link_to": "Patient Visit",
+   "label": "Manage Follow-ups",
+   "doc_view": "List"
   },
   {
-   "color": "Green",
-   "doc_view": "List",
-   "label": "Patient Appointments",
+   "type": "DocType",
    "link_to": "Patient Appointment",
-   "stats_filter": "[]",
-   "type": "DocType"
+   "label": "Appointments",
+   "doc_view": "List"
+  },
+  {
+   "type": "Page",
+   "link_to": "hms-guide",
+   "label": "User guide"
   }
  ],
  "title": "Follow-ups",
  "type": "Workspace"
 }
-

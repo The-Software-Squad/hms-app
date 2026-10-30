@@ -16,7 +16,12 @@
   "by_doctor",
   "section_break_xktm",
   "final_diagnosis",
-  "discharge_notes"
+  "discharge_notes",
+  "practitioner",
+  "status",
+  "finalized_by",
+  "finalized_on",
+  "correction_reason"
  ],
  "fields": [
   {
@@ -63,7 +68,8 @@
    "fieldname": "patient",
    "fieldtype": "Link",
    "label": "Patient",
-   "options": "Patient"
+   "options": "Patient",
+   "read_only": 1
   },
   {
    "fieldname": "condition_at_discharge",
@@ -88,7 +94,41 @@
    "label": "By Doctor",
    "link_filters": "[[\"Employee\",\"designation\",\"=\",\"Doctor\"]]",
    "options": "Employee",
+   "reqd": 0,
+   "read_only": 1
+  },
+  {
+   "fieldname": "practitioner",
+   "fieldtype": "Link",
+   "label": "Discharging Doctor",
+   "options": "Healthcare Practitioner",
    "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nFinalized",
+   "default": "Draft",
+   "read_only": 1
+  },
+  {
+   "fieldname": "finalized_by",
+   "fieldtype": "Link",
+   "label": "Finalized By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "finalized_on",
+   "fieldtype": "Datetime",
+   "label": "Finalized On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "correction_reason",
+   "fieldtype": "Small Text",
+   "label": "Correction Reason"
   }
  ],
  "grid_page_length": 50,
@@ -101,28 +141,22 @@
  "owner": "Administrator",
  "permissions": [
   {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
    "role": "System Manager",
-   "share": 1,
-   "write": 1
+   "permlevel": 0,
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "print": 1,
+   "report": 1
   },
   {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
    "role": "Doctor",
-   "share": 1,
-   "write": 1
+   "permlevel": 0,
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "print": 1,
+   "report": 1
   }
  ],
  "row_format": "Dynamic",

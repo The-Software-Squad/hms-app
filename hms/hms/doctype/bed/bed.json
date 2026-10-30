@@ -8,7 +8,8 @@
  "field_order": [
   "bed_number",
   "ward",
-  "current_patient"
+  "current_patient",
+  "current_admission"
  ],
  "fields": [
   {
@@ -30,7 +31,15 @@
    "fieldname": "current_patient",
    "fieldtype": "Link",
    "label": "Current Patient",
-   "options": "Patient"
+   "options": "Patient",
+   "read_only": 1
+  },
+  {
+   "fieldname": "current_admission",
+   "fieldtype": "Link",
+   "label": "Current Admission",
+   "options": "IP Record",
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,

@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"pVLgiOvyfS\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">My Dashboard</span>\",\"col\":12}},{\"id\":\"vuTtcND97-\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"HMS Dashboard Profile\",\"col\":12}}]",
+ "content": "[{\"id\": \"hms-user-guide\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"User guide\", \"col\": 3}}, {\"id\": \"pVLgiOvyfS\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\">My Dashboard</span>\", \"col\": 12}}, {\"id\": \"vuTtcND97-\", \"type\": \"custom_block\", \"data\": {\"custom_block_name\": \"HMS Dashboard Profile\", \"col\": 12}}]",
  "creation": "2025-06-24 16:06:52.563712",
  "custom_blocks": [
   {
@@ -18,7 +18,7 @@
  "is_hidden": 0,
  "label": "My Dashboard",
  "links": [],
- "modified": "2025-07-02 19:56:20.403819",
+ "modified": "2026-10-19 11:00:00.000000",
  "modified_by": "Administrator",
  "module": "HMS",
  "name": "My Dashboard",
@@ -39,6 +39,12 @@
   }
  ],
  "sequence_id": 1.0,
- "shortcuts": [],
+ "shortcuts": [
+  {
+   "type": "Page",
+   "link_to": "hms-guide",
+   "label": "User guide"
+  }
+ ],
  "title": "My Dashboard"
 }

@@ -1,0 +1,47 @@
+{
+ "doctype": "DocType",
+ "name": "HMS Simulation Room",
+ "module": "HMS",
+ "engine": "InnoDB",
+ "istable": 1,
+ "editable_grid": 1,
+ "fields": [
+  {
+   "fieldname": "practitioner",
+   "fieldtype": "Link",
+   "label": "Practitioner",
+   "options": "Healthcare Practitioner",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "room_name",
+   "fieldtype": "Data",
+   "label": "Room Name",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "waiting_seats",
+   "fieldtype": "Int",
+   "label": "Waiting Seats",
+   "default": "8",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled",
+   "default": "1",
+   "in_list_view": 1
+  }
+ ],
+ "field_order": [
+  "practitioner",
+  "room_name",
+  "waiting_seats",
+  "enabled"
+ ],
+ "permissions": []
+}

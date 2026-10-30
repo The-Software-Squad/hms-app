@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:EMP-{####}",
+ "autoname": "EMP-.####",
  "creation": "2025-06-22 20:55:37.391888",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -54,7 +54,8 @@
   {
    "fieldname": "salary",
    "fieldtype": "Currency",
-   "label": "Salary"
+   "label": "Salary",
+   "permlevel": 1
   },
   {
    "default": "Today",
@@ -72,7 +73,8 @@
   {
    "fieldname": "address",
    "fieldtype": "Small Text",
-   "label": "Address"
+   "label": "Address",
+   "permlevel": 1
   },
   {
    "fetch_from": "employee_user.email",
@@ -92,7 +94,8 @@
    "fieldtype": "Select",
    "label": "Gender",
    "options": "Male\nFemale\nOther",
-   "reqd": 1
+   "reqd": 1,
+   "permlevel": 1
   },
   {
    "fieldname": "department",
@@ -108,7 +111,8 @@
   {
    "fieldname": "date_of_birth",
    "fieldtype": "Date",
-   "label": "Date of birth"
+   "label": "Date of birth",
+   "permlevel": 1
   },
   {
    "fieldname": "address_and_contact_tab",
@@ -153,12 +157,14 @@
   {
    "fieldname": "total_leaves",
    "fieldtype": "Int",
-   "label": "Total Leaves"
+   "label": "Total Leaves",
+   "permlevel": 1
   },
   {
    "fieldname": "remaining_leaves",
    "fieldtype": "Int",
-   "label": "Remaining Leaves"
+   "label": "Remaining Leaves",
+   "permlevel": 1
   },
   {
    "default": "Full-time",
@@ -179,34 +185,40 @@
  "owner": "Administrator",
  "permissions": [
   {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
    "role": "System Manager",
-   "share": 1,
-   "write": 1
+   "permlevel": 0,
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "print": 1,
+   "report": 1
   },
   {
-   "email": 1,
-   "export": 1,
-   "print": 1,
+   "role": "System Manager",
+   "permlevel": 1,
    "read": 1,
-   "report": 1,
-   "role": "Receptionist",
-   "share": 1
+   "write": 1,
+   "create": 0,
+   "print": 1,
+   "report": 1
   },
   {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
    "role": "Doctor",
-   "share": 1
+   "permlevel": 0,
+   "read": 1,
+   "write": 0,
+   "create": 0,
+   "print": 1,
+   "report": 1
+  },
+  {
+   "role": "Receptionist",
+   "permlevel": 0,
+   "read": 1,
+   "write": 0,
+   "create": 0,
+   "print": 1,
+   "report": 1
   }
  ],
  "row_format": "Dynamic",

@@ -8,7 +8,8 @@
  "field_order": [
   "label",
   "composition",
-  "description"
+  "description",
+  "med_item"
  ],
  "fields": [
   {
@@ -30,6 +31,12 @@
    "fieldname": "composition",
    "fieldtype": "Data",
    "label": "Composition"
+  },
+  {
+   "fieldname": "med_item",
+   "fieldtype": "Link",
+   "label": "Pharmacy Item",
+   "options": "Med Item"
   }
  ],
  "grid_page_length": 50,

@@ -1,4 +1,4 @@
-exclude: 'node_modules|.git'
+exclude: 'node_modules|\.git|hms/public/vendor/'
 default_stages: [commit]
 fail_fast: false
 

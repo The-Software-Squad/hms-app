@@ -13,19 +13,27 @@
   "discount",
   "total",
   "items_section",
-  "table_xxjy"
+  "table_xxjy",
+  "status",
+  "posted_by",
+  "posted_on",
+  "currency",
+  "legacy_id"
  ],
  "fields": [
   {
    "fieldname": "provider",
    "fieldtype": "Link",
    "label": "Provider",
-   "options": "Meds Provider"
+   "options": "Meds Provider",
+   "reqd": 1
   },
   {
    "fieldname": "in_take_date",
    "fieldtype": "Date",
-   "label": "Date"
+   "label": "Date",
+   "reqd": 1,
+   "default": "Today"
   },
   {
    "fieldname": "column_break_uowz",
@@ -39,17 +47,23 @@
   {
    "fieldname": "price",
    "fieldtype": "Currency",
-   "label": "Price"
+   "label": "Price",
+   "read_only": 1,
+   "options": "currency"
   },
   {
    "fieldname": "discount",
    "fieldtype": "Currency",
-   "label": "Discount"
+   "label": "Discount",
+   "non_negative": 1,
+   "options": "currency"
   },
   {
    "fieldname": "total",
    "fieldtype": "Currency",
-   "label": "Total"
+   "label": "Total",
+   "read_only": 1,
+   "options": "currency"
   },
   {
    "fieldname": "items_section",
@@ -59,7 +73,45 @@
   {
    "fieldname": "table_xxjy",
    "fieldtype": "Table",
-   "options": "Intake Medical Item"
+   "options": "Intake Medical Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nPosted\nCancelled\nLegacy",
+   "default": "Draft",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "posted_by",
+   "fieldtype": "Link",
+   "label": "Posted By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "posted_on",
+   "fieldtype": "Datetime",
+   "label": "Posted On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Data",
+   "label": "Currency",
+   "default": "INR",
+   "reqd": 1,
+   "read_only": 0
+  },
+  {
+   "fieldname": "legacy_id",
+   "fieldtype": "Data",
+   "label": "Previous Record ID",
+   "read_only": 1,
+   "hidden": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -71,19 +123,28 @@
  "owner": "Administrator",
  "permissions": [
   {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
    "role": "System Manager",
-   "share": 1,
-   "write": 1
+   "permlevel": 0,
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "print": 1,
+   "report": 1
+  },
+  {
+   "role": "Pharmacist",
+   "permlevel": 0,
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "print": 1,
+   "report": 1
   }
  ],
  "sort_field": "creation",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1,
+ "autoname": "HMS-INT-.YYYY.-.#####",
+ "naming_rule": "Expression"
 }

@@ -83,10 +83,11 @@
   },
   {
    "fieldname": "sales_invoice_ref",
-   "fieldtype": "Link",
-   "label": "Sales Invoice Reference",
-   "options": "Sales Invoice",
-   "read_only": 1
+   "fieldtype": "Data",
+   "label": "Legacy ERPNext Invoice",
+   "options": "",
+   "read_only": 1,
+   "hidden": 1
   },
   {
    "fieldname": "section_break_3",
@@ -102,13 +103,15 @@
    "fieldname": "max_visits",
    "fieldtype": "Int",
    "label": "Max number of free visits",
-   "read_only": 1
+   "read_only": 1,
+   "non_negative": 1
   },
   {
    "fieldname": "visited",
    "fieldtype": "Int",
    "label": "Visits Completed",
-   "read_only": 1
+   "read_only": 1,
+   "non_negative": 1
   },
   {
    "fieldname": "ref_visits",

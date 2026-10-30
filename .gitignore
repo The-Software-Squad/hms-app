@@ -5,7 +5,3 @@
 tags
 node_modules
 __pycache__
-
-# Ignore build artifacts
-hms/public/frontend
-hms/www/hms.html
