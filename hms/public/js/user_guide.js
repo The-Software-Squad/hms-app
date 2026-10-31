@@ -15,7 +15,7 @@ frappe.provide("hms");
 		return link;
 	};
 	const mediaPath = (folder, file) =>
-		"/assets/hms/docs/" + folder + "/" + encodeURIComponent(file) + "?v=7";
+		"/assets/hms/docs/" + folder + "/" + encodeURIComponent(file) + "?v=8";
 	hms.UserGuide = class {
 		constructor(wrapper) {
 			this.page = frappe.ui.make_app_page({
@@ -32,7 +32,7 @@ frappe.provide("hms");
 			this.root.replaceChildren(element("p", __("Loading user guide…"), "hg-footnote"));
 			try {
 				if (!this.book) {
-					this.loading ||= fetch("/assets/hms/docs/user-guide.json?v=7", {
+					this.loading ||= fetch("/assets/hms/docs/user-guide.json?v=8", {
 						credentials: "same-origin",
 					})
 						.then((response) => {

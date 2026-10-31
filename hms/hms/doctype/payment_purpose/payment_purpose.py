@@ -1,9 +1,3 @@
-# Copyright (c) 2025, nani-samireddy and contributors
-# For license information, please see license.txt
+"""Compatibility import for the former HMS controller path."""
 
-# import frappe
-from frappe.model.document import Document
-
-
-class PaymentPurpose(Document):
-	pass
+from hms.hms_billing.doctype.payment_purpose.payment_purpose import *

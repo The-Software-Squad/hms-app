@@ -1,0 +1,158 @@
+{
+ "doctype": "DocType",
+ "name": "HMS Patient Departure",
+ "module": "HMS Clinical",
+ "engine": "InnoDB",
+ "field_order": [
+  "source_doctype",
+  "source_name",
+  "patient",
+  "outcome",
+  "departed_on",
+  "reason",
+  "clinical_notes",
+  "responsible_practitioner",
+  "review_due_on",
+  "review_status",
+  "status",
+  "finalized_by",
+  "finalized_on"
+ ],
+ "fields": [
+  {
+   "fieldname": "source_doctype",
+   "fieldtype": "Select",
+   "label": "Care Record Type",
+   "options": "Patient Visit\nIP Record",
+   "reqd": 1
+  },
+  {
+   "fieldname": "source_name",
+   "fieldtype": "Dynamic Link",
+   "label": "Care Record",
+   "options": "source_doctype",
+   "reqd": 1
+  },
+  {
+   "fieldname": "patient",
+   "fieldtype": "Link",
+   "label": "Patient",
+   "options": "Patient",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "outcome",
+   "fieldtype": "Select",
+   "label": "Outcome",
+   "options": "Left Before Seen\nLeft During Care\nDeclined Further Care\nTransferred\nLeft Without Notice\nAdmission Cancelled",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "departed_on",
+   "fieldtype": "Datetime",
+   "label": "Departed On",
+   "reqd": 1,
+   "default": "Now"
+  },
+  {
+   "fieldname": "reason",
+   "fieldtype": "Small Text",
+   "label": "Reason",
+   "reqd": 1
+  },
+  {
+   "fieldname": "clinical_notes",
+   "fieldtype": "Text Editor",
+   "label": "Clinical Notes",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "responsible_practitioner",
+   "fieldtype": "Link",
+   "label": "Pending Results Owner",
+   "options": "Healthcare Practitioner"
+  },
+  {
+   "fieldname": "review_due_on",
+   "fieldtype": "Date",
+   "label": "Results Review Due"
+  },
+  {
+   "fieldname": "review_status",
+   "fieldtype": "Select",
+   "label": "Pending Results Review",
+   "options": "Not Required\nPending\nResolved",
+   "default": "Not Required",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nFinalized",
+   "default": "Draft",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "finalized_by",
+   "fieldtype": "Link",
+   "label": "Finalized By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "finalized_on",
+   "fieldtype": "Datetime",
+   "label": "Finalized On",
+   "read_only": 1
+  }
+ ],
+ "istable": 0,
+ "track_changes": 1,
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "print": 1,
+   "report": 1
+  },
+  {
+   "role": "Doctor",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "print": 1,
+   "report": 1
+  },
+  {
+   "role": "Receptionist",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "print": 1,
+   "report": 1
+  },
+  {
+   "role": "Doctor",
+   "permlevel": 1,
+   "read": 1,
+   "write": 1
+  },
+  {
+   "role": "System Manager",
+   "permlevel": 1,
+   "read": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "autoname": "HMS-DEP-.YYYY.-.#####",
+ "naming_rule": "Expression"
+}

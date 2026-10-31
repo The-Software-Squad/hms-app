@@ -1,0 +1,24 @@
+{
+ "doctype": "Report",
+ "name": "HMS Reconciliation",
+ "report_name": "HMS Reconciliation",
+ "module": "HMS Billing",
+ "ref_doctype": "HMS Invoice",
+ "report_type": "Script Report",
+ "is_standard": "Yes",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Receptionist"
+  },
+  {
+   "role": "Pharmacist"
+  }
+ ],
+ "disabled": 0,
+ "add_total_row": 0,
+ "prepared_report": 0,
+ "modified": "2026-10-19 10:07:30.385070"
+}

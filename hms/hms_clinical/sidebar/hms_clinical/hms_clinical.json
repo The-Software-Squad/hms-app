@@ -1,0 +1,116 @@
+{
+ "doctype": "Sidebar",
+ "name": "HMS Clinical",
+ "title": "HMS Clinical",
+ "module": "HMS Clinical",
+ "app": "hms",
+ "standard": 1,
+ "header_icon": "stethoscope",
+ "items": [
+  {
+   "type": "Link",
+   "label": "Dashboard",
+   "link_type": "Workspace",
+   "link_to": "Doctor Dashboard",
+   "icon": "layout-dashboard",
+   "child": 0,
+   "is_default_module": 1
+  },
+  {
+   "type": "Link",
+   "label": "Patients",
+   "link_type": "DocType",
+   "link_to": "Patient",
+   "icon": "users",
+   "child": 0,
+   "is_default_module": 0
+  },
+  {
+   "type": "Section Break",
+   "label": "Patient care",
+   "child": 0,
+   "indent": 1,
+   "collapsible": 1,
+   "keep_closed": 0
+  },
+  {
+   "type": "Link",
+   "label": "Consultations",
+   "link_type": "DocType",
+   "link_to": "Patient Visit",
+   "icon": "stethoscope",
+   "child": 1,
+   "is_default_module": 1
+  },
+  {
+   "type": "Link",
+   "label": "Lab reports",
+   "link_type": "DocType",
+   "link_to": "Lab Report",
+   "icon": "flask-conical",
+   "child": 1,
+   "is_default_module": 1
+  },
+  {
+   "type": "Link",
+   "label": "Departures and pending reviews",
+   "link_type": "DocType",
+   "link_to": "HMS Patient Departure",
+   "icon": "clipboard-check",
+   "child": 1,
+   "is_default_module": 1
+  },
+  {
+   "type": "Section Break",
+   "label": "Follow-ups",
+   "child": 0,
+   "indent": 1,
+   "collapsible": 1,
+   "keep_closed": 0
+  },
+  {
+   "type": "Link",
+   "label": "Follow-ups",
+   "link_type": "Workspace",
+   "link_to": "Follow-ups",
+   "icon": "calendar-check",
+   "child": 1,
+   "is_default_module": 1
+  },
+  {
+   "type": "Link",
+   "label": "Medication reminders",
+   "link_type": "DocType",
+   "link_to": "HMS Medication Delivery",
+   "icon": "mail",
+   "child": 1,
+   "is_default_module": 1
+  },
+  {
+   "type": "Section Break",
+   "label": "Setup",
+   "child": 0,
+   "indent": 1,
+   "collapsible": 1,
+   "keep_closed": 0
+  },
+  {
+   "type": "Link",
+   "label": "Lab report types",
+   "link_type": "DocType",
+   "link_to": "Lab Report Type",
+   "icon": "flask-conical",
+   "child": 1,
+   "is_default_module": 1
+  },
+  {
+   "type": "Link",
+   "label": "User guide",
+   "link_type": "Page",
+   "link_to": "hms-guide",
+   "icon": "book-open",
+   "child": 0,
+   "is_default_module": 0
+  }
+ ]
+}

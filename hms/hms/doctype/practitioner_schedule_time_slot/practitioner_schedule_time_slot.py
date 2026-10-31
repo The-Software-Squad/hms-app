@@ -1,9 +1,3 @@
-# Copyright (c) 2025, HMS
-# For license information, please see license.txt
+"""Compatibility import for the former HMS controller path."""
 
-from frappe.model.document import Document
-
-
-class PractitionerScheduleTimeSlot(Document):
-    pass
-
+from hms.hms_reception.doctype.practitioner_schedule_time_slot.practitioner_schedule_time_slot import *

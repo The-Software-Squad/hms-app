@@ -18,16 +18,7 @@
   },
   {
    "type": "Link",
-   "label": "User guide",
-   "link_type": "Page",
-   "link_to": "hms-guide",
-   "icon": "book-open",
-   "child": 0,
-   "is_default_module": 1
-  },
-  {
-   "type": "Link",
-   "label": "Hospital Live \u00b7 3D",
+   "label": "Hospital Live · 3D",
    "link_type": "Page",
    "link_to": "hospital-live",
    "icon": "hospital",
@@ -36,20 +27,11 @@
   },
   {
    "type": "Section Break",
-   "label": "Reception",
+   "label": "Patient records",
    "child": 0,
    "indent": 1,
    "collapsible": 1,
-   "keep_closed": 1
-  },
-  {
-   "type": "Link",
-   "label": "Reception dashboard",
-   "link_type": "Workspace",
-   "link_to": "Reception Dashboard",
-   "icon": "layout-dashboard",
-   "child": 1,
-   "is_default_module": 1
+   "keep_closed": 0
   },
   {
    "type": "Link",
@@ -62,293 +44,10 @@
   },
   {
    "type": "Link",
-   "label": "Appointments",
+   "label": "Patient merge history",
    "link_type": "DocType",
-   "link_to": "Patient Appointment",
-   "icon": "calendar",
-   "child": 1,
-   "is_default_module": 1
-  },
-  {
-   "type": "Link",
-   "label": "Follow-ups",
-   "link_type": "Workspace",
-   "link_to": "Follow-ups",
-   "icon": "calendar-check",
-   "child": 1,
-   "is_default_module": 1
-  },
-  {
-   "type": "Link",
-   "label": "Fee eligibility",
-   "link_type": "DocType",
-   "link_to": "Fee Validity",
-   "icon": "badge-check",
-   "child": 1,
-   "is_default_module": 1
-  },
-  {
-   "type": "Section Break",
-   "label": "Clinical Care",
-   "child": 0,
-   "indent": 1,
-   "collapsible": 1,
-   "keep_closed": 1
-  },
-  {
-   "type": "Link",
-   "label": "Doctor dashboard",
-   "link_type": "Workspace",
-   "link_to": "Doctor Dashboard",
-   "icon": "layout-dashboard",
-   "child": 1,
-   "is_default_module": 1
-  },
-  {
-   "type": "Link",
-   "label": "Consultations",
-   "link_type": "DocType",
-   "link_to": "Patient Visit",
-   "icon": "stethoscope",
-   "child": 1,
-   "is_default_module": 1
-  },
-  {
-   "type": "Link",
-   "label": "Lab reports",
-   "link_type": "DocType",
-   "link_to": "Lab Report",
-   "icon": "flask-conical",
-   "child": 1,
-   "is_default_module": 1
-  },
-  {
-   "type": "Link",
-   "label": "Departures and pending reviews",
-   "link_type": "DocType",
-   "link_to": "HMS Patient Departure",
-   "icon": "clipboard-check",
-   "child": 1,
-   "is_default_module": 1
-  },
-  {
-   "type": "Link",
-   "label": "Medication reminders",
-   "link_type": "DocType",
-   "link_to": "HMS Medication Delivery",
-   "icon": "mail",
-   "child": 1,
-   "is_default_module": 1
-  },
-  {
-   "type": "Section Break",
-   "label": "Inpatient Care",
-   "child": 0,
-   "indent": 1,
-   "collapsible": 1,
-   "keep_closed": 1
-  },
-  {
-   "type": "Link",
-   "label": "Admissions",
-   "link_type": "DocType",
-   "link_to": "IP Record",
-   "icon": "bed",
-   "child": 1,
-   "is_default_module": 1
-  },
-  {
-   "type": "Link",
-   "label": "Care and vitals",
-   "link_type": "DocType",
-   "link_to": "In Patient Treatment",
-   "icon": "heart-pulse",
-   "child": 1,
-   "is_default_module": 1
-  },
-  {
-   "type": "Link",
-   "label": "Discharge summaries",
-   "link_type": "DocType",
-   "link_to": "Discharge Summary",
-   "icon": "clipboard-check",
-   "child": 1,
-   "is_default_module": 1
-  },
-  {
-   "type": "Link",
-   "label": "Wards",
-   "link_type": "DocType",
-   "link_to": "Ward",
-   "icon": "hospital",
-   "child": 1,
-   "is_default_module": 1
-  },
-  {
-   "type": "Link",
-   "label": "Beds",
-   "link_type": "DocType",
-   "link_to": "Bed",
-   "icon": "bed-single",
-   "child": 1,
-   "is_default_module": 1
-  },
-  {
-   "type": "Section Break",
-   "label": "Pharmacy",
-   "child": 0,
-   "indent": 1,
-   "collapsible": 1,
-   "keep_closed": 1
-  },
-  {
-   "type": "Link",
-   "label": "Pharmacy dashboard",
-   "link_type": "Workspace",
-   "link_to": "Pharmacist Dashboard",
-   "icon": "layout-dashboard",
-   "child": 1,
-   "is_default_module": 1
-  },
-  {
-   "type": "Link",
-   "label": "Stock intake",
-   "link_type": "DocType",
-   "link_to": "Meds In take",
-   "icon": "package-plus",
-   "child": 1,
-   "is_default_module": 1
-  },
-  {
-   "type": "Link",
-   "label": "Dispensing and returns",
-   "link_type": "DocType",
-   "link_to": "Meds Out",
-   "icon": "pill",
-   "child": 1,
-   "is_default_module": 1
-  },
-  {
-   "type": "Link",
-   "label": "Medicine handovers",
-   "link_type": "DocType",
-   "link_to": "HMS Pharmacy Collection",
-   "icon": "clipboard-check",
-   "child": 1,
-   "is_default_module": 1
-  },
-  {
-   "type": "Link",
-   "label": "Stock lots",
-   "link_type": "DocType",
-   "link_to": "HMS Stock Lot",
-   "icon": "boxes",
-   "child": 1,
-   "is_default_module": 1
-  },
-  {
-   "type": "Link",
-   "label": "Stock movements",
-   "link_type": "DocType",
-   "link_to": "HMS Stock Movement",
-   "icon": "arrow-right-left",
-   "child": 1,
-   "is_default_module": 1
-  },
-  {
-   "type": "Link",
-   "label": "Stock adjustments",
-   "link_type": "DocType",
-   "link_to": "HMS Stock Adjustment",
-   "icon": "clipboard-list",
-   "child": 1,
-   "is_default_module": 1
-  },
-  {
-   "type": "Link",
-   "label": "Medicines",
-   "link_type": "DocType",
-   "link_to": "Medicine",
-   "icon": "pill",
-   "child": 1,
-   "is_default_module": 1
-  },
-  {
-   "type": "Link",
-   "label": "Stock items",
-   "link_type": "DocType",
-   "link_to": "Med Item",
-   "icon": "package",
-   "child": 1,
-   "is_default_module": 1
-  },
-  {
-   "type": "Link",
-   "label": "Suppliers",
-   "link_type": "DocType",
-   "link_to": "Meds Provider",
-   "icon": "truck",
-   "child": 1,
-   "is_default_module": 1
-  },
-  {
-   "type": "Section Break",
-   "label": "Accounts",
-   "child": 0,
-   "indent": 1,
-   "collapsible": 1,
-   "keep_closed": 1
-  },
-  {
-   "type": "Link",
-   "label": "Accounts dashboard",
-   "link_type": "Workspace",
-   "link_to": "Accounts",
-   "icon": "layout-dashboard",
-   "child": 1,
-   "is_default_module": 1
-  },
-  {
-   "type": "Link",
-   "label": "Invoices and credits",
-   "link_type": "DocType",
-   "link_to": "HMS Invoice",
-   "icon": "receipt-text",
-   "child": 1,
-   "is_default_module": 1
-  },
-  {
-   "type": "Link",
-   "label": "Payments and refunds",
-   "link_type": "DocType",
-   "link_to": "Payment Recipit",
-   "icon": "wallet",
-   "child": 1,
-   "is_default_module": 1
-  },
-  {
-   "type": "Section Break",
-   "label": "Reports",
-   "child": 0,
-   "indent": 1,
-   "collapsible": 1,
-   "keep_closed": 1
-  },
-  {
-   "type": "Link",
-   "label": "Analytics",
-   "link_type": "Workspace",
-   "link_to": "Analytics",
-   "icon": "chart-no-axes-combined",
-   "child": 1,
-   "is_default_module": 1
-  },
-  {
-   "type": "Link",
-   "label": "HMS reconciliation",
-   "link_type": "Report",
-   "link_to": "HMS Reconciliation",
-   "icon": "table",
+   "link_to": "HMS Patient Merge",
+   "icon": "git-merge",
    "child": 1,
    "is_default_module": 1
   },
@@ -358,7 +57,7 @@
    "child": 0,
    "indent": 1,
    "collapsible": 1,
-   "keep_closed": 1
+   "keep_closed": 0
   },
   {
    "type": "Link",
@@ -398,15 +97,6 @@
   },
   {
    "type": "Link",
-   "label": "Practitioner schedules",
-   "link_type": "DocType",
-   "link_to": "Practitioner Schedule",
-   "icon": "calendar-clock",
-   "child": 1,
-   "is_default_module": 1
-  },
-  {
-   "type": "Link",
    "label": "Departments",
    "link_type": "DocType",
    "link_to": "Department Type",
@@ -415,55 +105,30 @@
    "is_default_module": 1
   },
   {
+   "type": "Section Break",
+   "label": "Reports",
+   "child": 0,
+   "indent": 1,
+   "collapsible": 1,
+   "keep_closed": 0
+  },
+  {
    "type": "Link",
-   "label": "Lab report types",
-   "link_type": "DocType",
-   "link_to": "Lab Report Type",
-   "icon": "flask-conical",
+   "label": "Analytics",
+   "link_type": "Workspace",
+   "link_to": "Analytics",
+   "icon": "chart-no-axes-combined",
    "child": 1,
    "is_default_module": 1
   },
   {
    "type": "Link",
-   "label": "Medicine timings",
-   "link_type": "DocType",
-   "link_to": "Medicine Timing",
-   "icon": "clock",
-   "child": 1,
-   "is_default_module": 1
-  },
-  {
-   "type": "Link",
-   "label": "Ward types",
-   "link_type": "DocType",
-   "link_to": "Ward Type",
-   "icon": "hospital",
-   "child": 1,
-   "is_default_module": 1
-  },
-  {
-   "type": "Link",
-   "label": "Payment purposes",
-   "link_type": "DocType",
-   "link_to": "Payment Purpose",
-   "icon": "wallet",
-   "child": 1,
-   "is_default_module": 1
-  },
-  {
-   "type": "Link",
-   "label": "Patient merge history",
-   "link_type": "DocType",
-   "link_to": "HMS Patient Merge",
-   "icon": "git-merge",
-   "child": 1,
+   "label": "User guide",
+   "link_type": "Page",
+   "link_to": "hms-guide",
+   "icon": "book-open",
+   "child": 0,
    "is_default_module": 1
   }
- ],
- "creation": "2026-10-19 18:00:00.000000",
- "modified": "2026-10-19 18:00:00.000000",
- "modified_by": "Administrator",
- "owner": "Administrator",
- "docstatus": 0,
- "idx": 0
+ ]
 }

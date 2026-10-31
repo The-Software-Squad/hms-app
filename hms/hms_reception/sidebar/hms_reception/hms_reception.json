@@ -1,0 +1,90 @@
+{
+ "doctype": "Sidebar",
+ "name": "HMS Reception",
+ "title": "HMS Reception",
+ "module": "HMS Reception",
+ "app": "hms",
+ "standard": 1,
+ "header_icon": "calendar",
+ "items": [
+  {
+   "type": "Link",
+   "label": "Dashboard",
+   "link_type": "Workspace",
+   "link_to": "Reception Dashboard",
+   "icon": "layout-dashboard",
+   "child": 0,
+   "is_default_module": 1
+  },
+  {
+   "type": "Section Break",
+   "label": "Reception",
+   "child": 0,
+   "indent": 1,
+   "collapsible": 1,
+   "keep_closed": 0
+  },
+  {
+   "type": "Link",
+   "label": "Patients",
+   "link_type": "DocType",
+   "link_to": "Patient",
+   "icon": "users",
+   "child": 1,
+   "is_default_module": 0
+  },
+  {
+   "type": "Link",
+   "label": "Appointments",
+   "link_type": "DocType",
+   "link_to": "Patient Appointment",
+   "icon": "calendar",
+   "child": 1,
+   "is_default_module": 1
+  },
+  {
+   "type": "Link",
+   "label": "Fee eligibility",
+   "link_type": "DocType",
+   "link_to": "Fee Validity",
+   "icon": "badge-check",
+   "child": 1,
+   "is_default_module": 1
+  },
+  {
+   "type": "Section Break",
+   "label": "Scheduling",
+   "child": 0,
+   "indent": 1,
+   "collapsible": 1,
+   "keep_closed": 0
+  },
+  {
+   "type": "Link",
+   "label": "Practitioner schedules",
+   "link_type": "DocType",
+   "link_to": "Practitioner Schedule",
+   "icon": "calendar-clock",
+   "child": 1,
+   "is_default_module": 1
+  },
+  {
+   "type": "Link",
+   "label": "Practitioners",
+   "link_type": "DocType",
+   "link_to": "Healthcare Practitioner",
+   "icon": "stethoscope",
+   "child": 1,
+   "is_default_module": 0
+  },
+  {
+   "type": "Link",
+   "label": "User guide",
+   "link_type": "Page",
+   "link_to": "hms-guide",
+   "icon": "book-open",
+   "child": 0,
+   "is_default_module": 0
+  }
+ ]
+}

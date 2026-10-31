@@ -1057,36 +1057,33 @@ class TestHMSWorkflows(TestCase):
 	def test_sidebar_groups_cover_all_hms_record_types(self):
 		from frappe.desk.doctype.sidebar.sidebar import resolve_sidebar
 
-		sidebar = resolve_sidebar("HMS", frappe.session.user)
-		self.assertIsNotNone(sidebar)
-		self.assertFalse(sidebar.computed)
-		sections = [row for row in sidebar.items if row["type"] == "Section Break"]
-		self.assertEqual(
-			[row["label"] for row in sections],
-			[
-				"Reception",
-				"Clinical Care",
-				"Inpatient Care",
-				"Pharmacy",
-				"Accounts",
-				"Reports",
-				"Administration",
-			],
-		)
-		self.assertTrue(all(row["collapsible"] and row["keep_closed"] for row in sections))
-		links = [row for row in sidebar.items if row["type"] == "Link"]
-		self.assertEqual([row["label"] for row in links[:2]], ["Overview", "User guide"])
-		self.assertEqual(len({(row["link_type"], row["link_to"]) for row in links}), len(links))
+		from hms.module_map import MODULES
+
+		links = []
+		for module in MODULES:
+			sidebar = resolve_sidebar(module, frappe.session.user)
+			self.assertIsNotNone(sidebar, module)
+			self.assertFalse(sidebar.computed)
+			self.assertEqual(sidebar.items[-1]["link_to"], "hms-guide")
+			sections = [row for row in sidebar.items if row["type"] == "Section Break"]
+			self.assertTrue(all(row["collapsible"] for row in sections))
+			module_links = [row for row in sidebar.items if row["type"] == "Link"]
+			self.assertEqual(
+				len({(row["link_type"], row["link_to"]) for row in module_links}), len(module_links)
+			)
+			links.extend(module_links)
 		linked_doctypes = {row["link_to"] for row in links if row["link_type"] == "DocType"}
-		expected = set(frappe.get_all("DocType", filters={"module": "HMS", "istable": 0}, pluck="name"))
+		expected = set(
+			frappe.get_all("DocType", filters={"module": ["in", MODULES], "istable": 0}, pluck="name")
+		)
 		self.assertEqual(linked_doctypes, expected - {"Medical Department", "Patient Care Type"})
-		for legacy in ("Medical Department", "Patient Care Type"):
-			self.assertTrue(frappe.db.exists("DocType", legacy))
 		for row in links:
 			self.assertTrue(frappe.db.exists(row["link_type"], row["link_to"]), row["link_to"])
 
 	def test_sidebar_preserves_role_permissions(self):
 		from frappe.desk.doctype.sidebar.sidebar import resolve_sidebar
+
+		from hms.module_map import MODULES
 
 		for user, visible, hidden in (
 			(
@@ -1107,13 +1104,17 @@ class TestHMSWorkflows(TestCase):
 		):
 			with self.subTest(user=user.name):
 				frappe.set_user(user.name)
-				sidebar = resolve_sidebar("HMS", user.name)
-				self.assertFalse(sidebar.computed)
-				targets = {row.get("link_to") for row in sidebar.items}
+				items = []
+				for module in MODULES:
+					sidebar = resolve_sidebar(module, user.name)
+					if sidebar:
+						self.assertFalse(sidebar.computed)
+						items.extend(sidebar.items)
+				targets = {row.get("link_to") for row in items}
 				self.assertTrue(visible.issubset(targets))
 				self.assertTrue(hidden.isdisjoint(targets))
 				self.assertIn("hms-guide", targets)
-				for row in sidebar.items:
+				for row in items:
 					if row.get("link_type") == "DocType":
 						self.assertTrue(frappe.has_permission(row["link_to"], "read", user=user.name))
 		frappe.set_user("Administrator")
@@ -1581,7 +1582,7 @@ class TestHMSWorkflows(TestCase):
 		self.assertEqual(frappe.db.get_value(departure.doctype, departure.name, "status"), "Finalized")
 
 	def test_inpatient_departure_rolls_back_bed_release_on_failure(self):
-		from hms.hms.doctype.ip_record.ip_record import IPRecord
+		from hms.hms_inpatient.doctype.ip_record.ip_record import IPRecord
 
 		ip, bed, _ = self.admission()
 		departure = self.departure(ip, outcome="Admission Cancelled")
@@ -1723,7 +1724,8 @@ class TestHMSWorkflows(TestCase):
 			return move(*args, **kwargs)
 
 		with patch(
-			"hms.hms.doctype.hms_stock_adjustment.hms_stock_adjustment.move", side_effect=fail_available
+			"hms.hms_pharmacy.doctype.hms_stock_adjustment.hms_stock_adjustment.move",
+			side_effect=fail_available,
 		), self.assertRaises(RuntimeError):
 			release.post()
 		self.assertEqual(frappe.db.get_value("HMS Stock Lot", lot, "quarantined_quantity"), 2)

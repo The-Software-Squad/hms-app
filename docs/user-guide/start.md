@@ -18,13 +18,13 @@ HMS uses Frappe Desk. Your assigned roles determine which records and actions ar
 
 Sign in with your usual Frappe account and choose HMS from the app chooser. The removed custom React dashboard is no longer used.
 
-## 2. Choose a workflow section
+## 2. Choose a module
 
-The HMS sidebar groups links under Reception, Clinical Care, Inpatient Care, Pharmacy, Accounts, Reports and Administration. Select a section to expand it; choose its dashboard or open a record list. Overview and User guide stay at the top. Your roles determine which links appear.
+Choose HMS Core, Reception, Clinical, Inpatient, Pharmacy or Billing from the HMS dock or module selector. Each module has its own sidebar, with expandable sections and links available to your roles. HMS Core contains Hospital Live, shared patient records and administration. User guide is at the bottom of every module sidebar.
 
 ## 3. Open a record
 
-Use a link inside the relevant sidebar section, a dashboard shortcut or Desk search. Confirm the record ID as well as the patient name before changing anything.
+Use the relevant module sidebar, a dashboard shortcut or Desk search. Patients also appears in Reception and Clinical for convenience. Confirm the record ID as well as the patient name before changing anything.
 
 ## 4. Get help for the task
 
@@ -53,6 +53,6 @@ Updated screenshots and a screen-recorded GIF are being prepared. The written st
 - [Receive medicines and inspect stock lots](intake.md)
 - [Issue invoices, record payments and refunds](billing.md)
 
-Written instructions source reviewed 19 October 2026. Source reviewed; full workflow and role-specific browser verification pending.
+Written instructions source reviewed 2026-10-30. Source reviewed; full workflow and role-specific browser verification pending.
 
 Examples follow Maya Patel, Dr Alex Morgan and Paracetamol 500 mg through the HMS workflows. Contact addresses use example domains; the reminder demonstration does not send email.

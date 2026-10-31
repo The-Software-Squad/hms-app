@@ -1,0 +1,143 @@
+{
+ "doctype": "Sidebar",
+ "name": "HMS Pharmacy",
+ "title": "HMS Pharmacy",
+ "module": "HMS Pharmacy",
+ "app": "hms",
+ "standard": 1,
+ "header_icon": "pill",
+ "items": [
+  {
+   "type": "Link",
+   "label": "Dashboard",
+   "link_type": "Workspace",
+   "link_to": "Pharmacist Dashboard",
+   "icon": "layout-dashboard",
+   "child": 0,
+   "is_default_module": 1
+  },
+  {
+   "type": "Section Break",
+   "label": "Inventory",
+   "child": 0,
+   "indent": 1,
+   "collapsible": 1,
+   "keep_closed": 0
+  },
+  {
+   "type": "Link",
+   "label": "Stock intake",
+   "link_type": "DocType",
+   "link_to": "Meds In take",
+   "icon": "package-plus",
+   "child": 1,
+   "is_default_module": 1
+  },
+  {
+   "type": "Link",
+   "label": "Stock lots",
+   "link_type": "DocType",
+   "link_to": "HMS Stock Lot",
+   "icon": "boxes",
+   "child": 1,
+   "is_default_module": 1
+  },
+  {
+   "type": "Link",
+   "label": "Stock movements",
+   "link_type": "DocType",
+   "link_to": "HMS Stock Movement",
+   "icon": "arrow-right-left",
+   "child": 1,
+   "is_default_module": 1
+  },
+  {
+   "type": "Link",
+   "label": "Stock adjustments",
+   "link_type": "DocType",
+   "link_to": "HMS Stock Adjustment",
+   "icon": "clipboard-list",
+   "child": 1,
+   "is_default_module": 1
+  },
+  {
+   "type": "Section Break",
+   "label": "Dispensing",
+   "child": 0,
+   "indent": 1,
+   "collapsible": 1,
+   "keep_closed": 0
+  },
+  {
+   "type": "Link",
+   "label": "Dispensing and returns",
+   "link_type": "DocType",
+   "link_to": "Meds Out",
+   "icon": "pill",
+   "child": 1,
+   "is_default_module": 1
+  },
+  {
+   "type": "Link",
+   "label": "Medicine handovers",
+   "link_type": "DocType",
+   "link_to": "HMS Pharmacy Collection",
+   "icon": "clipboard-check",
+   "child": 1,
+   "is_default_module": 1
+  },
+  {
+   "type": "Section Break",
+   "label": "Catalog",
+   "child": 0,
+   "indent": 1,
+   "collapsible": 1,
+   "keep_closed": 0
+  },
+  {
+   "type": "Link",
+   "label": "Medicines",
+   "link_type": "DocType",
+   "link_to": "Medicine",
+   "icon": "pill",
+   "child": 1,
+   "is_default_module": 1
+  },
+  {
+   "type": "Link",
+   "label": "Stock items",
+   "link_type": "DocType",
+   "link_to": "Med Item",
+   "icon": "package",
+   "child": 1,
+   "is_default_module": 1
+  },
+  {
+   "type": "Link",
+   "label": "Suppliers",
+   "link_type": "DocType",
+   "link_to": "Meds Provider",
+   "icon": "truck",
+   "child": 1,
+   "is_default_module": 1
+  },
+  {
+   "type": "Link",
+   "label": "Medicine timings",
+   "link_type": "DocType",
+   "link_to": "Medicine Timing",
+   "icon": "clock",
+   "child": 1,
+   "is_default_module": 1
+  },
+  {
+   "type": "Link",
+   "label": "User guide",
+   "link_type": "Page",
+   "link_to": "hms-guide",
+   "icon": "book-open",
+   "child": 0,
+   "is_default_module": 0
+  }
+ ]
+}

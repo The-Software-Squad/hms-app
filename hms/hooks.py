@@ -58,7 +58,7 @@ fixtures = [
 
 # include js, css files in header of desk.html
 app_include_css = "/assets/hms/css/user_guide.css"
-app_include_js = "/assets/hms/js/user_guide.js?v=7"
+app_include_js = "/assets/hms/js/user_guide.js?v=8"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/hms/css/hms.css"
@@ -175,7 +175,7 @@ Hook on document methods and events
 
 doc_events = {
 	"Patient Visit": {
-		"after_insert": "hms.hms.doctype.fee_validity.fee_validity.manage_fee_validity_on_visit",
+		"after_insert": "hms.hms_reception.doctype.fee_validity.fee_validity.manage_fee_validity_on_visit",
 	}
 }
 
@@ -190,7 +190,7 @@ scheduler_events = {
 	# ],
 	"daily": [
 		"hms.tasks.daily",
-		"hms.hms.doctype.fee_validity.fee_validity.update_validity_status",
+		"hms.hms_reception.doctype.fee_validity.fee_validity.update_validity_status",
 	],
 	# "hourly": [
 	# 	"hms.tasks.hourly"

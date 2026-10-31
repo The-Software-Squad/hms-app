@@ -1,1 +1,6 @@
 HMS
+HMS Reception
+HMS Clinical
+HMS Inpatient
+HMS Pharmacy
+HMS Billing

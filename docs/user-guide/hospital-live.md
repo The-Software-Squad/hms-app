@@ -16,7 +16,7 @@ Hospital Live is a grouped 3D schematic of saved HMS activity. Every character r
 
 ## 1. Open Hospital Live
 
-Choose Hospital Live · 3D near the top of the HMS sidebar. Counts cover only records available to your role. The page refreshes every 15 seconds while visible; Refresh checks immediately, and Pause updates freezes further polling.
+Choose Hospital Live · 3D in the HMS Core sidebar. Counts cover only records available to your role. The page refreshes every 15 seconds while visible; Refresh checks immediately, and Pause updates freezes further polling.
 
 ## 2. Configure rooms and waiting seats
 

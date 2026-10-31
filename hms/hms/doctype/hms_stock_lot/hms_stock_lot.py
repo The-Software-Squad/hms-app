@@ -1,14 +1,3 @@
-import frappe
-from frappe import _
-from frappe.model.document import Document
+"""Compatibility import for the former HMS controller path."""
 
-
-class HMSStockLot(Document):
-	def validate(self):
-		if not frappe.flags.hms_stock_posting:
-			frappe.throw(
-				_("Stock lots are created by posted intake; use stock adjustments to change quantities.")
-			)
-
-	def on_trash(self):
-		frappe.throw(_("Stock lots must retain their movement history."))
+from hms.hms_pharmacy.doctype.hms_stock_lot.hms_stock_lot import *

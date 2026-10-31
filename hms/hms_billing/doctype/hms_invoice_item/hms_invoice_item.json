@@ -1,0 +1,53 @@
+{
+ "doctype": "DocType",
+ "name": "HMS Invoice Item",
+ "module": "HMS Billing",
+ "engine": "InnoDB",
+ "field_order": [
+  "description",
+  "quantity",
+  "rate",
+  "amount"
+ ],
+ "fields": [
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Float",
+   "label": "Quantity",
+   "reqd": 1,
+   "default": 1,
+   "non_negative": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "label": "Rate",
+   "reqd": 1,
+   "non_negative": 1,
+   "in_list_view": 1,
+   "options": "currency"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount",
+   "read_only": 1,
+   "in_list_view": 1,
+   "options": "currency"
+  }
+ ],
+ "permissions": [],
+ "istable": 1,
+ "track_changes": 0,
+ "autoname": "hash",
+ "sort_field": "creation",
+ "sort_order": "DESC"
+}

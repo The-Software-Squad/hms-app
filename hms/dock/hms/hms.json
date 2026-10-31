@@ -1,0 +1,57 @@
+{
+ "doctype": "Dock",
+ "name": "hms",
+ "app": "hms",
+ "user": "",
+ "standard": 1,
+ "items": [
+  {
+   "link_type": "Sidebar",
+   "link_to": "HMS",
+   "title": "HMS Core",
+   "icon": "hospital",
+   "added": 0,
+   "hidden": 0
+  },
+  {
+   "link_type": "Sidebar",
+   "link_to": "HMS Reception",
+   "title": "Reception",
+   "icon": "calendar",
+   "added": 0,
+   "hidden": 0
+  },
+  {
+   "link_type": "Sidebar",
+   "link_to": "HMS Clinical",
+   "title": "Clinical",
+   "icon": "stethoscope",
+   "added": 0,
+   "hidden": 0
+  },
+  {
+   "link_type": "Sidebar",
+   "link_to": "HMS Inpatient",
+   "title": "Inpatient",
+   "icon": "bed",
+   "added": 0,
+   "hidden": 0
+  },
+  {
+   "link_type": "Sidebar",
+   "link_to": "HMS Pharmacy",
+   "title": "Pharmacy",
+   "icon": "pill",
+   "added": 0,
+   "hidden": 0
+  },
+  {
+   "link_type": "Sidebar",
+   "link_to": "HMS Billing",
+   "title": "Billing",
+   "icon": "receipt-text",
+   "added": 0,
+   "hidden": 0
+  }
+ ]
+}

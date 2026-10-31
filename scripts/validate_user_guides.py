@@ -86,10 +86,10 @@ def validate(bundle=None):
 	book = json.loads((ASSETS / "user-guide.json").read_text())
 	entries = {g["id"]: g for g in book["guides"]}
 	check(len(entries) == len(book["guides"]) and set(entries) == EXPECTED, "Missing or duplicate chapters")
-	definitions = [json.loads(p.read_text()) for p in (ROOT / "hms/hms/doctype").glob("*/*.json")]
+	definitions = [json.loads(p.read_text()) for p in (ROOT / "hms").glob("*/doctype/*/*.json")]
 	doctypes = {d["name"] for d in definitions if d.get("doctype") == "DocType"}
-	pages = {json.loads(p.read_text())["name"] for p in (ROOT / "hms/hms/page").glob("*/*.json")}
-	workspaces = {p.stem.replace("_", "-") for p in (ROOT / "hms/hms/workspace").glob("*/*.json")}
+	pages = {json.loads(p.read_text())["name"] for p in (ROOT / "hms").glob("*/page/*/*.json")}
+	workspaces = {p.stem.replace("_", "-") for p in (ROOT / "hms").glob("*/workspace/*/*.json")}
 	printable = ASSETS / "user-guide-print.html"
 	page = printable.read_text()
 	check(html.escape(book["media_notice"]) in page, "Regenerate printable notice")

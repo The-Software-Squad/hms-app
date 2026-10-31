@@ -1,9 +1,3 @@
-# Copyright (c) 2025, nani-samireddy and contributors
-# For license information, please see license.txt
+"""Compatibility import for the former HMS controller path."""
 
-# import frappe
-from frappe.model.document import Document
-
-
-class WardType(Document):
-	pass
+from hms.hms_inpatient.doctype.ward_type.ward_type import *

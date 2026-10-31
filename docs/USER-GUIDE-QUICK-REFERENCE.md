@@ -1,26 +1,25 @@
 # HMS staff quick reference
 
-Written instructions source reviewed on 22 October 2026. Use the [full user guide](user-guide/README.md) for prerequisites, limits and recovery. Site-specific roles may narrow access further.
+Written instructions source reviewed on 30 October 2026. Use the [full user guide](user-guide/README.md) for prerequisites, limits and recovery. Site-specific roles may narrow access further.
 
-## Find a sidebar section
+## Choose a module
 
-Select a section to expand its links. Overview and User guide are always at the top when your role permits access. Each section only shows links your roles allow.
+Choose a module from the HMS dock or module selector. Each has a separate sidebar with expandable sections. Your roles control which records and actions appear; User guide is at the bottom of every module sidebar.
 
-| Section | What belongs here |
+| Module | What belongs here |
 |---|---|
-| Reception | Reception dashboard, patients, appointments, follow-ups and fee eligibility |
-| Clinical Care | Doctor dashboard, consultations, lab reports, departures/pending reviews and medication reminders |
-| Inpatient Care | Admissions, care and vitals, discharge summaries, wards and beds |
-| Pharmacy | Pharmacy dashboard, stock intake, dispensing, handovers and returns, stock lots, movements, adjustments, medicines, stock items and suppliers |
-| Accounts | Accounts dashboard, invoices and credits, payments and refunds |
-| Reports | Analytics and HMS reconciliation |
-| Administration | Hospital settings, staff, practitioners, schedules, reference lists and patient merge history |
+| HMS Core | Overview, Hospital Live, patients, staff, practitioners, hospital settings, patient merge history and analytics |
+| Reception | Reception dashboard, patients, appointments, practitioner schedules and fee eligibility |
+| Clinical | Doctor dashboard, patients, consultations, lab reports, follow-ups, departures/pending reviews and medication reminders |
+| Inpatient | Admissions, care and vitals, discharge summaries, wards and beds |
+| Pharmacy | Pharmacy dashboard, intake, stock lots/movements/adjustments, dispensing, handovers, returns, medicines, timings, stock items and suppliers |
+| Billing | Accounts dashboard, invoices and credits, payments and refunds, reconciliation and payment purposes |
 
 The sidebar uses friendly labels: **Stock intake** opens Meds In take, **Dispensing and returns** opens Meds Out, and **Payments and refunds** opens Payment Recipit. Form and list titles use the same readable terminology. Stored record types and references remain intact; native breadcrumbs or Desk search may still show the older technical DocType names.
 
 ## Hospital Live · 3D
 
-Open Hospital Live · 3D from the sidebar to inspect doctor rooms, grouped waiting seats and saved care activity. Characters follow HMS actions; camera movement does not change care. Configure rooms/seats in Hospital Settings. Doctors report their own availability from their room. See [the simulation guide](user-guide/hospital-live.md).
+Open Hospital Live · 3D from the HMS Core sidebar to inspect doctor rooms, grouped waiting seats and saved care activity. Characters follow HMS actions; camera movement does not change care. Configure rooms/seats in Hospital Settings. Doctors report their own availability from their room. See [the simulation guide](user-guide/hospital-live.md).
 
 ## Choose the next task
 

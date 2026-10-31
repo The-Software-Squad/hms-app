@@ -141,7 +141,7 @@
   {
    "fieldname": "simulation_section",
    "fieldtype": "Section Break",
-   "label": "Hospital Live \u00b7 3D layout"
+   "label": "Hospital Live · 3D layout"
   },
   {
    "fieldname": "simulation_rooms",

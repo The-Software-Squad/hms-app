@@ -1,5 +1,3 @@
-from frappe.model.document import Document
+"""Compatibility import for the former HMS controller path."""
 
-
-class HMSPaymentAllocation(Document):
-	pass
+from hms.hms_billing.doctype.hms_payment_allocation.hms_payment_allocation import *

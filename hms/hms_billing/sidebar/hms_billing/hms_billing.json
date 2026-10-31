@@ -1,0 +1,89 @@
+{
+ "doctype": "Sidebar",
+ "name": "HMS Billing",
+ "title": "HMS Billing",
+ "module": "HMS Billing",
+ "app": "hms",
+ "standard": 1,
+ "header_icon": "receipt-text",
+ "items": [
+  {
+   "type": "Link",
+   "label": "Dashboard",
+   "link_type": "Workspace",
+   "link_to": "Accounts",
+   "icon": "layout-dashboard",
+   "child": 0,
+   "is_default_module": 1
+  },
+  {
+   "type": "Section Break",
+   "label": "Billing",
+   "child": 0,
+   "indent": 1,
+   "collapsible": 1,
+   "keep_closed": 0
+  },
+  {
+   "type": "Link",
+   "label": "Invoices and credits",
+   "link_type": "DocType",
+   "link_to": "HMS Invoice",
+   "icon": "receipt-text",
+   "child": 1,
+   "is_default_module": 1
+  },
+  {
+   "type": "Link",
+   "label": "Payments and refunds",
+   "link_type": "DocType",
+   "link_to": "Payment Recipit",
+   "icon": "wallet",
+   "child": 1,
+   "is_default_module": 1
+  },
+  {
+   "type": "Section Break",
+   "label": "Reports",
+   "child": 0,
+   "indent": 1,
+   "collapsible": 1,
+   "keep_closed": 0
+  },
+  {
+   "type": "Link",
+   "label": "HMS reconciliation",
+   "link_type": "Report",
+   "link_to": "HMS Reconciliation",
+   "icon": "table",
+   "child": 1,
+   "is_default_module": 1
+  },
+  {
+   "type": "Section Break",
+   "label": "Setup",
+   "child": 0,
+   "indent": 1,
+   "collapsible": 1,
+   "keep_closed": 0
+  },
+  {
+   "type": "Link",
+   "label": "Payment purposes",
+   "link_type": "DocType",
+   "link_to": "Payment Purpose",
+   "icon": "wallet",
+   "child": 1,
+   "is_default_module": 1
+  },
+  {
+   "type": "Link",
+   "label": "User guide",
+   "link_type": "Page",
+   "link_to": "hms-guide",
+   "icon": "book-open",
+   "child": 0,
+   "is_default_module": 0
+  }
+ ]
+}

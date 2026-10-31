@@ -1,0 +1,113 @@
+{
+ "doctype": "DocType",
+ "name": "HMS Stock Lot",
+ "module": "HMS Pharmacy",
+ "engine": "InnoDB",
+ "field_order": [
+  "medical_item",
+  "intake",
+  "intake_row",
+  "batch_number",
+  "expires_at",
+  "unit_rate",
+  "available_quantity",
+  "currency",
+  "quarantined_quantity"
+ ],
+ "fields": [
+  {
+   "fieldname": "medical_item",
+   "fieldtype": "Link",
+   "label": "Medical Item",
+   "options": "Med Item",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "intake",
+   "fieldtype": "Link",
+   "label": "Intake",
+   "options": "Meds In take",
+   "reqd": 1
+  },
+  {
+   "fieldname": "intake_row",
+   "fieldtype": "Data",
+   "label": "Intake Row",
+   "reqd": 1,
+   "unique": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "batch_number",
+   "fieldtype": "Data",
+   "label": "Batch Number",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "expires_at",
+   "fieldtype": "Date",
+   "label": "Expires At",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "unit_rate",
+   "fieldtype": "Currency",
+   "label": "Unit Rate",
+   "non_negative": 1,
+   "options": "currency"
+  },
+  {
+   "fieldname": "available_quantity",
+   "fieldtype": "Float",
+   "label": "Available Quantity",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Data",
+   "label": "Currency",
+   "default": "INR",
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "quarantined_quantity",
+   "fieldtype": "Float",
+   "label": "Quarantined Quantity",
+   "read_only": 1,
+   "in_list_view": 1,
+   "default": "0"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "permlevel": 0,
+   "read": 1,
+   "write": 0,
+   "create": 0,
+   "print": 1,
+   "report": 1
+  },
+  {
+   "role": "Pharmacist",
+   "permlevel": 0,
+   "read": 1,
+   "write": 0,
+   "create": 0,
+   "print": 1,
+   "report": 1
+  }
+ ],
+ "istable": 0,
+ "track_changes": 1,
+ "autoname": "HMS-LOT-.#####",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "search_fields": "medical_item,batch_number,expires_at",
+ "naming_rule": "Expression"
+}

@@ -1,9 +1,3 @@
-# Copyright (c) 2025, nani-samireddy and contributors
-# For license information, please see license.txt
+"""Compatibility import for the former HMS controller path."""
 
-# import frappe
-from frappe.model.document import Document
-
-
-class VitalsEntry(Document):
-	pass
+from hms.hms_inpatient.doctype.vitals_entry.vitals_entry import *

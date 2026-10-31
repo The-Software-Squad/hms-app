@@ -1,6 +1,6 @@
 # Media and verification checklist
 
-Updated 29 October 2026.
+Updated 30 October 2026.
 
 The guide includes source-reviewed instructions and a browser-checked Hospital Live overview updated on 29 October 2026. Full role-by-role workflow and media verification remains pending.
 

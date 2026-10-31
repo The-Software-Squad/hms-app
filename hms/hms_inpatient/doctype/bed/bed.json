@@ -1,0 +1,94 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{ward}-{bed_number}",
+ "creation": "2025-06-22 23:40:15.887554",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "bed_number",
+  "ward",
+  "current_patient",
+  "current_admission"
+ ],
+ "fields": [
+  {
+   "fieldname": "bed_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Bed Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ward",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Ward",
+   "options": "Ward",
+   "reqd": 1
+  },
+  {
+   "fieldname": "current_patient",
+   "fieldtype": "Link",
+   "label": "Current Patient",
+   "options": "Patient",
+   "read_only": 1
+  },
+  {
+   "fieldname": "current_admission",
+   "fieldtype": "Link",
+   "label": "Current Admission",
+   "options": "IP Record",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-07-02 20:21:10.468390",
+ "modified_by": "Administrator",
+ "module": "HMS Inpatient",
+ "name": "Bed",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Doctor",
+   "share": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Receptionist",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

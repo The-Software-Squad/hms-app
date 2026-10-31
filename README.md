@@ -27,6 +27,13 @@ on the capture checklist. See the
 [media checklist](docs/USER-GUIDE-MEDIA-STATUS.md) for pending captures and the
 [maintenance notes](docs/USER-GUIDE-MAINTENANCE.md) for offline export.
 
+### Functional modules
+
+HMS ships six modules with separate sidebars and dock icons: HMS Core, Reception,
+Clinical, Inpatient, Pharmacy and Billing. The original `HMS` module remains the
+shared core so existing guide URLs and bookmarks remain available. See the
+[module ownership and migration notes](docs/MODULES.md).
+
 ### Contributing
 
 This app uses `pre-commit` for code formatting and linting. Please [install pre-commit](https://pre-commit.com/#installation) and enable it for this repository:

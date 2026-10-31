@@ -11,7 +11,7 @@ Updated 22 October 2026.
 | `hms/public/js/user_guide.js` | Search, filters, chapter navigation, form help and manual GIF playback |
 | `hms/public/css/user_guide.css` | Reader, small-screen and chapter-print styles |
 | `hms/hms/page/hms_guide/` | Standard Frappe Page restricted to HMS staff roles |
-| `hms/hms/workspace/*/*.json` | User guide shortcuts in HMS workspaces |
+| `hms/*/workspace/*/*.json` | User guide shortcuts in HMS workspaces |
 | `docs/user-guide/*.md` | Generated chapter text and index; edit the manifest instead |
 | `hms/public/docs/user-guide-print.html` | Generated offline-capable printable edition |
 | `docs/USER-GUIDE-QUICK-REFERENCE.md` | Hand-maintained role, state and task reference |

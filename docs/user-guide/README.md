@@ -62,6 +62,6 @@ Where a GIF is available, use Play walkthrough to start it and Stop walkthrough 
 - [Media and verification checklist](../USER-GUIDE-MEDIA-STATUS.md)
 - [Maintaining and exporting the guide](../USER-GUIDE-MAINTENANCE.md)
 
-Updated 29 October 2026.
+Updated 30 October 2026.
 
 The printable edition is `hms/public/docs/user-guide-print.html`. Use Print / Save as PDF in your browser; a separate PDF has not been generated.

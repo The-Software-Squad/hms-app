@@ -1,0 +1,90 @@
+{
+ "doctype": "Sidebar",
+ "name": "HMS Inpatient",
+ "title": "HMS Inpatient",
+ "module": "HMS Inpatient",
+ "app": "hms",
+ "standard": 1,
+ "header_icon": "bed",
+ "items": [
+  {
+   "type": "Link",
+   "label": "Admissions",
+   "link_type": "DocType",
+   "link_to": "IP Record",
+   "icon": "bed",
+   "child": 0,
+   "is_default_module": 1
+  },
+  {
+   "type": "Section Break",
+   "label": "Patient care",
+   "child": 0,
+   "indent": 1,
+   "collapsible": 1,
+   "keep_closed": 0
+  },
+  {
+   "type": "Link",
+   "label": "Care and vitals",
+   "link_type": "DocType",
+   "link_to": "In Patient Treatment",
+   "icon": "heart-pulse",
+   "child": 1,
+   "is_default_module": 1
+  },
+  {
+   "type": "Link",
+   "label": "Discharge summaries",
+   "link_type": "DocType",
+   "link_to": "Discharge Summary",
+   "icon": "clipboard-check",
+   "child": 1,
+   "is_default_module": 1
+  },
+  {
+   "type": "Section Break",
+   "label": "Wards and beds",
+   "child": 0,
+   "indent": 1,
+   "collapsible": 1,
+   "keep_closed": 0
+  },
+  {
+   "type": "Link",
+   "label": "Wards",
+   "link_type": "DocType",
+   "link_to": "Ward",
+   "icon": "hospital",
+   "child": 1,
+   "is_default_module": 1
+  },
+  {
+   "type": "Link",
+   "label": "Beds",
+   "link_type": "DocType",
+   "link_to": "Bed",
+   "icon": "bed-single",
+   "child": 1,
+   "is_default_module": 1
+  },
+  {
+   "type": "Link",
+   "label": "Ward types",
+   "link_type": "DocType",
+   "link_to": "Ward Type",
+   "icon": "hospital",
+   "child": 1,
+   "is_default_module": 1
+  },
+  {
+   "type": "Link",
+   "label": "User guide",
+   "link_type": "Page",
+   "link_to": "hms-guide",
+   "icon": "book-open",
+   "child": 0,
+   "is_default_module": 0
+  }
+ ]
+}
